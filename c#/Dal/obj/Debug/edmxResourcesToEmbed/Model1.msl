@@ -1,104 +1,132 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities">
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="Natural_wayModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TherapistTz" ColumnName="TherapistTz" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Archives">
-      <EntityTypeMapping TypeName="Natural_wayModel.Archives">
+      <EntityTypeMapping TypeName="Natural_wayModel.Archive">
         <MappingFragment StoreEntitySet="Archives">
-          <ScalarProperty Name="CanceledMeetsId" ColumnName="CanceledMeetsId" />
+          <ScalarProperty Name="ArchivesId" ColumnName="ArchivesId" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
           <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
-          <ScalarProperty Name="CancelationDate" ColumnName="CancelationDate" />
-          <ScalarProperty Name="CancelationReason" ColumnName="CancelationReason" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="Natural_wayModel.Categories">
-        <MappingFragment StoreEntitySet="Categories">
-          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
-          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-          <ScalarProperty Name="ParentCategoryCode" ColumnName="ParentCategoryCode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Feedbacks">
-      <EntityTypeMapping TypeName="Natural_wayModel.Feedbacks">
-        <MappingFragment StoreEntitySet="Feedbacks">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-          <ScalarProperty Name="TheFeedback" ColumnName="TheFeedback" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Meets">
-      <EntityTypeMapping TypeName="Natural_wayModel.Meets">
-        <MappingFragment StoreEntitySet="Meets">
-          <ScalarProperty Name="MeetId" ColumnName="MeetId" />
-          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
-          <ScalarProperty Name="OkDate" ColumnName="OkDate" />
-          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
-          <ScalarProperty Name="Cost" ColumnName="Cost" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="IsDone" ColumnName="IsDone" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Natural_wayModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="Natural_wayModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedbacks">
+          <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+          <ScalarProperty Name="Servicing" ColumnName="Servicing" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+          <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meets">
+      <EntityTypeMapping TypeName="Natural_wayModel.Meet">
+        <MappingFragment StoreEntitySet="Meets">
+          <ScalarProperty Name="MeetId" ColumnName="MeetId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+          <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Patients">
-      <EntityTypeMapping TypeName="Natural_wayModel.Patients">
+      <EntityTypeMapping TypeName="Natural_wayModel.Patient">
         <MappingFragment StoreEntitySet="Patients">
-          <ScalarProperty Name="Mail" ColumnName="Mail" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="Firstname" ColumnName="Firstname" />
           <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="PatientTz" ColumnName="PatientTz" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
           <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
-          <ScalarProperty Name="FlatNumber" ColumnName="FlatNumber" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ServiceAreas">
-      <EntityTypeMapping TypeName="Natural_wayModel.ServiceAreas">
+      <EntityTypeMapping TypeName="Natural_wayModel.ServiceArea">
         <MappingFragment StoreEntitySet="ServiceAreas">
           <ScalarProperty Name="SAId" ColumnName="SAId" />
           <ScalarProperty Name="SAName" ColumnName="SAName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="StandByMeets">
-      <EntityTypeMapping TypeName="Natural_wayModel.StandByMeets">
-        <MappingFragment StoreEntitySet="StandByMeets">
-          <ScalarProperty Name="MeetId" ColumnName="MeetId" />
-          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
-          <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Natural_wayModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Therapists">
-      <EntityTypeMapping TypeName="Natural_wayModel.Therapists">
+      <EntityTypeMapping TypeName="Natural_wayModel.Therapist">
         <MappingFragment StoreEntitySet="Therapists">
-          <ScalarProperty Name="Mail" ColumnName="Mail" />
-          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
-          <ScalarProperty Name="SubCategoryCode" ColumnName="SubCategoryCode" />
-          <ScalarProperty Name="ServiceAreaId" ColumnName="ServiceAreaId" />
-          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TherapistTz" ColumnName="TherapistTz" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ServiceAreaId" ColumnName="ServiceAreaId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="Diploma" ColumnName="Diploma" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="WorkHours">
+      <EntityTypeMapping TypeName="Natural_wayModel.WorkHour">
+        <MappingFragment StoreEntitySet="WorkHours">
+          <ScalarProperty Name="WorkHoursId" ColumnName="WorkHoursId" />
+          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Categories_Therapists" TypeName="Natural_wayModel.Categories_Therapists" StoreEntitySet="Categories_Therapists">
+      <EndProperty Name="Categories">
+        <ScalarProperty Name="CategoryId" ColumnName="CategotyId" />
+      </EndProperty>
+      <EndProperty Name="Therapists">
+        <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

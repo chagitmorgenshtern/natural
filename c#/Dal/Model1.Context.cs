@@ -25,13 +25,15 @@ namespace Dal
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Archives> Archives { get; set; }
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Feedbacks> Feedbacks { get; set; }
-        public virtual DbSet<Meets> Meets { get; set; }
-        public virtual DbSet<Patients> Patients { get; set; }
-        public virtual DbSet<ServiceAreas> ServiceAreas { get; set; }
-        public virtual DbSet<StandByMeets> StandByMeets { get; set; }
-        public virtual DbSet<Therapists> Therapists { get; set; }
+        public virtual DbSet<Applicant> Applicants { get; set; }
+        public virtual DbSet<Archive> Archives { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Meet> Meets { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<ServiceArea> ServiceAreas { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Therapist> Therapists { get; set; }
+        public virtual DbSet<WorkHour> WorkHours { get; set; }
     }
 }

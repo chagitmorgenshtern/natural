@@ -5,63 +5,78 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Natural_wayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Applicants">
+          <Key>
+            <PropertyRef Name="ApplicantId" />
+          </Key>
+          <Property Name="ApplicantId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" />
+          <Property Name="TherapistTz" Type="varchar" MaxLength="9" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
         <EntityType Name="Archives">
           <Key>
-            <PropertyRef Name="CanceledMeetsId" />
+            <PropertyRef Name="ArchivesId" />
           </Key>
-          <Property Name="CanceledMeetsId" Type="int" Nullable="false" />
-          <Property Name="PatientId" Type="varchar" MaxLength="30" />
-          <Property Name="TherapistId" Type="varchar" MaxLength="30" />
+          <Property Name="ArchivesId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="TherapistId" Type="int" />
           <Property Name="MeetDate" Type="datetime" />
-          <Property Name="Details" Type="varchar" MaxLength="50" />
-          <Property Name="Deadline" Type="datetime" />
-          <Property Name="CancelationDate" Type="datetime" />
-          <Property Name="CancelationReason" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="IsDone" Type="bit" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
-            <PropertyRef Name="CategoryCode" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryCode" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="CategoryName" Type="varchar" MaxLength="20" />
-          <Property Name="ParentCategoryCode" Type="int" />
+        </EntityType>
+        <EntityType Name="Categories_Therapists">
+          <Key>
+            <PropertyRef Name="TherapistId" />
+            <PropertyRef Name="CategotyId" />
+          </Key>
+          <Property Name="TherapistId" Type="int" Nullable="false" />
+          <Property Name="CategotyId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Feedbacks">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="FeedbackId" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="PatientId" Type="varchar" MaxLength="30" />
-          <Property Name="TheFeedback" Type="varchar" MaxLength="100" />
+          <Property Name="FeedbackId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="TherapistId" Type="int" />
+          <Property Name="Servicing" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Expertise" Type="int" />
+          <Property Name="FeedbackDate" Type="date" />
         </EntityType>
         <EntityType Name="Meets">
           <Key>
             <PropertyRef Name="MeetId" />
           </Key>
           <Property Name="MeetId" Type="int" Nullable="false" />
-          <Property Name="PatientId" Type="varchar" MaxLength="30" />
-          <Property Name="TherapistId" Type="varchar" MaxLength="30" />
-          <Property Name="OkDate" Type="datetime" />
-          <Property Name="ExecutionDate" Type="datetime" />
-          <Property Name="Cost" Type="money" />
-          <Property Name="Details" Type="varchar" MaxLength="50" />
-          <Property Name="IsDone" Type="bit" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="TherapistId" Type="int" />
+          <Property Name="MeetDate" Type="datetime" />
+          <Property Name="CategoryId" Type="int" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
-            <PropertyRef Name="Mail" />
+            <PropertyRef Name="PatientId" />
           </Key>
-          <Property Name="Mail" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="10" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
           <Property Name="Firstname" Type="varchar" MaxLength="20" />
           <Property Name="Lastname" Type="varchar" MaxLength="20" />
+          <Property Name="PatientTz" Type="varchar" MaxLength="9" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Email" Type="int" />
+          <Property Name="Password" Type="varchar" MaxLength="10" />
           <Property Name="PhoneNumber1" Type="varchar" MaxLength="10" />
           <Property Name="PhoneNumber2" Type="varchar" MaxLength="10" />
-          <Property Name="City" Type="varchar" MaxLength="15" />
-          <Property Name="Street" Type="varchar" MaxLength="15" />
-          <Property Name="BuildingNumber" Type="int" />
-          <Property Name="FlatNumber" Type="int" />
-          <Property Name="Id" Type="varchar" MaxLength="9" />
         </EntityType>
         <EntityType Name="ServiceAreas">
           <Key>
@@ -70,137 +85,145 @@
           <Property Name="SAId" Type="int" Nullable="false" />
           <Property Name="SAName" Type="varchar" MaxLength="20" />
         </EntityType>
-        <EntityType Name="StandByMeets">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="MeetId" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="MeetId" Type="int" Nullable="false" />
-          <Property Name="PatientId" Type="varchar" MaxLength="30" />
-          <Property Name="TherapistId" Type="varchar" MaxLength="30" />
-          <Property Name="MeetDate" Type="datetime" />
-          <Property Name="Details" Type="varchar" MaxLength="50" />
-          <Property Name="Deadline" Type="datetime" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Therapists">
           <Key>
-            <PropertyRef Name="Mail" />
+            <PropertyRef Name="TherapistId" />
           </Key>
-          <Property Name="Mail" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="CategoryCode" Type="int" />
-          <Property Name="SubCategoryCode" Type="int" />
-          <Property Name="ServiceAreaId" Type="int" />
-          <Property Name="AboutMe" Type="varchar" MaxLength="50" />
-          <Property Name="PhoneNumber" Type="varchar" MaxLength="10" />
+          <Property Name="TherapistId" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="20" />
           <Property Name="LastName" Type="varchar" MaxLength="20" />
-          <Property Name="Id" Type="varchar" MaxLength="9" />
+          <Property Name="TherapistTz" Type="varchar" MaxLength="9" />
           <Property Name="DateOfBirth" Type="date" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="10" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="ServiceAreaId" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="AboutMe" Type="varchar" MaxLength="50" />
+          <Property Name="Diploma" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK_Archives_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+        <EntityType Name="WorkHours">
+          <Key>
+            <PropertyRef Name="WorkHoursId" />
+          </Key>
+          <Property Name="WorkHoursId" Type="int" Nullable="false" />
+          <Property Name="TherapistId" Type="int" />
+          <Property Name="Day" Type="nchar" MaxLength="10" />
+          <Property Name="Hour" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Archives_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Archives">
-              <PropertyRef Name="PatientId" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Archives_Categories1">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Archives">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Archives_Patients1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Archives_Patients1" />-->
         <Association Name="FK_Archives_Therapists">
           <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
           <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Therapists">
-              <PropertyRef Name="Mail" />
+              <PropertyRef Name="TherapistId" />
             </Principal>
             <Dependent Role="Archives">
               <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Feedbacks_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+        <Association Name="FK_Categories_Therapists_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Categories_Therapists" Type="Self.Categories_Therapists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Categories_Therapists">
+              <PropertyRef Name="CategotyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Therapists_Therapists">
+          <End Role="Therapists" Type="Self.Therapists" Multiplicity="1" />
+          <End Role="Categories_Therapists" Type="Self.Categories_Therapists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Therapists">
+              <PropertyRef Name="TherapistId" />
+            </Principal>
+            <Dependent Role="Categories_Therapists">
+              <PropertyRef Name="TherapistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Feedbacks_Patients1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Feedbacks_Patients1" />-->
+        <Association Name="FK_Feedbacks_Therapists">
+          <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
           <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
+            <Principal Role="Therapists">
+              <PropertyRef Name="TherapistId" />
             </Principal>
             <Dependent Role="Feedbacks">
-              <PropertyRef Name="PatientId" />
+              <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Meets_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+        <Association Name="FK_Meets_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Meets">
-              <PropertyRef Name="PatientId" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Meets_Patients1" />-->
         <Association Name="FK_Meets_Therapists">
           <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
           <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Therapists">
-              <PropertyRef Name="Mail" />
+              <PropertyRef Name="TherapistId" />
             </Principal>
             <Dependent Role="Meets">
               <PropertyRef Name="TherapistId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StandByMeets_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
-          <End Role="StandByMeets" Type="Self.StandByMeets" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
-            </Principal>
-            <Dependent Role="StandByMeets">
-              <PropertyRef Name="PatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StandByMeets_Therapists">
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
-          <End Role="StandByMeets" Type="Self.StandByMeets" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Therapists">
-              <PropertyRef Name="Mail" />
-            </Principal>
-            <Dependent Role="StandByMeets">
-              <PropertyRef Name="TherapistId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Therapists_Categories">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryCode" />
-            </Principal>
-            <Dependent Role="Therapists">
-              <PropertyRef Name="CategoryCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Therapists_Categories1">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryCode" />
-            </Principal>
-            <Dependent Role="Therapists">
-              <PropertyRef Name="SubCategoryCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -216,54 +239,69 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WorkHours_Therapists">
+          <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
+          <End Role="WorkHours" Type="Self.WorkHours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Therapists">
+              <PropertyRef Name="TherapistId" />
+            </Principal>
+            <Dependent Role="WorkHours">
+              <PropertyRef Name="TherapistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Natural_wayModelStoreContainer">
+          <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Archives" EntityType="Self.Archives" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories_Therapists" EntityType="Self.Categories_Therapists" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meets" EntityType="Self.Meets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StandByMeets" EntityType="Self.StandByMeets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Therapists" EntityType="Self.Therapists" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Archives_Patients" Association="Self.FK_Archives_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <EntitySet Name="WorkHours" EntityType="Self.WorkHours" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Archives_Categories" Association="Self.FK_Archives_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Archives" EntitySet="Archives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
+            <End Role="Categories" EntitySet="Categories" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
           <AssociationSet Name="FK_Archives_Therapists" Association="Self.FK_Archives_Therapists">
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
-          <AssociationSet Name="FK_Feedbacks_Patients" Association="Self.FK_Feedbacks_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <AssociationSet Name="FK_Categories_Therapists_Categories" Association="Self.FK_Categories_Therapists_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Therapists_Therapists" Association="Self.FK_Categories_Therapists_Therapists">
+            <End Role="Therapists" EntitySet="Therapists" />
+            <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Therapists" Association="Self.FK_Feedbacks_Therapists">
+            <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Feedbacks" EntitySet="Feedbacks" />
           </AssociationSet>
-          <AssociationSet Name="FK_Meets_Patients" Association="Self.FK_Meets_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <AssociationSet Name="FK_Meets_Categories" Association="Self.FK_Meets_Categories">
+            <End Role="Categories" EntitySet="Categories" />
             <End Role="Meets" EntitySet="Meets" />
           </AssociationSet>
           <AssociationSet Name="FK_Meets_Therapists" Association="Self.FK_Meets_Therapists">
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Meets" EntitySet="Meets" />
           </AssociationSet>
-          <AssociationSet Name="FK_StandByMeets_Patients" Association="Self.FK_StandByMeets_Patients">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="StandByMeets" EntitySet="StandByMeets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StandByMeets_Therapists" Association="Self.FK_StandByMeets_Therapists">
-            <End Role="Therapists" EntitySet="Therapists" />
-            <End Role="StandByMeets" EntitySet="StandByMeets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Therapists_Categories" Association="Self.FK_Therapists_Categories">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Therapists" EntitySet="Therapists" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Therapists_Categories1" Association="Self.FK_Therapists_Categories1">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Therapists" EntitySet="Therapists" />
-          </AssociationSet>
           <AssociationSet Name="FK_Therapists_ServiceAreas" Association="Self.FK_Therapists_ServiceAreas">
             <End Role="ServiceAreas" EntitySet="ServiceAreas" />
             <End Role="Therapists" EntitySet="Therapists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkHours_Therapists" Association="Self.FK_WorkHours_Therapists">
+            <End Role="Therapists" EntitySet="Therapists" />
+            <End Role="WorkHours" EntitySet="WorkHours" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -271,76 +309,82 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Natural_wayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Archives">
+        <EntityType Name="Applicant">
           <Key>
-            <PropertyRef Name="CanceledMeetsId" />
+            <PropertyRef Name="ApplicantId" />
           </Key>
-          <Property Name="CanceledMeetsId" Type="Int32" Nullable="false" />
-          <Property Name="PatientId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TherapistId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TherapistTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Archive">
+          <Key>
+            <PropertyRef Name="ArchivesId" />
+          </Key>
+          <Property Name="ArchivesId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="TherapistId" Type="Int32" />
           <Property Name="MeetDate" Type="DateTime" Precision="3" />
-          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Deadline" Type="DateTime" Precision="3" />
-          <Property Name="CancelationDate" Type="DateTime" Precision="3" />
-          <Property Name="CancelationReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Patients" Relationship="Self.FK_Archives_Patients" FromRole="Archives" ToRole="Patients" />
-          <NavigationProperty Name="Therapists" Relationship="Self.FK_Archives_Therapists" FromRole="Archives" ToRole="Therapists" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="IsDone" Type="Boolean" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Archives_Categories" FromRole="Archives" ToRole="Categories" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_Archives_Categories1" FromRole="Archives" ToRole="Categories" />
+          <NavigationProperty Name="Therapist" Relationship="Self.FK_Archives_Therapists" FromRole="Archives" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="Categories">
+        <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="CategoryCode" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryCode" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ParentCategoryCode" Type="Int32" />
-          <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_Categories" FromRole="Categories" ToRole="Therapists" />
-          <NavigationProperty Name="Therapists1" Relationship="Self.FK_Therapists_Categories1" FromRole="Categories" ToRole="Therapists" />
+          <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Categories" FromRole="Categories" ToRole="Archives" />
+          <NavigationProperty Name="Archives1" Relationship="Self.FK_Archives_Categories1" FromRole="Categories" ToRole="Archives" />
+          <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Categories" FromRole="Categories" ToRole="Meets" />
+          <NavigationProperty Name="Therapists" Relationship="Self.Categories_Therapists" FromRole="Categories" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="Feedbacks">
+        <EntityType Name="Feedback">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="FeedbackId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="PatientId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TheFeedback" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Patients" Relationship="Self.FK_Feedbacks_Patients" FromRole="Feedbacks" ToRole="Patients" />
+          <Property Name="FeedbackId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="TherapistId" Type="Int32" />
+          <Property Name="Servicing" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Expertise" Type="Int32" />
+          <Property Name="FeedbackDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Therapist" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Feedbacks" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="Meets">
+        <EntityType Name="Meet">
           <Key>
             <PropertyRef Name="MeetId" />
           </Key>
           <Property Name="MeetId" Type="Int32" Nullable="false" />
-          <Property Name="PatientId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TherapistId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="OkDate" Type="DateTime" Precision="3" />
-          <Property Name="ExecutionDate" Type="DateTime" Precision="3" />
-          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsDone" Type="Boolean" />
-          <NavigationProperty Name="Patients" Relationship="Self.FK_Meets_Patients" FromRole="Meets" ToRole="Patients" />
-          <NavigationProperty Name="Therapists" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="TherapistId" Type="Int32" />
+          <Property Name="MeetDate" Type="DateTime" Precision="3" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Meets_Categories" FromRole="Meets" ToRole="Categories" />
+          <NavigationProperty Name="Therapist" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="Patients">
+        <EntityType Name="Patient">
           <Key>
-            <PropertyRef Name="Mail" />
+            <PropertyRef Name="PatientId" />
           </Key>
-          <Property Name="Mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
           <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PatientTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Street" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="BuildingNumber" Type="Int32" />
-          <Property Name="FlatNumber" Type="Int32" />
-          <Property Name="Id" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Patients" FromRole="Patients" ToRole="Archives" />
-          <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedbacks_Patients" FromRole="Patients" ToRole="Feedbacks" />
-          <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Patients" FromRole="Patients" ToRole="Meets" />
-          <NavigationProperty Name="StandByMeets" Relationship="Self.FK_StandByMeets_Patients" FromRole="Patients" ToRole="StandByMeets" />
         </EntityType>
-        <EntityType Name="ServiceAreas">
+        <EntityType Name="ServiceArea">
           <Key>
             <PropertyRef Name="SAId" />
           </Key>
@@ -348,139 +392,125 @@
           <Property Name="SAName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="ServiceAreas" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="StandByMeets">
+        <EntityType Name="sysdiagram">
           <Key>
-            <PropertyRef Name="MeetId" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="MeetId" Type="Int32" Nullable="false" />
-          <Property Name="PatientId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TherapistId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="MeetDate" Type="DateTime" Precision="3" />
-          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Deadline" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Patients" Relationship="Self.FK_StandByMeets_Patients" FromRole="StandByMeets" ToRole="Patients" />
-          <NavigationProperty Name="Therapists" Relationship="Self.FK_StandByMeets_Therapists" FromRole="StandByMeets" ToRole="Therapists" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Therapists">
+        <EntityType Name="Therapist">
           <Key>
-            <PropertyRef Name="Mail" />
+            <PropertyRef Name="TherapistId" />
           </Key>
-          <Property Name="Mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CategoryCode" Type="Int32" />
-          <Property Name="SubCategoryCode" Type="Int32" />
-          <Property Name="ServiceAreaId" Type="Int32" />
-          <Property Name="AboutMe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TherapistId" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Id" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="TherapistTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceAreaId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AboutMe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Diploma" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Therapists" FromRole="Therapists" ToRole="Archives" />
-          <NavigationProperty Name="Categories" Relationship="Self.FK_Therapists_Categories" FromRole="Therapists" ToRole="Categories" />
-          <NavigationProperty Name="Categories1" Relationship="Self.FK_Therapists_Categories1" FromRole="Therapists" ToRole="Categories" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Therapists" ToRole="Feedbacks" />
           <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Therapists" FromRole="Therapists" ToRole="Meets" />
-          <NavigationProperty Name="ServiceAreas" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="Therapists" ToRole="ServiceAreas" />
-          <NavigationProperty Name="StandByMeets" Relationship="Self.FK_StandByMeets_Therapists" FromRole="Therapists" ToRole="StandByMeets" />
+          <NavigationProperty Name="ServiceArea" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="Therapists" ToRole="ServiceAreas" />
+          <NavigationProperty Name="WorkHours" Relationship="Self.FK_WorkHours_Therapists" FromRole="Therapists" ToRole="WorkHours" />
+          <NavigationProperty Name="Categories" Relationship="Self.Categories_Therapists" FromRole="Therapists" ToRole="Categories" />
         </EntityType>
-        <Association Name="FK_Archives_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
-          <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
+        <EntityType Name="WorkHour">
+          <Key>
+            <PropertyRef Name="WorkHoursId" />
+          </Key>
+          <Property Name="WorkHoursId" Type="Int32" Nullable="false" />
+          <Property Name="TherapistId" Type="Int32" />
+          <Property Name="Day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Hour" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Therapist" Relationship="Self.FK_WorkHours_Therapists" FromRole="WorkHours" ToRole="Therapists" />
+        </EntityType>
+        <Association Name="FK_Archives_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Archives" Type="Self.Archive" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Archives">
-              <PropertyRef Name="PatientId" />
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Archives_Categories1">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Archives" Type="Self.Archive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Archives">
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Archives_Therapists">
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
-          <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
+          <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
+          <End Role="Archives" Type="Self.Archive" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Therapists">
-              <PropertyRef Name="Mail" />
+              <PropertyRef Name="TherapistId" />
             </Principal>
             <Dependent Role="Archives">
               <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Therapists_Categories">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
+        <Association Name="FK_Meets_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Meets" Type="Self.Meet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
-              <PropertyRef Name="CategoryCode" />
-            </Principal>
-            <Dependent Role="Therapists">
-              <PropertyRef Name="CategoryCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Therapists_Categories1">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryCode" />
-            </Principal>
-            <Dependent Role="Therapists">
-              <PropertyRef Name="SubCategoryCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Feedbacks_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
-          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
-            </Principal>
-            <Dependent Role="Feedbacks">
-              <PropertyRef Name="PatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Meets_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
-          <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Meets">
-              <PropertyRef Name="PatientId" />
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Therapists">
+          <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
+          <End Role="Feedbacks" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Therapists">
+              <PropertyRef Name="TherapistId" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Meets_Therapists">
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
-          <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
+          <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
+          <End Role="Meets" Type="Self.Meet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Therapists">
-              <PropertyRef Name="Mail" />
+              <PropertyRef Name="TherapistId" />
             </Principal>
             <Dependent Role="Meets">
               <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StandByMeets_Patients">
-          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
-          <End Role="StandByMeets" Type="Self.StandByMeets" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients">
-              <PropertyRef Name="Mail" />
-            </Principal>
-            <Dependent Role="StandByMeets">
-              <PropertyRef Name="PatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Therapists_ServiceAreas">
-          <End Role="ServiceAreas" Type="Self.ServiceAreas" Multiplicity="0..1" />
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
+          <End Role="ServiceAreas" Type="Self.ServiceArea" Multiplicity="0..1" />
+          <End Role="Therapists" Type="Self.Therapist" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ServiceAreas">
               <PropertyRef Name="SAId" />
@@ -490,66 +520,68 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StandByMeets_Therapists">
-          <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
-          <End Role="StandByMeets" Type="Self.StandByMeets" Multiplicity="*" />
+        <Association Name="FK_WorkHours_Therapists">
+          <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
+          <End Role="WorkHours" Type="Self.WorkHour" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Therapists">
-              <PropertyRef Name="Mail" />
+              <PropertyRef Name="TherapistId" />
             </Principal>
-            <Dependent Role="StandByMeets">
+            <Dependent Role="WorkHours">
               <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Categories_Therapists">
+          <End Role="Categories" Type="Self.Category" Multiplicity="*" />
+          <End Role="Therapists" Type="Self.Therapist" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="Natural_wayEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Archives" EntityType="Self.Archives" />
-          <EntitySet Name="Categories" EntityType="Self.Categories" />
-          <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" />
-          <EntitySet Name="Meets" EntityType="Self.Meets" />
-          <EntitySet Name="Patients" EntityType="Self.Patients" />
-          <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" />
-          <EntitySet Name="StandByMeets" EntityType="Self.StandByMeets" />
-          <EntitySet Name="Therapists" EntityType="Self.Therapists" />
-          <AssociationSet Name="FK_Archives_Patients" Association="Self.FK_Archives_Patients">
-            <End Role="Patients" EntitySet="Patients" />
+          <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+          <EntitySet Name="Archives" EntityType="Self.Archive" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Meets" EntityType="Self.Meet" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="ServiceAreas" EntityType="Self.ServiceArea" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Therapists" EntityType="Self.Therapist" />
+          <EntitySet Name="WorkHours" EntityType="Self.WorkHour" />
+          <AssociationSet Name="FK_Archives_Categories" Association="Self.FK_Archives_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Archives" EntitySet="Archives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
+            <End Role="Categories" EntitySet="Categories" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
           <AssociationSet Name="FK_Archives_Therapists" Association="Self.FK_Archives_Therapists">
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
-          <AssociationSet Name="FK_Therapists_Categories" Association="Self.FK_Therapists_Categories">
+          <AssociationSet Name="FK_Meets_Categories" Association="Self.FK_Meets_Categories">
             <End Role="Categories" EntitySet="Categories" />
-            <End Role="Therapists" EntitySet="Therapists" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Therapists_Categories1" Association="Self.FK_Therapists_Categories1">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Therapists" EntitySet="Therapists" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Feedbacks_Patients" Association="Self.FK_Feedbacks_Patients">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="Feedbacks" EntitySet="Feedbacks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Meets_Patients" Association="Self.FK_Meets_Patients">
-            <End Role="Patients" EntitySet="Patients" />
             <End Role="Meets" EntitySet="Meets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Therapists" Association="Self.FK_Feedbacks_Therapists">
+            <End Role="Therapists" EntitySet="Therapists" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
           </AssociationSet>
           <AssociationSet Name="FK_Meets_Therapists" Association="Self.FK_Meets_Therapists">
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Meets" EntitySet="Meets" />
           </AssociationSet>
-          <AssociationSet Name="FK_StandByMeets_Patients" Association="Self.FK_StandByMeets_Patients">
-            <End Role="Patients" EntitySet="Patients" />
-            <End Role="StandByMeets" EntitySet="StandByMeets" />
-          </AssociationSet>
           <AssociationSet Name="FK_Therapists_ServiceAreas" Association="Self.FK_Therapists_ServiceAreas">
             <End Role="ServiceAreas" EntitySet="ServiceAreas" />
             <End Role="Therapists" EntitySet="Therapists" />
           </AssociationSet>
-          <AssociationSet Name="FK_StandByMeets_Therapists" Association="Self.FK_StandByMeets_Therapists">
+          <AssociationSet Name="FK_WorkHours_Therapists" Association="Self.FK_WorkHours_Therapists">
             <End Role="Therapists" EntitySet="Therapists" />
-            <End Role="StandByMeets" EntitySet="StandByMeets" />
+            <End Role="WorkHours" EntitySet="WorkHours" />
+          </AssociationSet>
+          <AssociationSet Name="Categories_Therapists" Association="Self.Categories_Therapists">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Therapists" EntitySet="Therapists" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -558,105 +590,133 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities">
+          <EntitySetMapping Name="Applicants">
+            <EntityTypeMapping TypeName="Natural_wayModel.Applicant">
+              <MappingFragment StoreEntitySet="Applicants">
+                <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TherapistTz" ColumnName="TherapistTz" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Archives">
-            <EntityTypeMapping TypeName="Natural_wayModel.Archives">
+            <EntityTypeMapping TypeName="Natural_wayModel.Archive">
               <MappingFragment StoreEntitySet="Archives">
-                <ScalarProperty Name="CanceledMeetsId" ColumnName="CanceledMeetsId" />
+                <ScalarProperty Name="ArchivesId" ColumnName="ArchivesId" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
                 <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
                 <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
-                <ScalarProperty Name="CancelationDate" ColumnName="CancelationDate" />
-                <ScalarProperty Name="CancelationReason" ColumnName="CancelationReason" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="Natural_wayModel.Categories">
-              <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="ParentCategoryCode" ColumnName="ParentCategoryCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Feedbacks">
-            <EntityTypeMapping TypeName="Natural_wayModel.Feedbacks">
-              <MappingFragment StoreEntitySet="Feedbacks">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-                <ScalarProperty Name="TheFeedback" ColumnName="TheFeedback" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Meets">
-            <EntityTypeMapping TypeName="Natural_wayModel.Meets">
-              <MappingFragment StoreEntitySet="Meets">
-                <ScalarProperty Name="MeetId" ColumnName="MeetId" />
-                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
-                <ScalarProperty Name="OkDate" ColumnName="OkDate" />
-                <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="IsDone" ColumnName="IsDone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Natural_wayModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="Natural_wayModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedbacks">
+                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+                <ScalarProperty Name="Servicing" ColumnName="Servicing" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+                <ScalarProperty Name="FeedbackDate" ColumnName="FeedbackDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meets">
+            <EntityTypeMapping TypeName="Natural_wayModel.Meet">
+              <MappingFragment StoreEntitySet="Meets">
+                <ScalarProperty Name="MeetId" ColumnName="MeetId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+                <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Patients">
-            <EntityTypeMapping TypeName="Natural_wayModel.Patients">
+            <EntityTypeMapping TypeName="Natural_wayModel.Patient">
               <MappingFragment StoreEntitySet="Patients">
-                <ScalarProperty Name="Mail" ColumnName="Mail" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
                 <ScalarProperty Name="Firstname" ColumnName="Firstname" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="PatientTz" ColumnName="PatientTz" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
                 <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
-                <ScalarProperty Name="FlatNumber" ColumnName="FlatNumber" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ServiceAreas">
-            <EntityTypeMapping TypeName="Natural_wayModel.ServiceAreas">
+            <EntityTypeMapping TypeName="Natural_wayModel.ServiceArea">
               <MappingFragment StoreEntitySet="ServiceAreas">
                 <ScalarProperty Name="SAId" ColumnName="SAId" />
                 <ScalarProperty Name="SAName" ColumnName="SAName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StandByMeets">
-            <EntityTypeMapping TypeName="Natural_wayModel.StandByMeets">
-              <MappingFragment StoreEntitySet="StandByMeets">
-                <ScalarProperty Name="MeetId" ColumnName="MeetId" />
-                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
-                <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Natural_wayModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Therapists">
-            <EntityTypeMapping TypeName="Natural_wayModel.Therapists">
+            <EntityTypeMapping TypeName="Natural_wayModel.Therapist">
               <MappingFragment StoreEntitySet="Therapists">
-                <ScalarProperty Name="Mail" ColumnName="Mail" />
-                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
-                <ScalarProperty Name="SubCategoryCode" ColumnName="SubCategoryCode" />
-                <ScalarProperty Name="ServiceAreaId" ColumnName="ServiceAreaId" />
-                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TherapistTz" ColumnName="TherapistTz" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ServiceAreaId" ColumnName="ServiceAreaId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+                <ScalarProperty Name="Diploma" ColumnName="Diploma" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="WorkHours">
+            <EntityTypeMapping TypeName="Natural_wayModel.WorkHour">
+              <MappingFragment StoreEntitySet="WorkHours">
+                <ScalarProperty Name="WorkHoursId" ColumnName="WorkHoursId" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Categories_Therapists" TypeName="Natural_wayModel.Categories_Therapists" StoreEntitySet="Categories_Therapists">
+            <EndProperty Name="Categories">
+              <ScalarProperty Name="CategoryId" ColumnName="CategotyId" />
+            </EndProperty>
+            <EndProperty Name="Therapists">
+              <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -671,7 +731,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
