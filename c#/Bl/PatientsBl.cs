@@ -9,7 +9,7 @@ namespace Bl
         public static bool Register(Patients1 p)
         {
              
-            Patients patient = Patients1.Todal(p);
+            Patient patient = Patients1.Todal(p);
             return Dal.PatientsDal.Register(patient);
                 
         }

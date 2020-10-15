@@ -26,8 +26,10 @@ namespace finalProject.Controllers
         [Route("Register")]
         public IHttpActionResult Register([FromBody] DTO.Patients1 p)
         {
-            Bl.PatientsBl.Register(p);
-            return Ok();
+            bool b=Bl.PatientsBl.Register(p);
+            if (b == true)
+                return Ok();
+            return BadRequest();
         }
     }
 }
