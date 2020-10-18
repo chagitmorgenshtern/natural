@@ -4,7 +4,7 @@ namespace Dal
 {
     public class PatientsDal
     {
-        public static bool Register(Patients p)
+        public static bool Register(Patient p)
         {
 
             try

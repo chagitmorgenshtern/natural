@@ -11,9 +11,9 @@ namespace DTO
     {
         public string Mail { get; set; }
 
-        public static Patients Todal(Patients1 p)
+        public static Patient Todal(Patients1 p)
         {
-            return new Dal.Patients
+            return new Dal.Patient
             {
                 Mail = p.Mail,
                 Password = p.Password,

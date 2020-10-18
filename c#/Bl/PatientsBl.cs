@@ -10,7 +10,7 @@ namespace Bl
         {
              
             Patient patient = Patients1.Todal(p);
-            return Dal.PatientsDal.Register(patient);
+            return PatientsDal.Register(patient);
                 
         }
     }
