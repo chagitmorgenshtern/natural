@@ -42,3 +42,4 @@ C:\Users\HOME\Documents\FinalProject\project\c#\DTO\obj\Debug\DTO.csproj.CoreCom
 C:\Users\HOME\Documents\FinalProject\project\c#\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\HOME\Documents\FinalProject\project\c#\DTO\obj\Debug\DTO.dll
 C:\Users\HOME\Documents\FinalProject\project\c#\DTO\obj\Debug\DTO.pdb
+C:\Users\HOME\Documents\FinalProject\project\c#\DTO\obj\Debug\DTO.csprojAssemblyReference.cache

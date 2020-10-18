@@ -20,7 +20,7 @@ namespace DTO
 
         //-----------methodes => converts-----------
 
-        public static Category Todal(Categories1 c)
+        public static Categories Todal(Categories1 c)
         {
             return new Dal.Categories
             {

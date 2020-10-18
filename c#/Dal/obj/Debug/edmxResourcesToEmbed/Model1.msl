@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities">
+  <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities1">
     <EntitySetMapping Name="Applicants">
-      <EntityTypeMapping TypeName="Natural_wayModel.Applicant">
+      <EntityTypeMapping TypeName="Natural_wayModel.Applicants">
         <MappingFragment StoreEntitySet="Applicants">
           <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -14,7 +14,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Archives">
-      <EntityTypeMapping TypeName="Natural_wayModel.Archive">
+      <EntityTypeMapping TypeName="Natural_wayModel.Archives">
         <MappingFragment StoreEntitySet="Archives">
           <ScalarProperty Name="ArchivesId" ColumnName="ArchivesId" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -26,7 +26,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="Natural_wayModel.Category">
+      <EntityTypeMapping TypeName="Natural_wayModel.Categories">
         <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -34,7 +34,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Feedbacks">
-      <EntityTypeMapping TypeName="Natural_wayModel.Feedback">
+      <EntityTypeMapping TypeName="Natural_wayModel.Feedbacks">
         <MappingFragment StoreEntitySet="Feedbacks">
           <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -47,7 +47,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Meets">
-      <EntityTypeMapping TypeName="Natural_wayModel.Meet">
+      <EntityTypeMapping TypeName="Natural_wayModel.Meets">
         <MappingFragment StoreEntitySet="Meets">
           <ScalarProperty Name="MeetId" ColumnName="MeetId" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -58,7 +58,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Patients">
-      <EntityTypeMapping TypeName="Natural_wayModel.Patient">
+      <EntityTypeMapping TypeName="Natural_wayModel.Patients">
         <MappingFragment StoreEntitySet="Patients">
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="Firstname" ColumnName="Firstname" />
@@ -73,7 +73,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ServiceAreas">
-      <EntityTypeMapping TypeName="Natural_wayModel.ServiceArea">
+      <EntityTypeMapping TypeName="Natural_wayModel.ServiceAreas">
         <MappingFragment StoreEntitySet="ServiceAreas">
           <ScalarProperty Name="SAId" ColumnName="SAId" />
           <ScalarProperty Name="SAName" ColumnName="SAName" />
@@ -81,7 +81,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="Natural_wayModel.sysdiagram">
+      <EntityTypeMapping TypeName="Natural_wayModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -92,7 +92,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Therapists">
-      <EntityTypeMapping TypeName="Natural_wayModel.Therapist">
+      <EntityTypeMapping TypeName="Natural_wayModel.Therapists">
         <MappingFragment StoreEntitySet="Therapists">
           <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -111,7 +111,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="WorkHours">
-      <EntityTypeMapping TypeName="Natural_wayModel.WorkHour">
+      <EntityTypeMapping TypeName="Natural_wayModel.WorkHours">
         <MappingFragment StoreEntitySet="WorkHours">
           <ScalarProperty Name="WorkHoursId" ColumnName="WorkHoursId" />
           <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />

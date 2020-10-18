@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Natural_wayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Applicant">
+  <EntityType Name="Applicants">
     <Key>
       <PropertyRef Name="ApplicantId" />
     </Key>
@@ -11,7 +11,7 @@
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="Boolean" />
   </EntityType>
-  <EntityType Name="Archive">
+  <EntityType Name="Archives">
     <Key>
       <PropertyRef Name="ArchivesId" />
     </Key>
@@ -21,11 +21,11 @@
     <Property Name="MeetDate" Type="DateTime" Precision="3" />
     <Property Name="CategoryId" Type="Int32" />
     <Property Name="IsDone" Type="Boolean" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Archives_Categories" FromRole="Archives" ToRole="Categories" />
-    <NavigationProperty Name="Category1" Relationship="Self.FK_Archives_Categories1" FromRole="Archives" ToRole="Categories" />
-    <NavigationProperty Name="Therapist" Relationship="Self.FK_Archives_Therapists" FromRole="Archives" ToRole="Therapists" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Archives_Categories" FromRole="Archives" ToRole="Categories" />
+    <NavigationProperty Name="Categories1" Relationship="Self.FK_Archives_Categories1" FromRole="Archives" ToRole="Categories" />
+    <NavigationProperty Name="Therapists" Relationship="Self.FK_Archives_Therapists" FromRole="Archives" ToRole="Therapists" />
   </EntityType>
-  <EntityType Name="Category">
+  <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="CategoryId" />
     </Key>
@@ -36,7 +36,7 @@
     <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Categories" FromRole="Categories" ToRole="Meets" />
     <NavigationProperty Name="Therapists" Relationship="Self.Categories_Therapists" FromRole="Categories" ToRole="Therapists" />
   </EntityType>
-  <EntityType Name="Feedback">
+  <EntityType Name="Feedbacks">
     <Key>
       <PropertyRef Name="FeedbackId" />
     </Key>
@@ -47,9 +47,9 @@
     <Property Name="Price" Type="Int32" />
     <Property Name="Expertise" Type="Int32" />
     <Property Name="FeedbackDate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Therapist" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Feedbacks" ToRole="Therapists" />
+    <NavigationProperty Name="Therapists" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Feedbacks" ToRole="Therapists" />
   </EntityType>
-  <EntityType Name="Meet">
+  <EntityType Name="Meets">
     <Key>
       <PropertyRef Name="MeetId" />
     </Key>
@@ -58,10 +58,10 @@
     <Property Name="TherapistId" Type="Int32" />
     <Property Name="MeetDate" Type="DateTime" Precision="3" />
     <Property Name="CategoryId" Type="Int32" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Meets_Categories" FromRole="Meets" ToRole="Categories" />
-    <NavigationProperty Name="Therapist" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Meets_Categories" FromRole="Meets" ToRole="Categories" />
+    <NavigationProperty Name="Therapists" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
   </EntityType>
-  <EntityType Name="Patient">
+  <EntityType Name="Patients">
     <Key>
       <PropertyRef Name="PatientId" />
     </Key>
@@ -75,7 +75,7 @@
     <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="ServiceArea">
+  <EntityType Name="ServiceAreas">
     <Key>
       <PropertyRef Name="SAId" />
     </Key>
@@ -83,7 +83,7 @@
     <Property Name="SAName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="ServiceAreas" ToRole="Therapists" />
   </EntityType>
-  <EntityType Name="sysdiagram">
+  <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
@@ -93,7 +93,7 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="Therapist">
+  <EntityType Name="Therapists">
     <Key>
       <PropertyRef Name="TherapistId" />
     </Key>
@@ -113,11 +113,11 @@
     <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Therapists" FromRole="Therapists" ToRole="Archives" />
     <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Therapists" ToRole="Feedbacks" />
     <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Therapists" FromRole="Therapists" ToRole="Meets" />
-    <NavigationProperty Name="ServiceArea" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="Therapists" ToRole="ServiceAreas" />
+    <NavigationProperty Name="ServiceAreas" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="Therapists" ToRole="ServiceAreas" />
     <NavigationProperty Name="WorkHours" Relationship="Self.FK_WorkHours_Therapists" FromRole="Therapists" ToRole="WorkHours" />
     <NavigationProperty Name="Categories" Relationship="Self.Categories_Therapists" FromRole="Therapists" ToRole="Categories" />
   </EntityType>
-  <EntityType Name="WorkHour">
+  <EntityType Name="WorkHours">
     <Key>
       <PropertyRef Name="WorkHoursId" />
     </Key>
@@ -125,11 +125,11 @@
     <Property Name="TherapistId" Type="Int32" />
     <Property Name="Day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Hour" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="Therapist" Relationship="Self.FK_WorkHours_Therapists" FromRole="WorkHours" ToRole="Therapists" />
+    <NavigationProperty Name="Therapists" Relationship="Self.FK_WorkHours_Therapists" FromRole="WorkHours" ToRole="Therapists" />
   </EntityType>
   <Association Name="FK_Archives_Categories">
-    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
-    <End Role="Archives" Type="Self.Archive" Multiplicity="*" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categories">
         <PropertyRef Name="CategoryId" />
@@ -140,8 +140,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Archives_Categories1">
-    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
-    <End Role="Archives" Type="Self.Archive" Multiplicity="*" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categories">
         <PropertyRef Name="CategoryId" />
@@ -152,8 +152,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Archives_Therapists">
-    <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
-    <End Role="Archives" Type="Self.Archive" Multiplicity="*" />
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
+    <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Therapists">
         <PropertyRef Name="TherapistId" />
@@ -164,8 +164,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Meets_Categories">
-    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
-    <End Role="Meets" Type="Self.Meet" Multiplicity="*" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categories">
         <PropertyRef Name="CategoryId" />
@@ -176,8 +176,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Feedbacks_Therapists">
-    <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
-    <End Role="Feedbacks" Type="Self.Feedback" Multiplicity="*" />
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
+    <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Therapists">
         <PropertyRef Name="TherapistId" />
@@ -188,8 +188,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Meets_Therapists">
-    <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
-    <End Role="Meets" Type="Self.Meet" Multiplicity="*" />
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
+    <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Therapists">
         <PropertyRef Name="TherapistId" />
@@ -200,8 +200,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Therapists_ServiceAreas">
-    <End Role="ServiceAreas" Type="Self.ServiceArea" Multiplicity="0..1" />
-    <End Role="Therapists" Type="Self.Therapist" Multiplicity="*" />
+    <End Role="ServiceAreas" Type="Self.ServiceAreas" Multiplicity="0..1" />
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ServiceAreas">
         <PropertyRef Name="SAId" />
@@ -212,8 +212,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_WorkHours_Therapists">
-    <End Role="Therapists" Type="Self.Therapist" Multiplicity="0..1" />
-    <End Role="WorkHours" Type="Self.WorkHour" Multiplicity="*" />
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
+    <End Role="WorkHours" Type="Self.WorkHours" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Therapists">
         <PropertyRef Name="TherapistId" />
@@ -224,20 +224,20 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Categories_Therapists">
-    <End Role="Categories" Type="Self.Category" Multiplicity="*" />
-    <End Role="Therapists" Type="Self.Therapist" Multiplicity="*" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="Natural_wayEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Applicants" EntityType="Self.Applicant" />
-    <EntitySet Name="Archives" EntityType="Self.Archive" />
-    <EntitySet Name="Categories" EntityType="Self.Category" />
-    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
-    <EntitySet Name="Meets" EntityType="Self.Meet" />
-    <EntitySet Name="Patients" EntityType="Self.Patient" />
-    <EntitySet Name="ServiceAreas" EntityType="Self.ServiceArea" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Therapists" EntityType="Self.Therapist" />
-    <EntitySet Name="WorkHours" EntityType="Self.WorkHour" />
+  <EntityContainer Name="Natural_wayEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applicants" EntityType="Self.Applicants" />
+    <EntitySet Name="Archives" EntityType="Self.Archives" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" />
+    <EntitySet Name="Meets" EntityType="Self.Meets" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" />
+    <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Therapists" EntityType="Self.Therapists" />
+    <EntitySet Name="WorkHours" EntityType="Self.WorkHours" />
     <AssociationSet Name="FK_Archives_Categories" Association="Self.FK_Archives_Categories">
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Archives" EntitySet="Archives" />

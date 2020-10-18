@@ -1,3 +1,10 @@
 .therapistCard{
-background-color: blueviolet;
+    background-color: rgb(114, 177, 171);
+    width: 90px;
+    height: 200px;
+    
+}
+
+.signup{
+    text-align: right;
 }

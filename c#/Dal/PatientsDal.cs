@@ -4,12 +4,12 @@ namespace Dal
 {
     public class PatientsDal
     {
-        public static bool Register(Patient p)
+        public static bool Register(Patients p)
         {
 
             try
             {
-                using(Natural_wayEntities db=new Natural_wayEntities())
+                using(Natural_wayEntities1 db=new Natural_wayEntities1())
                 {
                     db.Patients.Add(p);
                     db.SaveChanges();

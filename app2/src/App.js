@@ -9,17 +9,21 @@ import TherapistCard from './component/therapistCard';
 
 function App() {
   return (
-    <div className="App">
+    <center>
+      <div className="App">
+        {/* <center>
+        <TherapistCard firstName="Sivan" lastName="Tziyonov" />
+      </center> */}
 
-      <TherapistCard firstName="Sivan" lastName="Tziyonov" />
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route component={Error} />
-      </Switch>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          {/*  <Route component={Error} /> */}
+        </Switch>
 
 
-    </div>
-  );
+      </div></center>
+  )
 }
 
 export default App;

@@ -1,24 +1,25 @@
-import React,{Component} from 'react'; 
+import React, { Component } from 'react';
+import '../style.css';
 //להוסיף תמונה -לשאול איך
 
-class TherapistCard extends Component{
-    constructor()
-    { super()
-      this.state={
-    name:""
+class TherapistCard extends Component {
+    constructor() {
+        super()
+        this.state = {
+            name: ""
         }
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className="therapistCard">
-            <label>{this.props.firstName+" "+this.props.lastName} </label> <br/><br/>
-            <label>{this.props.category} </label> <br/><br/>
-            <label>{this.props.serviceArea} </label> <br/><br/>
-            <button>לעמוד שלי</button>
+                <label>{this.props.firstName + " " + this.props.lastName} </label> <br /><br />
+                <label>{this.props.category} </label> <br /><br />
+                <label>{this.props.serviceArea} </label> <br /><br />
+                <button>לעמוד שלי</button>
             </div>
-            
+
         );
 
     }
 
-}export default TherapistCard;
+} export default TherapistCard;
