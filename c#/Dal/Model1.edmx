@@ -134,18 +134,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Archives_Categories1">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Archives">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <!--Errors Found During Generation:
 warning 6035: The relationship 'FK_Archives_Patients1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Archives_Patients1" />-->
@@ -227,7 +215,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Therapists_ServiceAreas">
+        <Association Name="FK_Therapists_ServiceAreas1">
           <End Role="ServiceAreas" Type="Self.ServiceAreas" Multiplicity="0..1" />
           <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,10 +255,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
-          <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Archives" EntitySet="Archives" />
-          </AssociationSet>
           <AssociationSet Name="FK_Archives_Therapists" Association="Self.FK_Archives_Therapists">
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Archives" EntitySet="Archives" />
@@ -295,7 +279,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Meets" EntitySet="Meets" />
           </AssociationSet>
-          <AssociationSet Name="FK_Therapists_ServiceAreas" Association="Self.FK_Therapists_ServiceAreas">
+          <AssociationSet Name="FK_Therapists_ServiceAreas1" Association="Self.FK_Therapists_ServiceAreas1">
             <End Role="ServiceAreas" EntitySet="ServiceAreas" />
             <End Role="Therapists" EntitySet="Therapists" />
           </AssociationSet>
@@ -330,7 +314,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <Property Name="CategoryId" Type="Int32" />
           <Property Name="IsDone" Type="Boolean" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Archives_Categories" FromRole="Archives" ToRole="Categories" />
-          <NavigationProperty Name="Categories1" Relationship="Self.FK_Archives_Categories1" FromRole="Archives" ToRole="Categories" />
           <NavigationProperty Name="Therapists" Relationship="Self.FK_Archives_Therapists" FromRole="Archives" ToRole="Therapists" />
         </EntityType>
         <EntityType Name="Categories">
@@ -340,7 +323,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Categories" FromRole="Categories" ToRole="Archives" />
-          <NavigationProperty Name="Archives1" Relationship="Self.FK_Archives_Categories1" FromRole="Categories" ToRole="Archives" />
           <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Categories" FromRole="Categories" ToRole="Meets" />
           <NavigationProperty Name="Therapists" Relationship="Self.Categories_Therapists" FromRole="Categories" ToRole="Therapists" />
         </EntityType>
@@ -369,13 +351,27 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <NavigationProperty Name="Categories" Relationship="Self.FK_Meets_Categories" FromRole="Meets" ToRole="Categories" />
           <NavigationProperty Name="Therapists" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
         </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PatientTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="ServiceAreas">
           <Key>
             <PropertyRef Name="SAId" />
           </Key>
           <Property Name="SAId" Type="Int32" Nullable="false" />
           <Property Name="SAName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="ServiceAreas" ToRole="Therapists" />
+          <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas1" FromRole="ServiceAreas" ToRole="Therapists" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -407,7 +403,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Therapists" FromRole="Therapists" ToRole="Archives" />
           <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Therapists" ToRole="Feedbacks" />
           <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Therapists" FromRole="Therapists" ToRole="Meets" />
-          <NavigationProperty Name="ServiceAreas" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="Therapists" ToRole="ServiceAreas" />
+          <NavigationProperty Name="ServiceAreas" Relationship="Self.FK_Therapists_ServiceAreas1" FromRole="Therapists" ToRole="ServiceAreas" />
           <NavigationProperty Name="WorkHours" Relationship="Self.FK_WorkHours_Therapists" FromRole="Therapists" ToRole="WorkHours" />
           <NavigationProperty Name="Categories" Relationship="Self.Categories_Therapists" FromRole="Therapists" ToRole="Categories" />
         </EntityType>
@@ -422,18 +418,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <NavigationProperty Name="Therapists" Relationship="Self.FK_WorkHours_Therapists" FromRole="WorkHours" ToRole="Therapists" />
         </EntityType>
         <Association Name="FK_Archives_Categories">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-          <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categories">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Archives">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Archives_Categories1">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
           <ReferentialConstraint>
@@ -493,7 +477,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Therapists_ServiceAreas">
+        <Association Name="FK_Therapists_ServiceAreas1">
           <End Role="ServiceAreas" Type="Self.ServiceAreas" Multiplicity="0..1" />
           <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
           <ReferentialConstraint>
@@ -521,21 +505,18 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
           <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Natural_wayEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Natural_wayEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Applicants" EntityType="Self.Applicants" />
           <EntitySet Name="Archives" EntityType="Self.Archives" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" />
           <EntitySet Name="Meets" EntityType="Self.Meets" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" />
           <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Therapists" EntityType="Self.Therapists" />
           <EntitySet Name="WorkHours" EntityType="Self.WorkHours" />
           <AssociationSet Name="FK_Archives_Categories" Association="Self.FK_Archives_Categories">
-            <End Role="Categories" EntitySet="Categories" />
-            <End Role="Archives" EntitySet="Archives" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Archives" EntitySet="Archives" />
           </AssociationSet>
@@ -555,7 +536,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Meets" EntitySet="Meets" />
           </AssociationSet>
-          <AssociationSet Name="FK_Therapists_ServiceAreas" Association="Self.FK_Therapists_ServiceAreas">
+          <AssociationSet Name="FK_Therapists_ServiceAreas1" Association="Self.FK_Therapists_ServiceAreas1">
             <End Role="ServiceAreas" EntitySet="ServiceAreas" />
             <End Role="Therapists" EntitySet="Therapists" />
           </AssociationSet>
@@ -567,28 +548,13 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Therapists" EntitySet="Therapists" />
           </AssociationSet>
-          <EntitySet Name="Patients" EntityType="Natural_wayModel.Patients" />
         </EntityContainer>
-        <EntityType Name="Patients">
-          <Key>
-            <PropertyRef Name="PatientId" />
-          </Key>
-          <Property Name="PatientId" Type="Int32" Nullable="false" />
-          <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PatientTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
-          <Property Name="Email" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities1">
+        <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities3">
           <EntitySetMapping Name="Applicants">
             <EntityTypeMapping TypeName="Natural_wayModel.Applicants">
               <MappingFragment StoreEntitySet="Applicants">
@@ -642,6 +608,21 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
                 <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
                 <ScalarProperty Name="MeetDate" ColumnName="MeetDate" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="Natural_wayModel.Patients">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="PatientTz" ColumnName="PatientTz" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+                <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -701,21 +682,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
               <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Patients">
-            <EntityTypeMapping TypeName="Natural_wayModel.Patients">
-              <MappingFragment StoreEntitySet="Patients">
-                <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
-                <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="PatientTz" ColumnName="PatientTz" />
-                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -730,7 +696,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
