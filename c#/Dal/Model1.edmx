@@ -369,20 +369,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <NavigationProperty Name="Categories" Relationship="Self.FK_Meets_Categories" FromRole="Meets" ToRole="Categories" />
           <NavigationProperty Name="Therapists" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="Patients">
-          <Key>
-            <PropertyRef Name="PatientId" />
-          </Key>
-          <Property Name="PatientId" Type="Int32" Nullable="false" />
-          <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PatientTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
-          <Property Name="Email" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="ServiceAreas">
           <Key>
             <PropertyRef Name="SAId" />
@@ -541,7 +527,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" />
           <EntitySet Name="Meets" EntityType="Self.Meets" />
-          <EntitySet Name="Patients" EntityType="Self.Patients" />
           <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Therapists" EntityType="Self.Therapists" />
@@ -582,7 +567,22 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Therapists" EntitySet="Therapists" />
           </AssociationSet>
+          <EntitySet Name="Patients" EntityType="Natural_wayModel.Patients" />
         </EntityContainer>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PatientTz" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -645,21 +645,6 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Patients">
-            <EntityTypeMapping TypeName="Natural_wayModel.Patients">
-              <MappingFragment StoreEntitySet="Patients">
-                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-                <ScalarProperty Name="PatientTz" ColumnName="PatientTz" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
-                <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ServiceAreas">
             <EntityTypeMapping TypeName="Natural_wayModel.ServiceAreas">
               <MappingFragment StoreEntitySet="ServiceAreas">
@@ -716,6 +701,21 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
               <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="Natural_wayModel.Patients">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+                <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PatientTz" ColumnName="PatientTz" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -730,7 +730,7 @@ warning 6035: The relationship 'FK_Meets_Patients1' has columns that are not par
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="Natural_wayModel.Categories" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.Feedbacks" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.Meets" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Patients" Width="1.5" PointX="8.5" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.ServiceAreas" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.Therapists" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
@@ -24,6 +23,7 @@
         <AssociationConnector Association="Natural_wayModel.FK_Therapists_ServiceAreas" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_WorkHours_Therapists" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.Categories_Therapists" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Natural_wayModel.Patients" Width="1.5" PointX="8.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

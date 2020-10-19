@@ -30,10 +30,10 @@ namespace Dal
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Feedbacks> Feedbacks { get; set; }
         public virtual DbSet<Meets> Meets { get; set; }
-        public virtual DbSet<Patients> Patients { get; set; }
         public virtual DbSet<ServiceAreas> ServiceAreas { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Therapists> Therapists { get; set; }
         public virtual DbSet<WorkHours> WorkHours { get; set; }
+        public virtual DbSet<Patients> Patients { get; set; }
     }
 }
