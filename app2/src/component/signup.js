@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../axios'
+import '../style.css';
 
 class Signup extends Component {
     state = {
@@ -10,7 +11,7 @@ class Signup extends Component {
             PatientTz: "",
             DateOfBirth: "",
             Email: "",
-            Password: "",
+            Password: "pass",
             PhoneNumber1: "",
             PhoneNumber2: ""
         }
@@ -26,35 +27,25 @@ class Signup extends Component {
                     <center><h2>הרשמת מטופל</h2></center><br></br>
 
 
-                    <input type="text" placeholder="Your first name" id="Firstname" onChange={(event) => this.inputChange(event)} />
-                    <label>:שם פרטי</label><br></br>
+                    <input type="text" placeholder="שם משפחה" id="Lastname" onChange={(event) => this.inputChange(event)} /> <input type="text" placeholder="שם פרטי" id="Firstname" onChange={(event) => this.inputChange(event)} />  
+                    <br></br>
+                    <br></br>
 
-                    <input type="text" placeholder="Your last name" id="Lastname" onChange={(event) => this.inputChange(event)} />
-                    <label>:שם משפחה</label><br></br>
-
-                    <input type="text" placeholder="ID number" id="PatientTz" onChange={(event) => this.inputChange(event)} />
-                    <label>:תעודת זהות</label><br></br>
-
-                    <input type="date" placeholder="Date of Birth" id="DateOfBirth" onChange={(event) => this.inputChange(event)} />
-                    <label>:תאריך לידה</label><br></br>
-
-                    <input type="text" id="PhoneNumber1" onChange={(event) => this.inputChange(event)} />
-                    <label>:מספר פלאפון</label> <br></br>
-
-                    <input type="text" id="PhoneNumber2" onChange={(event) => this.inputChange(event)} />
-                    <label>:פלאפון נוסף</label><br></br>
-
-                    <input type="text" id="Email" onChange={(event) => this.inputChange(event)} />
-                    <label>:כתובת מייל</label><br></br>
-
+                   <input type="text" placeholder="ת.ז" id="PatientTz" onChange={(event) => this.inputChange(event)} /> <input type="date" placeholder="תאריך לידה" id="DateOfBirth" onChange={(event) => this.inputChange(event)} />
+                    <br></br>
+                    <br></br>
+                    <input type="text"placeholder="מס' פלאפון נוסף (לא חובה)" id="PhoneNumber2" onChange={(event) => this.inputChange(event)} /> <input type="text" placeholder="מספר פלאפון" id="PhoneNumber1" onChange={(event) => this.inputChange(event)} />
+                    
+                    <br></br><br></br>
+                    <input type="text"placeholder="כתובת מייל" id="Email" onChange={(event) => this.inputChange(event)} />
+                  
+                    <br></br><br></br><br></br>
                     <label>בחר את הסיסמא שתשרת אותך בכניסתך לאתר</label>
                     <br></br>
 
-                    <input type="password" id="Password" onChange={(event) => this.inputChange(event)} />
-                    <label>:סיסמא</label><br></br>
-
-                    <input type="password" id="Valid-Password" />
-                    <label>:אימות סיסמא</label><br></br>
+                    <input type="password"placeholder="אימות סיסמא" id="Valid-Password" /> <input type="password" placeholder="סיסמא" id="Password" onChange={(event) => this.inputChange(event)} />
+                    
+                    <br></br><br></br>
 
                     <input type="button" value="button" onClick={() => this.newPateintHandler(this.state.patient)} />
                     <center><input type="submit" value="אישור" onClick={() => this.newPateintHandler(this.state.patient)} /></center>
@@ -63,7 +54,7 @@ class Signup extends Component {
         );
     }//render
 
-    valid
+   
 
     inputChange = (event) => {
         const newperson = { ...this.state.patient };
@@ -76,14 +67,16 @@ class Signup extends Component {
 
     newPateintHandler = (patient) => {
         debugger;
-        alert(this.state.patient.Password.value)
-        if (document.getElementById("Valid-Password").value === patient.Password)
-            axios.post('patient/Register', patient).then(x => { console.log("succes!" + x) });
-        else {
+        alert(this.state.patient.Password)
+        if (!document.getElementById("Valid-Password").value === patient.Password){
             patient.Password = "";
             document.getElementById("Password").value = "";
             document.getElementById("Valid-Password").value = "";
             alert("not valid");
+        }
+        else {
+            alert("okey");
+            axios.post('patient/Register', patient).then(x => { console.log("succes!" + x) });
         }
     }
 

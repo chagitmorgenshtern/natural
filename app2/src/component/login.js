@@ -7,18 +7,21 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <h3>כניסה לחשבונך</h3>
-        <input />
-        <label>:כתובת מייל</label>
-        <br></br>
-        <input />
+  
+    <div >
 
-        <label>:סיסמא</label>
-        <br></br>
-        <label>!חדש באתר? לחץ כאן כדי להרשם</label>
-      </div>
-    );
-  }
+{/* <form>
+ <center><h2>כניסה</h2></center><br></br>
 
-} export default Login;
+
+  <input type="text" placeholder="שם משתמש" id="Firstname"  />
+  
+
+<link type="text">חדש באתר? לחץ כאן כדי להרשם  </link>
+
+</form> */}
+ </div>
+    ); 
+    }
+
+  }export default Login;

@@ -7,4 +7,6 @@
 
 .signup{
     text-align: right;
+    background-color: mediumaquamarine;
+    grid-area: 2 / 4 / 6 / 10;
 }
