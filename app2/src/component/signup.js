@@ -11,7 +11,7 @@ class Signup extends Component {
             PatientTz: "",
             DateOfBirth: "",
             Email: "",
-            Password: "pass",
+            Password: "",
             PhoneNumber1: "",
             PhoneNumber2: ""
         }
@@ -62,21 +62,24 @@ class Signup extends Component {
         newperson[id] = event.target.value;
 
         this.setState({ pateint: newperson });
-
+        
     }
 
     newPateintHandler = (patient) => {
         debugger;
-        alert(this.state.patient.Password)
-        if (!document.getElementById("Valid-Password").value === patient.Password){
+        alert(patient.Password.value)
+        var flag=1;
+        if (document.getElementById("Valid-Password").value != document.getElementById("Password").value){
             patient.Password = "";
             document.getElementById("Password").value = "";
             document.getElementById("Valid-Password").value = "";
-            alert("not valid");
+            flag=0;
+           
         }
-        else {
-            alert("okey");
-            axios.post('patient/Register', patient).then(x => { console.log("succes!" + x) });
+        if(flag==1) {
+            axios.post('patient/Register', patient)
+            .then(x => { console.log("succes!" + x) });
+            alert("הידד");
         }
     }
 
