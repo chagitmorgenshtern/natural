@@ -7,6 +7,21 @@
 
 .signup{
     text-align: right;
-    background-color: mediumaquamarine;
+    background-color:turquoise;
     grid-area: 2 / 4 / 6 / 10;
 }
+
+.input
+{
+font-size-adjust: 10%;
+     FONT-SIZE: 15px;  
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    BORDER-RIGHT: 0.5px solid;
+    BORDER-TOP: 0.5px solid;
+    BORDER-LEFT: 0.5px solid;
+    BORDER-BOTTOM: 0.5px solid;
+    BORDER-color:white;
+    background-color:transparent; 
+    
+}
+ 
