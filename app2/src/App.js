@@ -6,6 +6,7 @@ import Error from './component/error.js'
 import Signup from './component/signup.js';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TherapistCard from './component/therapistCard';
+import SignupTh from './component/signupTh';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/signupTh" component={SignupTh} />
           {/*  <Route component={Error} /> */}
         </Switch>
 
