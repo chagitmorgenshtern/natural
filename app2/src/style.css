@@ -7,21 +7,48 @@
 
 .signup{
     text-align: right;
-    background-color:turquoise;
+    background-color:rgb(76, 200, 166);
     grid-area: 2 / 4 / 6 / 10;
 }
 
 .input
 {
+
 /* font-size-adjust: 10%;
      FONT-SIZE: 15px;   */
    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     padding:10px 11px;
     /* BORDER-RIGHT: 0.5px solid;
+
+    font-size-adjust: 10%;
+    FONT-SIZE: 15px;  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    BORDER-RIGHT: 0.5px solid;
+
     BORDER-TOP: 0.5px solid;
     BORDER-LEFT: 0.5px solid;
     BORDER-BOTTOM: 0.5px solid; */
     BORDER-color:white;
+    background-origin: initial;
+    background-size: initial;
     background-color:transparent; 
 }
- 
+
+.headerSignup
+{
+    
+
+}
+
+.form-control{
+
+}
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: white;
+}
+
+#login{
+    justify-content: center !important;
+}
