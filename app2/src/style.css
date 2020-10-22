@@ -13,19 +13,26 @@
 
 .input
 {
+
+/* font-size-adjust: 10%;
+     FONT-SIZE: 15px;   */
+   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    padding:10px 11px;
+    /* BORDER-RIGHT: 0.5px solid;
+
     font-size-adjust: 10%;
     FONT-SIZE: 15px;  
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
     BORDER-RIGHT: 0.5px solid;
+
     BORDER-TOP: 0.5px solid;
     BORDER-LEFT: 0.5px solid;
-    BORDER-BOTTOM: 0.5px solid;
+    BORDER-BOTTOM: 0.5px solid; */
     BORDER-color:white;
     background-origin: initial;
     background-size: initial;
     background-color:transparent; 
-    
 }
 
 .headerSignup
