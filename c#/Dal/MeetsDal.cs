@@ -9,7 +9,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities db = new Natural_wayEntities())
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
                 {
                     db.Meets.Add(m);
                     db.SaveChanges();

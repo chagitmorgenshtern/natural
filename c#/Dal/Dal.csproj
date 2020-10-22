@@ -63,7 +63,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="CategoriesDal.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Feedbacks.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
