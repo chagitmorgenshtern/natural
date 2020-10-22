@@ -38,7 +38,7 @@
 
 }
 .form-control:focus {
-    box-shadow: none !important;
+    box-shadow: black !important;
     border-color: white;
 }
 
