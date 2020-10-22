@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Col, Button,Row,Container } from 'react-bootstrap';
 
 class SignupTh extends Component {
 
@@ -9,16 +9,14 @@ class SignupTh extends Component {
 
     render() {
         return (
-            <div id="signupTh">
-                <Form>
+            <div className="signupTh">
+                <Form >
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control type="email" placeholder="הכנס כתובת מייל" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
                     </Form.Row>

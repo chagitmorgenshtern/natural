@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../axios'
+import { Form, Col, Button } from 'react-bootstrap';
 
 class Signup extends Component {
     state = {
@@ -21,9 +22,29 @@ class Signup extends Component {
     render() {
         return (
             <div className="signup">
-                <form>
+                {/* <form> */}
+                <Form>
+                <Form.Row>
+                        <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Control placeholder="שם פרטי" />
+                        </Form.Group>
 
-                    <center><h2 className="headerSignup">הרשמת מטופל</h2></center><br></br>
+                        <Form.Group as={Col}>
+                            <Form.Control placeholder="שם משפחה" />
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Control placeholder=".ת.ז" />
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Control type ="date" placeholder="תאריך לידה" />
+                        </Form.Group>
+                    </Form.Row>
+                    </Form>
+                    {/* <center><h2 className="headerSignup">הרשמת מטופל</h2></center><br></br>
 
 
                     <input type="text" placeholder="Your first name" id="Firstname" onChange={(event) => this.inputChange(event)} />
@@ -58,12 +79,11 @@ class Signup extends Component {
 
                     <input type="button" value="button" onClick={() => this.newPateintHandler(this.state.patient)} />
                     <center><input type="submit" value="אישור" onClick={() => this.newPateintHandler(this.state.patient)} /></center>
-                </form>
+                </form> */}
             </div>
         );
     }//render
 
-    valid
 
     inputChange = (event) => {
         const newperson = { ...this.state.patient };
