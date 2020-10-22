@@ -23,5 +23,6 @@ namespace Dal
         public Nullable<System.DateTime> FeedbackDate { get; set; }
     
         public virtual Therapists Therapists { get; set; }
+        public virtual Patients Patients { get; set; }
     }
 }

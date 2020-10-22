@@ -22,5 +22,6 @@ namespace Dal
     
         public virtual Categories Categories { get; set; }
         public virtual Therapists Therapists { get; set; }
+        public virtual Patients Patients { get; set; }
     }
 }
