@@ -1,7 +1,7 @@
 .App {
   
   text-align: right;
-  background-color:lightcoral;
+  background-color:rgba(0,123,225,0.15);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);

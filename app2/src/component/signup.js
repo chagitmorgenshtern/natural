@@ -29,7 +29,7 @@ class Signup extends Component {
                             <Form.Control placeholder="שם פרטי" />
                         </Form.Group>
 
-                        <Form.Group as={Col}>
+                        <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Control placeholder="שם משפחה" />
                         </Form.Group>
                     </Form.Row>

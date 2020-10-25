@@ -7,7 +7,7 @@
 
 .signup{
     text-align: center;
-    background-color:rgb(76, 200, 166);
+    background-color:rgb(29,150,161);
     width: 66vw;
     height: 44vw;
     margin-top: 10vw;
@@ -60,20 +60,40 @@
 .headerSignup
 {
     
-
 }
 
 .form-control{
-    width: 50% ;
-    margin-top: 10%;
-    margin-left: 0vh;
+    width: 300px ;
+    height: 50px;
+    margin-top: 20%;
+    margin-right:8%;
+    /* margin-bottom: 10%; */
+    margin-left:10%;
 }
 .form-control:focus {
-    box-shadow: black !important;
-    border-color: white;
-    display: grid;
+    box-sizing:lime !important;
+    border-top-color: lime;
+    border-left-color: lime;
+    border-right-color: lime;
+    border-bottom-color: lime;
+    
+    BORDER-TOP: 5px red;
+    BORDER-LEFT: 5px white;
+    BORDER-BOTTOM:5px white;
+  
+    /* display: grid; */
 }
+
 
 #login{
     justify-content: center !important;
 }
+
+.signupTh{
+
+    background-color:R76 G200 B166;
+}
+
+/* #formGridEmail{
+    color:maroon;
+} */
