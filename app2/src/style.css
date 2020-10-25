@@ -29,6 +29,8 @@
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-left: 0vh !important;
+    margin-bottom: 1%;
 }
 /* 
 /* font-size-adjust: 10%;
@@ -49,7 +51,7 @@
     /* BORDER-color:white;
     background-origin: initial;
     background-size: initial;
-    background-color:transparent;  */ */
+    /* background-color:transparent;  */ 
 
 /* . {
     grid-area: 2 / 4 / 6 / 10  !important; 
@@ -64,6 +66,7 @@
 .form-control{
     width: 50% ;
     margin-top: 10%;
+    margin-left: 0vh;
 }
 .form-control:focus {
     box-shadow: black !important;
