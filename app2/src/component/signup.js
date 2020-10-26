@@ -24,7 +24,7 @@ class Signup extends Component {
             <div className="signup">
                 {/* <form> */}
                 <Form>
-                <Form.Row>
+                    <Form.Row>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Control placeholder="שם פרטי" />
                         </Form.Group>
@@ -40,11 +40,11 @@ class Signup extends Component {
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Control type ="date" placeholder="תאריך לידה" />
+                            <Form.Control type="date" placeholder="תאריך לידה" />
                         </Form.Group>
                     </Form.Row>
-                    </Form>
-                    {/* <center><h2 className="headerSignup">הרשמת מטופל</h2></center><br></br>
+                </Form>
+                {/* <center><h2 className="headerSignup">הרשמת מטופל</h2></center><br></br>
 
 
                     <input type="text" placeholder="Your first name" id="Firstname" onChange={(event) => this.inputChange(event)} />
