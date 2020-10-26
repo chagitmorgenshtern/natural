@@ -23,7 +23,7 @@ class SignupTh extends Component {
                     </Form.Row>
 
                     <Form.Group controlId="formGridAddress1">
-                        <Form.Label>Address</Form.Label>
+                        {/* <Form.Label>Address</Form.Label> */}
                         <Form.Control placeholder="1234 Main St" />
                     </Form.Group>
 

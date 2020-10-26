@@ -7,6 +7,7 @@ import Signup from './component/signup.js';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TherapistCard from './component/therapistCard';
 import SignupTh from './component/signupTh';
+import HomePage from './component/homePage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/signupTh" component={SignupTh} />
+          <Route path="/" component={HomePage} />
           {/*  <Route component={Error} /> */}
         </Switch>
 
