@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applicants1.cs" />
     <Compile Include="Archives1.cs" />
     <Compile Include="Categories1.cs" />
     <Compile Include="Class1.cs" />
@@ -59,8 +60,8 @@
     <Compile Include="Patients1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAreas1.cs" />
-    <Compile Include="StandByMeets1.cs" />
     <Compile Include="Therapists1.cs" />
+    <Compile Include="WorkHours1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dal\Dal.csproj">

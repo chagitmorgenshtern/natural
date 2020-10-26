@@ -8,6 +8,8 @@ namespace DTO
 {
     public class ServiceAreas1
     {
+
+        //-----------fields-----------
         public int SAId { get; set; }
         public string SAName { get; set; }
     }

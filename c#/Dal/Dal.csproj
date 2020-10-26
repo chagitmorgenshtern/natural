@@ -56,9 +56,11 @@
     <Compile Include="Applicants.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ApplicantsDal.cs" />
     <Compile Include="Archives.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ArchivesDal.cs" />
     <Compile Include="Categories.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -94,6 +96,7 @@
     <Compile Include="ServiceAreas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceAreasDal.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -104,6 +107,7 @@
     <Compile Include="WorkHours.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="WorkHoursDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
