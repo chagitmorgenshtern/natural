@@ -11,9 +11,9 @@ namespace DTO
     {
         //-----------fields-----------
 
-        public int CategoryCode { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public Nullable<int> ParentCategoryCode { get; set; }
+
 
         //-----------constructors-----------
 
@@ -24,9 +24,8 @@ namespace DTO
         {
             return new Dal.Categories
             {
-                CategoryCode = c.CategoryCode,
-                CategoryName = c.CategoryName,
-                ParentCategoryCode = c.ParentCategoryCode
+                CategoryId = c.CategoryId,
+                CategoryName = c.CategoryName
             };
         }
     }

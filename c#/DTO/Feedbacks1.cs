@@ -11,9 +11,13 @@ namespace DTO
     {
         //-----------fields-----------
 
-        public int Id { get; set; }
-        public string PatientId { get; set; }
-        public string TheFeedback { get; set; }
+        public int FeedbackId { get; set; }
+        public Nullable<int> PatientId { get; set; }
+        public Nullable<int> TherapistId { get; set; }
+        public Nullable<int> Servicing { get; set; }
+        public Nullable<int> Price { get; set; }
+        public Nullable<int> Expertise { get; set; }
+        public Nullable<System.DateTime> FeedbackDate { get; set; }
 
 
         //-----------constructors-----------
@@ -25,9 +29,15 @@ namespace DTO
         //gets dal and convert it to dto (by the ctor)
         public Feedbacks1(Dal.Feedbacks f)
         {
-            Id = f.Id;
+            FeedbackId = f.FeedbackId;
             PatientId = f.PatientId;
-            TheFeedback = f.TheFeedback;
+            TherapistId = f.TherapistId;
+            Servicing = f.Servicing;
+            Price = f.Price;
+            Expertise = f.Expertise;
+            FeedbackDate = f.FeedbackDate;
+
+
         }
 
         //-----------methodes => converts-----------
@@ -36,10 +46,16 @@ namespace DTO
         {
             return new Dal.Feedbacks
             {
-                Id = f.Id,
-                PatientId = f.PatientId,
-                TheFeedback = f.TheFeedback
-            };
+
+            FeedbackId = f.FeedbackId,
+            PatientId = f.PatientId,
+            TherapistId = f.TherapistId,
+            Servicing = f.Servicing,
+            Price = f.Price,
+            Expertise = f.Expertise,
+            FeedbackDate = f.FeedbackDate
+
+        };
         }
 
         
