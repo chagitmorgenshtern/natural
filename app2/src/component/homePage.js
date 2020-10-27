@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import backg from '../images/background01.jpg'
 import btn_read_more from '../images/btn_read_more01.png'
 import btn_to_therapists from '../images/btn01.png'
+import icon from '../images/tempIcon.png'
 import { Link } from 'react-router-dom'
+// import { NavDropdown } from 'react-bootstrap';
 class HomePage extends Component {
     state = {
 
@@ -17,6 +20,26 @@ class HomePage extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
+
+                {/* <Navbar bg="light" variant="light">
+                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/signupTh">כניסה</Nav.Link>
+                        <Nav.Link href="/signup">הרשמה</Nav.Link>
+                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    </Nav>
+                    <Form inline>
+                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-primary">Search</Button>
+                    </Form>
+                </Navbar> */}
+
+                <header className="homepage_header">
+                    <img src={icon} id="icon" />
+                    <Link to="/signupTh"><label id="in">כניסה</label></Link>
+                    <Link to="/signup"><label id="up">הרשמה</label></Link>
+                </header>
+
                 <article className="article">
 
                     <h1 className="slogen" >הדרך החדשה <br />לרפואה משלימה</h1>
