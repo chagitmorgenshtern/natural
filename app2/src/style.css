@@ -15,12 +15,36 @@
     margin: 0;
 }
 
-.textHomePage{
-    font-style: bolder;
-    font-size: large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.article{
+    margin-top: 25vh;
+    margin-right: 10vw;
+    font-size: 150%;
+    font-family: inherit;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     color: white;
 }
+.slogen{
+    font-weight: 600;
+    font-size: 170%;
+    margin-bottom: 1vh;
+}
+
+#img_read_more{
+    
+    width: 10vw;
+    margin-right: -12vw;
+    margin-top: 4vh;
+    box-shadow: 0 0 4px 3px #a5a0a0;
+}
+
+#img_to_therapists{
+    width: 14vw;
+    margin-top: 26vh;
+    float: right;
+    margin-right: 20vw;
+    box-shadow: 0 0 9px 2px #c0c0c0;
+}
+
 .signup{
     text-align: center;
     background-color:rgb(29,150,161);
