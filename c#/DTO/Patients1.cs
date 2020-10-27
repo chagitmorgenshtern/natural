@@ -20,13 +20,40 @@ namespace DTO
         public string PhoneNumber1 { get; set; }
         public string PhoneNumber2 { get; set; }
 
+        //-----------constructors-----------
+        public Patients1()
+        {
+
+        }
+        //gets dal and convert it to dto (by the ctor)
+        public Patients1(Dal.Patients p)
+        {
+            PatientId = p.PatientId;
+            Firstname = p.Firstname;
+            Lastname = p.Lastname;
+            PatientTz = p.PatientTz;
+            DateOfBirth = p.DateOfBirth;
+            Email = p.Email;
+            Password = p.Password;
+            PhoneNumber1 = p.PhoneNumber1;
+            PhoneNumber2 = p.PhoneNumber2;
+        }
+
         //-----------methodes => converts-----------
         public static Patients Todal(Patients1 p)
         {
             return new Dal.Patients
-            {
-                
-            };
+            { 
+            PatientId = p.PatientId,
+            Firstname = p.Firstname,
+            Lastname = p.Lastname,
+            PatientTz = p.PatientTz,
+            DateOfBirth = p.DateOfBirth,
+            Email = p.Email,
+            Password = p.Password,
+            PhoneNumber1 = p.PhoneNumber1,
+            PhoneNumber2 = p.PhoneNumber2
+        };
         }
 
         
