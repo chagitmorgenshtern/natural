@@ -17,6 +17,18 @@ namespace DTO
 
         //-----------constructors-----------
 
+        public Categories1()
+        {
+
+        }
+        //gets dal and convert it to dto (by the ctor)
+        public Categories1(Dal.Categories c)
+        {
+            CategoryId = c.CategoryId;
+            CategoryName = c.CategoryName;
+
+        }
+
 
         //-----------methodes => converts-----------
 

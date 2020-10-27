@@ -9,28 +9,42 @@ namespace DTO
 {
     public class Meets1
     {
+
+        //-----------fields-----------
         public int MeetId { get; set; }
+        public Nullable<int> PatientId { get; set; }
+        public Nullable<int> TherapistId { get; set; }
+        public Nullable<System.DateTime> MeetDate { get; set; }
+        public Nullable<int> CategoryId { get; set; }
+
+        //-----------constructors-----------
+
+        public Meets1()
+        {
+
+        }
+        //gets dal and convert it to dto (by the ctor)
+        public Meets1(Dal.Meets m)
+        {
+            MeetId = m.MeetId;
+            PatientId = m.PatientId;
+            TherapistId = m.TherapistId;
+            MeetDate = m.MeetDate;
+            CategoryId = m.CategoryId;
+        }
+
+        //-----------methodes => converts-----------
 
         public static Meets Todal(Meets1 m)
         {
             return new Dal.Meets
             {
-                PatientId = m.PatientId,
-                TherapistId = m.TherapistId,
-                OkDate = m.OkDate,
-                ExecutionDate = m.ExecutionDate,
-                Cost = m.Cost,
-                Details = m.Details,
-                IsDone = m.IsDone
+             MeetId = m.MeetId,
+            PatientId = m.PatientId,
+            TherapistId = m.TherapistId,
+            MeetDate = m.MeetDate,
+            CategoryId = m.CategoryId
             };
         }
-
-        public string PatientId { get; set; }
-        public string TherapistId { get; set; }
-        public Nullable<System.DateTime> OkDate { get; set; }
-        public Nullable<System.DateTime> ExecutionDate { get; set; }
-        public Nullable<decimal> Cost { get; set; }
-        public string Details { get; set; }
-        public Nullable<bool> IsDone { get; set; }
     }
 }
