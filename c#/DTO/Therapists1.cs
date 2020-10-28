@@ -23,14 +23,51 @@ namespace DTO
         public string Address { get; set; }
         public string AboutMe { get; set; }
         public string Diploma { get; set; }
+        //-----------constructors-----------
+
+        public Therapists1()
+        {
+
+        }
+        //gets dal and convert it to dto (by the ctor)
+        public Therapists1(Dal.Therapists t)
+        {
+            TherapistId = t.TherapistId;
+            FirstName = t.FirstName;
+            LastName = t.LastName;
+            TherapistTz = t.TherapistTz;
+            DateOfBirth = t.DateOfBirth;
+            PhoneNumber = t.PhoneNumber;
+            Email = t.Email;
+            Password = t.Password;
+            Image = t.Image;
+            ServiceAreaId = t.ServiceAreaId;
+            Address = t.Address;
+            AboutMe = t.AboutMe;
+            Diploma = t.Diploma;
+        }
+
+
 
         //-----------methodes => converts-----------
         public static Therapists Todal(Therapists1 t)
         {
             return new Dal.Therapists
             {
-
-            };
+            TherapistId = t.TherapistId,
+            FirstName = t.FirstName,
+            LastName = t.LastName,
+            TherapistTz = t.TherapistTz,
+            DateOfBirth = t.DateOfBirth,
+            PhoneNumber = t.PhoneNumber,
+            Email = t.Email,
+            Password = t.Password,
+            Image = t.Image,
+            ServiceAreaId = t.ServiceAreaId,
+            Address = t.Address,
+            AboutMe = t.AboutMe,
+            Diploma = t.Diploma
+        };
         }
 
        
