@@ -72,11 +72,21 @@
 
 #in{
     margin-left: 1vw;
+    color: white;
 }
-
+#in:hover
+{
+    color:chartreuse;
+}
 #up{
     margin-left: 2vw;
+    color: white;
 }
+#up:hover
+{
+    color:chartreuse;
+}
+
 
 
 

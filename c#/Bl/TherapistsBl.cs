@@ -11,5 +11,18 @@ namespace Bl
             Therapists therapist = Therapists1.Todal(t);
             return Dal.TherapistsDal.Register(therapist);
         }
+
+        //Get
+        public static Therapists1 GetById(int id)
+        {
+            DTO.Therapists1 cc = new Therapists1(Dal.TherapistsDal.GetById(id));
+            return cc;
+        }
+        //Delete
+        public static void DeleteById(int id)
+        {
+            Dal.TherapistsDal.DeleteById(id);
+        }
+
     }
 }

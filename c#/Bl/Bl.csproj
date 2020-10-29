@@ -51,13 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicantsBl.cs" />
+    <Compile Include="ArchivesBl.cs" />
     <Compile Include="CategoriesBl.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="FeedbacksBl.cs" />
     <Compile Include="MeetsBl.cs" />
     <Compile Include="PatientsBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceAreasBl.cs" />
     <Compile Include="TherapistsBl.cs" />
+    <Compile Include="WorkHoursBl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dal\Dal.csproj">

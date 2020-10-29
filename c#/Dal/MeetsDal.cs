@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Dal
 {
@@ -6,7 +7,6 @@ namespace Dal
     {
         public static bool Register(Meets m)
         {
-
             try
             {
                 using (Natural_wayEntities3 db = new Natural_wayEntities3())
@@ -21,5 +21,48 @@ namespace Dal
             }
             return true;
         }
+
+
+        //GetById
+        public static Meets GetById(int id)
+        {
+
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    //where אפשר גם לפי
+                    return db.Meets.Find(id);
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+        }
+
+
+        //Delete
+        public static bool DeleteById(int id)
+        {
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    //db.Entry(item).State = EntityState.Deleted;
+                    //pay <3!!! delete by id
+                    db.Meets.Remove(db.Meets.Where(x => x.MeetId == id).FirstOrDefault());
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
     }
 }

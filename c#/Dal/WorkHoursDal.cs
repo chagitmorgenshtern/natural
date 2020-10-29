@@ -6,7 +6,63 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    class WorkHoursDal
+    public class WorkHoursDal
     {
+        //Post-Add new
+
+        public static bool AddWorkHours(WorkHours w)
+        {
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    db.WorkHours.Add(w);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        //GetById
+        public static WorkHours GetById(int id)
+        {
+
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    return db.WorkHours.Find(id);
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+        }
+
+
+        //Delete
+        public static bool DeleteById(int id)
+        {
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    db.WorkHours.Remove(db.WorkHours.Where(x => x.WorkHoursId == id).FirstOrDefault());
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
     }
 }

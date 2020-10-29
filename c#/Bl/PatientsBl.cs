@@ -9,9 +9,22 @@ namespace Bl
         public static bool Register(Patients1 p)
         {
              
-            Patient patient = Patients1.Todal(p);
-            return PatientsDal.Register(patient);
-                
+            Patients patient = Patients1.Todal(p);
+            return PatientsDal.Register(patient);      
         }
+
+        //Get
+        public static Patients1 GetById(int id)
+        {
+            DTO.Patients1 cc = new Patients1(Dal.PatientsDal.GetById(id));
+            return cc;
+
+        }
+        //Delete
+        public static void DeleteById(int id)
+        {
+            Dal.PatientsDal.DeleteById(id);
+        }
+
     }
 }

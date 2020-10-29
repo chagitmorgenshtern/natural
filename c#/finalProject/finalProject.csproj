@@ -228,7 +228,6 @@
     <Compile Include="Controllers\MeetsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ServiceAreasController.cs" />
-    <Compile Include="Controllers\StandByMeetsController.cs" />
     <Compile Include="Controllers\TherapistsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -301,6 +300,7 @@
     <Folder Include="Views\ServiceAraes\" />
     <Folder Include="Views\StandByMeets\" />
     <Folder Include="Views\Therapists\" />
+    <Folder Include="Views\WorkHours\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

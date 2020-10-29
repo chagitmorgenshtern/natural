@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    class ApplicantsDal
+   public class ApplicantsDal
     {
         //Post-Add new
 
@@ -26,5 +26,45 @@ namespace Dal
                 return false;
             }
         }
+        //GetById
+        public static Applicants GetById(int id)
+        {
+
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    return db.Applicants.Find(id);
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+        }
+
+
+        //Delete
+        public static bool DeleteById(int id)
+        {
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    db.Applicants.Remove(db.Applicants.Where(x => x.ApplicantId == id).FirstOrDefault());
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
+
     }
 }
