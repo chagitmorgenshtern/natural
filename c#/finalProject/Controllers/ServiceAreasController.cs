@@ -13,6 +13,28 @@ namespace finalProject.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ServiceAreasController : ApiController
     {
-        
+        [HttpPost]
+        [Route("AddServiceAreas")]
+        public IHttpActionResult AddServiceAreas([FromBody] DTO.ServiceAreas1 s)
+        {
+
+            Bl.ServiceAreasBl.AddServiceAreas(s);
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("GetById")]
+        public IHttpActionResult GetById([FromBody] int id)
+        {
+            return Ok(Bl.ServiceAreasBl.GetById(id));
+        }
+
+        [HttpDelete]
+        [Route("DeleteById")]
+        public IHttpActionResult DeleteById([FromBody] int id)
+        {
+            Bl.ServiceAreasBl.DeleteById(id);
+            return Ok();
+        }
     }
 }

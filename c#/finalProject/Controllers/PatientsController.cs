@@ -31,5 +31,20 @@ namespace finalProject.Controllers
                 return Ok();
             return BadRequest();
         }
+
+        [HttpGet]
+        [Route("GetById")]
+        public IHttpActionResult GetById([FromBody] int id)
+        {
+            return Ok(Bl.PatientsBl.GetById(id));
+        }
+
+        [HttpDelete]
+        [Route("DeleteById")]
+        public IHttpActionResult DeleteById([FromBody] int id)
+        {
+            Bl.PatientsBl.DeleteById(id);
+            return Ok();
+        }
     }
 }

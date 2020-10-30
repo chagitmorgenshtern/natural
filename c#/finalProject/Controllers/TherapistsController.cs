@@ -15,6 +15,7 @@ namespace finalProject.Controllers
     {
         [HttpGet]
         [Route("login")]
+         //לשנות בהמשך לפי מה שמתאים
         public IHttpActionResult Login()
         {
             return Ok("hello");
@@ -26,5 +27,21 @@ namespace finalProject.Controllers
             Bl.TherapistsBl.Register(t);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("GetById")]
+        public IHttpActionResult GetById([FromBody] int id)
+        {
+            return Ok(Bl.TherapistsBl.GetById(id));
+        }
+
+        [HttpDelete]
+        [Route("DeleteById")]
+        public IHttpActionResult DeleteById([FromBody] int id)
+        {
+            Bl.TherapistsBl.DeleteById(id);
+            return Ok();
+        }
+
     }
 }

@@ -8,7 +8,7 @@ using Dal;
 
 namespace Bl
 {
-    class ArchivesBl
+    public class ArchivesBl
     {
         //Post
         public static void AddArchives(Archives1 a)

@@ -25,14 +25,14 @@ namespace finalProject.Controllers
         [Route("GetById")]
         public IHttpActionResult GetById([FromBody] int id)
         {
-            return Ok(Bl.FeedbacksBl.GetById(id));
+            return Ok(Bl.CategoriesBl.GetById(id));
         }
 
         [HttpDelete]
         [Route("DeleteById")]
         public IHttpActionResult DeleteById([FromBody] int id)
         {
-            Bl.FeedbacksBl.DeleteById(id);
+            Bl.CategoriesBl.DeleteById(id);
             return Ok();
         }
     }

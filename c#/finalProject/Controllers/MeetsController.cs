@@ -20,5 +20,20 @@ namespace finalProject.Controllers
             Bl.MeetsBl.Register(m);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("GetById")]
+        public IHttpActionResult GetById([FromBody] int id)
+        {
+            return Ok(Bl.MeetsBl.GetById(id));
+        }
+
+        [HttpDelete]
+        [Route("DeleteById")]
+        public IHttpActionResult DeleteById([FromBody] int id)
+        {
+            Bl.MeetsBl.DeleteById(id);
+            return Ok();
+        }
     }
 }

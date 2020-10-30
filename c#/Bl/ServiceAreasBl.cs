@@ -7,7 +7,7 @@ using DTO;
 
 namespace Bl
 {
-    class ServiceAreasBl
+    public class ServiceAreasBl
     {
         //Post
         public static void AddServiceAreas(ServiceAreas1 s)
