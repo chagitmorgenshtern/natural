@@ -80,10 +80,19 @@
 
 #in{
     margin-left: 1vw;
+    color: white;
 }
-
+#in:hover
+{
+    color:chartreuse;
+}
 #up{
     margin-left: 2vw;
+    color: white;
+}
+#up:hover
+{
+    color:chartreuse;
 }
 
 
@@ -140,11 +149,6 @@
     grid-area: 2 / 4 / 6 / 10  !important; 
 } */
 
-.headerSignup
-{
-    
-
-}
 
 .form-control{
     width: 50% ;
@@ -198,21 +202,4 @@
 }
 
 
-
-#in{
-    margin-left: 1vw;
-    color: white;
-}
-#in:hover
-{
-    color:chartreuse;
-}
-#up{
-    margin-left: 2vw;
-    color: white;
-}
-#up:hover
-{
-    color:chartreuse;
-}
 
