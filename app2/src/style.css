@@ -14,7 +14,6 @@
     padding: 0;
     margin: 0;
 }
-
 .bg-light {
     background-color: #f8f9fa00!important;
 }
@@ -57,34 +56,10 @@
     margin-right: 20vw;
     box-shadow: 0 0 9px 2px #c0c0c0;
 }
-.readMore
-{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-}
-.therapists
-{
-    
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-}
-.therapists_header
-{
-    text-align: center;
-  background-color:darkcyan;
-  height:5vw;
-      font-size: medium;
 
-}
 .homepage_header{
     text-align: left;
-   
+
     font-size: medium;
 }
 
@@ -92,25 +67,24 @@
     float: right !important;
 }
 
+.label{
+    margin-bottom: .5rem;
+    color: #69c5c1;
+    font-weight: 700;
+    font-size: x-large;
+}
 
+.label:hover{
+    color: white !important;
+}
 
 #in{
     margin-left: 1vw;
-    color: white;
-}
-#in:hover
-{
-    color:chartreuse;
-}
-#up{
-    margin-left: 2vw;
-    color: white;
-}
-#up:hover
-{
-    color:chartreuse;
 }
 
+#up{
+    margin-left: 2vw;
+}
 
 
 
@@ -186,3 +160,59 @@
 #login{
     justify-content: center !important;
 }
+
+
+.readMore
+{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+}
+.therapists
+{
+    
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+}
+.therapists_header
+{
+    text-align: center;
+  background-color:darkcyan;
+  height:5vw;
+      font-size: medium;
+
+}
+.homepage_header{
+    text-align: left;
+   
+    font-size: medium;
+}
+
+#icon{
+    float: right !important;
+}
+
+
+
+#in{
+    margin-left: 1vw;
+    color: white;
+}
+#in:hover
+{
+    color:chartreuse;
+}
+#up{
+    margin-left: 2vw;
+    color: white;
+}
+#up:hover
+{
+    color:chartreuse;
+}
+

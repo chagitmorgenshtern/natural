@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities1">
+  <EntityContainerMapping StorageEntityContainer="Natural_wayModelStoreContainer" CdmEntityContainer="Natural_wayEntities3">
     <EntitySetMapping Name="Applicants">
       <EntityTypeMapping TypeName="Natural_wayModel.Applicants">
         <MappingFragment StoreEntitySet="Applicants">

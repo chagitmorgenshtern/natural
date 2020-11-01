@@ -6,7 +6,6 @@ import btn_read_more from '../images/btn_read_more01.png'
 import btn_to_therapists from '../images/btn01.png'
 import icon from '../images/tempIcon.png'
 import { Link } from 'react-router-dom'
-
 // import { NavDropdown } from 'react-bootstrap';
 class HomePage extends Component {
     state = {
@@ -40,7 +39,7 @@ class HomePage extends Component {
                     <Link to="/signupTh"><label id="in">כניסה</label></Link>
                     <Link to="/signup"><label id="up">הרשמה</label></Link>
                 </header>
-            
+
                 <article className="article">
 
                     <h1 className="slogen" >הדרך החדשה <br />לרפואה משלימה</h1>
@@ -49,12 +48,10 @@ class HomePage extends Component {
                 <br />למטפלים בתחום הרפואה משלימה
                 <br />אשר נותן שירותים לשני הצדדים: המטפל והמטופל...
                 </article>
-              
                 {/* להפוך את התמונה לקישור-באחד משניהם */}
                 <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
-                
+
                 <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
-                
             </div>
         );
     }
