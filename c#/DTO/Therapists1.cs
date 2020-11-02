@@ -70,6 +70,13 @@ namespace DTO
         };
         }
 
-       
+        public static List<Therapists1> ConvertToListDto(List<Therapists> lst)
+        {
+            if (lst == null)
+                return null;               
+            return lst.Select(t => new Therapists1(t)).ToList();
+        }
+
+
     }
 }

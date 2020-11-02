@@ -22,8 +22,8 @@
     <Property Name="CategoryId" Type="Int32" />
     <Property Name="IsDone" Type="Boolean" />
     <NavigationProperty Name="Categories" Relationship="Self.FK_Archives_Categories" FromRole="Archives" ToRole="Categories" />
-    <NavigationProperty Name="Categories1" Relationship="Self.FK_Archives_Categories1" FromRole="Archives" ToRole="Categories" />
     <NavigationProperty Name="Therapists" Relationship="Self.FK_Archives_Therapists" FromRole="Archives" ToRole="Therapists" />
+    <NavigationProperty Name="Patients" Relationship="Natural_wayModel.FK_Archives_Patients" FromRole="Archives" ToRole="Patients" />
   </EntityType>
   <EntityType Name="Categories">
     <Key>
@@ -32,7 +32,6 @@
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
     <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Categories" FromRole="Categories" ToRole="Archives" />
-    <NavigationProperty Name="Archives1" Relationship="Self.FK_Archives_Categories1" FromRole="Categories" ToRole="Archives" />
     <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Categories" FromRole="Categories" ToRole="Meets" />
     <NavigationProperty Name="Therapists" Relationship="Self.Categories_Therapists" FromRole="Categories" ToRole="Therapists" />
   </EntityType>
@@ -48,6 +47,7 @@
     <Property Name="Expertise" Type="Int32" />
     <Property Name="FeedbackDate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Therapists" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Feedbacks" ToRole="Therapists" />
+    <NavigationProperty Name="Patients" Relationship="Natural_wayModel.FK_Feedbacks_Patients" FromRole="Feedbacks" ToRole="Patients" />
   </EntityType>
   <EntityType Name="Meets">
     <Key>
@@ -60,6 +60,7 @@
     <Property Name="CategoryId" Type="Int32" />
     <NavigationProperty Name="Categories" Relationship="Self.FK_Meets_Categories" FromRole="Meets" ToRole="Categories" />
     <NavigationProperty Name="Therapists" Relationship="Self.FK_Meets_Therapists" FromRole="Meets" ToRole="Therapists" />
+    <NavigationProperty Name="Patients" Relationship="Natural_wayModel.FK_Meets_Patients" FromRole="Meets" ToRole="Patients" />
   </EntityType>
   <EntityType Name="Patients">
     <Key>
@@ -74,6 +75,9 @@
     <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="PhoneNumber1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="PhoneNumber2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Archives" Relationship="Natural_wayModel.FK_Archives_Patients" FromRole="Patients" ToRole="Archives" />
+    <NavigationProperty Name="Feedbacks" Relationship="Natural_wayModel.FK_Feedbacks_Patients" FromRole="Patients" ToRole="Feedbacks" />
+    <NavigationProperty Name="Meets" Relationship="Natural_wayModel.FK_Meets_Patients" FromRole="Patients" ToRole="Meets" />
   </EntityType>
   <EntityType Name="ServiceAreas">
     <Key>
@@ -81,7 +85,7 @@
     </Key>
     <Property Name="SAId" Type="Int32" Nullable="false" />
     <Property Name="SAName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="ServiceAreas" ToRole="Therapists" />
+    <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas1" FromRole="ServiceAreas" ToRole="Therapists" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -113,7 +117,7 @@
     <NavigationProperty Name="Archives" Relationship="Self.FK_Archives_Therapists" FromRole="Therapists" ToRole="Archives" />
     <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedbacks_Therapists" FromRole="Therapists" ToRole="Feedbacks" />
     <NavigationProperty Name="Meets" Relationship="Self.FK_Meets_Therapists" FromRole="Therapists" ToRole="Meets" />
-    <NavigationProperty Name="ServiceAreas" Relationship="Self.FK_Therapists_ServiceAreas" FromRole="Therapists" ToRole="ServiceAreas" />
+    <NavigationProperty Name="ServiceAreas" Relationship="Self.FK_Therapists_ServiceAreas1" FromRole="Therapists" ToRole="ServiceAreas" />
     <NavigationProperty Name="WorkHours" Relationship="Self.FK_WorkHours_Therapists" FromRole="Therapists" ToRole="WorkHours" />
     <NavigationProperty Name="Categories" Relationship="Self.Categories_Therapists" FromRole="Therapists" ToRole="Categories" />
   </EntityType>
@@ -128,18 +132,6 @@
     <NavigationProperty Name="Therapists" Relationship="Self.FK_WorkHours_Therapists" FromRole="WorkHours" ToRole="Therapists" />
   </EntityType>
   <Association Name="FK_Archives_Categories">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-    <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categories">
-        <PropertyRef Name="CategoryId" />
-      </Principal>
-      <Dependent Role="Archives">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Archives_Categories1">
     <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
     <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
     <ReferentialConstraint>
@@ -199,7 +191,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Therapists_ServiceAreas">
+  <Association Name="FK_Therapists_ServiceAreas1">
     <End Role="ServiceAreas" Type="Self.ServiceAreas" Multiplicity="0..1" />
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
     <ReferentialConstraint>
@@ -227,7 +219,7 @@
     <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="Natural_wayEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Natural_wayEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Applicants" EntityType="Self.Applicants" />
     <EntitySet Name="Archives" EntityType="Self.Archives" />
     <EntitySet Name="Categories" EntityType="Self.Categories" />
@@ -239,10 +231,6 @@
     <EntitySet Name="Therapists" EntityType="Self.Therapists" />
     <EntitySet Name="WorkHours" EntityType="Self.WorkHours" />
     <AssociationSet Name="FK_Archives_Categories" Association="Self.FK_Archives_Categories">
-      <End Role="Categories" EntitySet="Categories" />
-      <End Role="Archives" EntitySet="Archives" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Archives" EntitySet="Archives" />
     </AssociationSet>
@@ -262,7 +250,7 @@
       <End Role="Therapists" EntitySet="Therapists" />
       <End Role="Meets" EntitySet="Meets" />
     </AssociationSet>
-    <AssociationSet Name="FK_Therapists_ServiceAreas" Association="Self.FK_Therapists_ServiceAreas">
+    <AssociationSet Name="FK_Therapists_ServiceAreas1" Association="Self.FK_Therapists_ServiceAreas1">
       <End Role="ServiceAreas" EntitySet="ServiceAreas" />
       <End Role="Therapists" EntitySet="Therapists" />
     </AssociationSet>
@@ -274,5 +262,53 @@
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Therapists" EntitySet="Therapists" />
     </AssociationSet>
+    <AssociationSet Name="FK_Archives_Patients" Association="Natural_wayModel.FK_Archives_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Archives" EntitySet="Archives" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedbacks_Patients" Association="Natural_wayModel.FK_Feedbacks_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Feedbacks" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Meets_Patients" Association="Natural_wayModel.FK_Meets_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Meets" EntitySet="Meets" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_Archives_Patients">
+    <End Type="Natural_wayModel.Patients" Role="Patients" Multiplicity="0..1" />
+    <End Type="Natural_wayModel.Archives" Role="Archives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="Archives">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feedbacks_Patients">
+    <End Type="Natural_wayModel.Patients" Role="Patients" Multiplicity="0..1" />
+    <End Type="Natural_wayModel.Feedbacks" Role="Feedbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="Feedbacks">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Meets_Patients">
+    <End Type="Natural_wayModel.Patients" Role="Patients" Multiplicity="0..1" />
+    <End Type="Natural_wayModel.Meets" Role="Meets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="Meets">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

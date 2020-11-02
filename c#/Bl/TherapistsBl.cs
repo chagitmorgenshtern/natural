@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using Dal;
+using System.Collections.Generic;
 
 namespace Bl
 {
@@ -15,8 +16,13 @@ namespace Bl
         //Get
         public static Therapists1 GetById(int id)
         {
-            DTO.Therapists1 cc = new Therapists1(Dal.TherapistsDal.GetById(id));
-            return cc;
+            DTO.Therapists1 tt = new Therapists1(Dal.TherapistsDal.GetById(id));
+            return tt;
+        }
+        //GetAll
+        public static List<Therapists1> GetAll()
+        {
+            return DTO.Therapists1.ConvertToListDto(Dal.TherapistsDal.GetAll());
         }
         //Delete
         public static void DeleteById(int id)

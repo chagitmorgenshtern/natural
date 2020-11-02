@@ -45,7 +45,24 @@ namespace Dal
 
         }
 
+        //GetAll
+        public static List<Therapists> GetAll()
+        {
 
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    return db.Therapists.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+        }
         //Delete
         public static bool DeleteById(int id)
         {
