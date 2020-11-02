@@ -77,9 +77,9 @@
 .therapists_header
 {
     text-align: center;
-  background-color:darkcyan;
-  height:5vw;
-      font-size: medium;
+    background-color:darkcyan;
+    height:5vw;
+    font-size: medium;
 
 }
 .homepage_header{
@@ -111,7 +111,10 @@
     color:chartreuse;
 }
 
-
+#label
+{
+    margin-top: 10vh;
+}
 
 
 .signup{

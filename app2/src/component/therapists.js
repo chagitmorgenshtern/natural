@@ -15,14 +15,15 @@ class Therapists extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
+                <span> 
             <header className="therapists_header">
                     {/* <img src={icon} id="icon" /> */}
-                    <br></br><br></br>
-                    <Link to="/signupTh"><label id="in">אודות</label></Link>
-                    <Link to="/signup"><label id="up">המטפלים שלנו</label></Link>
-                    <Link to="/signupTh"><label id="in">האזור האישי</label></Link>
-                    <Link to="/signup"><label id="up">צור קשר</label></Link>
-                </header>
+                   
+                    <Link to="/signupTh"><label id="labal" >אודות</label></Link>
+                    <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
+                    <Link to="/signupTh"><label id="labal">האזור האישי</label></Link>
+                    <Link to="/signup"><label id="labal">צור קשר</label></Link>
+                </header></span>
             <h3>המטפלים שלנו</h3>
 
             </div>
