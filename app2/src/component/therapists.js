@@ -6,6 +6,7 @@ import TherapistCard from './therapistCard'
 import axios from 'axios'
 import instance from '../axios';
 
+
 class Therapists extends Component {
     state = {
         therapists: []
@@ -13,7 +14,9 @@ class Therapists extends Component {
 
     componentDidMount() {
         axios.get('https://localhost:44310/api/therapists/GetAll').then(res => this.setState({ therapists: res.data }))
+        const t_Component= this.state.therapists.map(x=> <TherapistCard firstName={x.FirstName} lastName={x.LastName} category={x.Category} serviceArea={x.ServiceArea}/>)
     }
+
 
     render() {
         return (
@@ -45,7 +48,9 @@ class Therapists extends Component {
                     <Link to="/signup"><label id="up">צור קשר</label></Link>
                 </header>
                 <h3>המטפלים שלנו</h3>
-                <TherapistCard />
+
+               
+               
 
             </div>
         );
