@@ -31,14 +31,14 @@
     font-size: 170%;
     margin-bottom: 1vh;
 }
-.label{
+#labal{
     margin-bottom: .5rem;
     color: #69c5c1;
     font-weight: 700;
-    font-size: x-large;
+    font-size: large;
 }
 
-.label:hover{
+#labal:hover{
     color: white !important;
 }
 #img_read_more{

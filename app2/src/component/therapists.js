@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Transition_background from '../images/Transition_background.jpg';
 import icon from '../images/tempIcon.png'
-import { Link } from 'react-router-dom'
-import TherapistCard from './therapistCard'
+import { Link } from 'react-router-dom';
+import TherapistCard from './therapistCard';
 import axios from 'axios'
 import instance from '../axios';
+// import TherapistCard from './therapistCard';
 
 
 class Therapists extends Component {
@@ -13,7 +14,7 @@ class Therapists extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://localhost:44310/api/therapists/GetAll').then(res => this.setState({ therapists: res.data }))
+       axios.get('https://localhost:44310/api/therapists/GetAll').then(res => this.setState({ therapists: res.data }))
         const t_Component= this.state.therapists.map(x=> <TherapistCard firstName={x.FirstName} lastName={x.LastName} category={x.Category} serviceArea={x.ServiceArea}/>)
     }
 
@@ -39,19 +40,10 @@ class Therapists extends Component {
             <h3>המטפלים שלנו</h3>
 
 
-                <header className="therapists_header">
-                    {/* <img src={icon} id="icon" /> */}
-                    <br></br><br></br>
-                    <Link to="/signupTh"><label id="in">אודות</label></Link>
-                    <Link to="/signup"><label id="up">המטפלים שלנו</label></Link>
-                    <Link to="/signupTh"><label id="in">האזור האישי</label></Link>
-                    <Link to="/signup"><label id="up">צור קשר</label></Link>
-                </header>
-                <h3>המטפלים שלנו</h3>
-
+              
                
-               
-
+            <TherapistCard/> <TherapistCard/>
+           
             </div>
         );
     }
