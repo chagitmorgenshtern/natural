@@ -28,7 +28,7 @@ class Therapists extends Component {
                 backgroundRepeat: 'no-repeat'
             }}>
  
-                <span> 
+                 
             <header className="therapists_header">
                     {/* <img src={icon} id="icon" /> */}
                    
@@ -36,7 +36,7 @@ class Therapists extends Component {
                     <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
                     <Link to="/signupTh"><label id="labal">האזור האישי</label></Link>
                     <Link to="/signup"><label id="labal">צור קשר</label></Link>
-                </header></span>
+                </header>
             <h3>המטפלים שלנו</h3>
 
 
