@@ -15,26 +15,27 @@ class ReadMore extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
-                 <header className="therapists_header">
+                <header className="therapists_header">
                     {/* <img src={icon} id="icon" /> */}
-                   
+
                     <Link to="/signupTh"><label id="labal" >אודות</label></Link>
                     <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
                     <Link to="/signupTh"><label id="labal">האזור האישי</label></Link>
                     <Link to="/signup"><label id="labal">צור קשר</label></Link>
                 </header>
-            <center><h4 className="TitleReadMore">אז מה האתר שלנו בעצם מציע....?  </h4></center>
-            
-           
-            
-            
-            
-            
-            
-            
+                <center><h4 className="TitleReadMore">אז מה האתר שלנו בעצם מציע....?  </h4></center>
+                <div className="main_content_div">div</div>
+
+
+
+
+
+
+
+
             </div>
         );
-    
+
     }
 }
 
