@@ -14,19 +14,20 @@ class Therapists extends Component {
     }
 
     componentDidMount() {
-       axios.get('therapists/GetAll')
-       .then(res => {
-         console.log(res);  
-        this.setState({ therapists: [...res.data ]  }); } )
-    
-    
+        axios.get('therapists/GetAll')
+            .then(res => {
+                console.log(res);
+                this.setState({ therapists: [...res.data] });
+            })
+
+
     }
 
 
     render() {
-        const therapistList= this.state.therapists.map((t,index) => {
+        const therapistList = this.state.therapists.map((t, index) => {
             return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
-             category={t.Category} serviceArea={t.ServiceArea} key={index}></TherapistCard>
+                category={t.Category} serviceArea={t.ServiceArea} key={index} />
         });
         return (
             <div className="therapists" style={{
@@ -35,23 +36,23 @@ class Therapists extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
- 
-                 
-            <header className="therapists_header">
+
+
+                <header className="therapists_header">
                     {/* <img src={icon} id="icon" /> */}
-                    
+
                     <Link to="/signupTh"><label id="labal" >אודות</label></Link>
                     <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
                     <Link to="/signupTh"><label id="labal">האזור האישי</label></Link>
-                    <Link to="/signup"><label id="labal">צור קשר</label></Link>                   
+                    <Link to="/signup"><label id="labal">צור קשר</label></Link>
                 </header>
-            <h3>המטפלים שלנו</h3>
+                <h3>המטפלים שלנו</h3>
                 {therapistList}
-                <TherapistCard/>
-              
-               
-           
-           
+
+                {/* <TherapistCard /> */}
+
+
+
             </div>
         );
     }
