@@ -15,7 +15,9 @@ class Therapists extends Component {
 
     componentDidMount() {
        axios.get('therapists/GetAll')
-       .then(res => { this.setState({ therapists: [...res.data ]  }); } )
+       .then(res => {
+         console.log(res);  
+        this.setState({ therapists: [...res.data ]  }); } )
     
     
     }

@@ -219,7 +219,31 @@
     padding: 0;
     margin: 0;
 }
+/* 
+.inf_therapist
+{
+    
+    color:white;
+    margin-right: 10%;
+    margin-top:2.5%;
+    width: 20vw;
+    height: 15vw;
+
+} */
 
 
+.carousel.slide{
+    width: 55% !important; 
+    height: 25%!important;
+    margin-right: 20% !important;
+    margin-left: 10% !important;
+}
 
-
+.main_content{
+    margin-top:5%;
+    background-color: #fcfcfc82;
+    box-shadow: 0 0 16px 7px #ffffffcc;
+    width: 60%;
+    height: 100%;
+    margin-right: 20%;
+}

@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 namespace finalProject.Controllers
 {
     [RoutePrefix("api/therapists")]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TherapistsController : ApiController
     {
         [HttpGet]
