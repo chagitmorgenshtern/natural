@@ -54,19 +54,19 @@ namespace DTO
         {
             return new Dal.Therapists
             {
-            TherapistId = t.TherapistId,
-            FirstName = t.FirstName,
-            LastName = t.LastName,
-            TherapistTz = t.TherapistTz,
-            DateOfBirth = t.DateOfBirth,
-            PhoneNumber = t.PhoneNumber,
-            Email = t.Email,
-            Password = t.Password,
-            Image = t.Image,
-            ServiceAreaId = t.ServiceAreaId,
-            Address = t.Address,
-            AboutMe = t.AboutMe,
-            Diploma = t.Diploma
+                TherapistId = t.TherapistId,
+                FirstName = t.FirstName,
+                LastName = t.LastName,
+                TherapistTz = t.TherapistTz,
+                DateOfBirth = t.DateOfBirth,
+                PhoneNumber = t.PhoneNumber,
+                Email = t.Email,
+                Password = t.Password,
+                Image = t.Image,
+                ServiceAreaId = t.ServiceAreaId,
+                Address = t.Address,
+                AboutMe = t.AboutMe,
+                Diploma = t.Diploma
         };
         }
 

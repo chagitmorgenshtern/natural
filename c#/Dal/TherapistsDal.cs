@@ -53,7 +53,8 @@ namespace Dal
             {
                 using (Natural_wayEntities3 db = new Natural_wayEntities3())
                 {
-                    return db.Therapists.ToList();
+                    List<Therapists> lst = db.Therapists.ToList();
+                    return lst;
                 }
             }
             catch (Exception e)

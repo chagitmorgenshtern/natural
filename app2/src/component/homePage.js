@@ -51,7 +51,7 @@ class HomePage extends Component {
                 {/* להפוך את התמונה לקישור-באחד משניהם */}
                 <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
 
-                <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
+                <Link to= "/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
             </div>
         );
     }

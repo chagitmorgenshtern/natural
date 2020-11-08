@@ -5,12 +5,12 @@ import icon from '../images/tempIcon.png'
 //להוסיף תמונה -לשאול איך
 
 class TherapistCard extends Component {
-    constructor() {
-        super()
-        this.state = {
-            name: ""
-        }
-    }
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         name: ""
+    //     }
+   //}
     render() {
         return (
             <div className="therapistCard">
