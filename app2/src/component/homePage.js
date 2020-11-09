@@ -7,19 +7,25 @@ import btn_to_therapists from '../images/btn01.png'
 import icon from '../images/tempIcon.png'
 import { Link } from 'react-router-dom'
 import Signup from './signup';
+import Login from './login';
 // import { NavDropdown } from 'react-bootstrap';
 class HomePage extends Component {
 
     state = {
-        displaySignup: false
+        displaySignup: false,
+        displayLogIn: false
     }
 
-    handleClick() {
+    openSignUp() {
         alert("cscsc");
         this.setState({ displaySignup: true });
 
     }
+    openLogIn() {
+        alert("1323");
+        this.setState({ displayLogIn: true });
 
+    }
     render() {
 
         return (
@@ -46,8 +52,8 @@ class HomePage extends Component {
 
                 <header className="homepage_header">
                     <img src={icon} id="icon" />
-                    <label id="in" onClick={this.handleClick.bind(this)}>כניסה</label>
-                    <Link to="/signup"><label id="up">הרשמה</label></Link>
+                    <label id="in" onClick={this.openLogIn.bind(this)}>כניסה</label>
+                   <label id="up" onClick={this.openSignUp.bind(this)}>הרשמה</label>
                 </header>
 
                 <article className="article">
@@ -61,9 +67,9 @@ class HomePage extends Component {
                 {/* <Signup/> */}
                 {/* להפוך את התמונה לקישור-באחד משניהם */}
                 <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
-
                 <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
-               <div>{this.state.displaySignup && <Signup />} </div> 
+              {this.state.displaySignup && <Signup />} 
+               {this.state.displayLogIn && <Login />} 
             </div>
         );
     }
