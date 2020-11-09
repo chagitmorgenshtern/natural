@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../axios'
 import { Form, Col, Button } from 'react-bootstrap';
+import arrow from '../images/arrow.png'
 
 class Signup extends Component {
     state = {
@@ -17,69 +18,58 @@ class Signup extends Component {
         }
 
     }
-
-
     render() {
         return (
             <div className="signup">
                 {/* <form> */}
                 <Form>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Control placeholder="שם פרטי" />
+                        <Form.Group as={Col} controlId="first_name">
+                            <Form.Control placeholder="שם פרטי"  />
                         </Form.Group>
 
-                        <Form.Group as={Col}>
+                        <Form.Group as={Col} controlId="last_name">
                             <Form.Control placeholder="שם משפחה" />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col} controlId="id">
                             <Form.Control placeholder=".ת.ז" />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Control type="date" placeholder="תאריך לידה" />
+                        <Form.Group as={Col} controlId="date">
+                            <Form.Control type="date" placeholder="תאריך לידה"  />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="Phone1">
+                            <Form.Control type="Phone" placeholder="טלפון" />
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="Phone2">
+                            <Form.Control placeholder="טלפון נוסף" />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="email">
+                            <Form.Control type="mail" placeholder="כתובת מייל" />
                         </Form.Group>
                     </Form.Row>
                 </Form>
-                {/* <center><h2 className="headerSignup">הרשמת מטופל</h2></center><br></br>
+               <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
+               <Form> 
+               <Form.Row>
+                        <Form.Group as={Col} controlId="password">
+                            <Form.Control type="password"placeholder="סיסמא"  />
+                        </Form.Group>
 
-
-                    <input type="text" placeholder="Your first name" id="Firstname" onChange={(event) => this.inputChange(event)} />
-                    <label>:שם פרטי</label><br></br>
-
-                    <input type="text" placeholder="Your last name" id="Lastname" onChange={(event) => this.inputChange(event)} />
-                    <label>:שם משפחה</label><br></br>
-
-                    <input type="text" placeholder="ID number" id="PatientTz" onChange={(event) => this.inputChange(event)} />
-                    <label>:תעודת זהות</label><br></br>
-
-                    <input type="date" placeholder="Date of Birth" id="DateOfBirth" onChange={(event) => this.inputChange(event)} />
-                    <label>:תאריך לידה</label><br></br>
-
-                    <input type="text" id="PhoneNumber1" onChange={(event) => this.inputChange(event)} />
-                    <label>:מספר פלאפון</label> <br></br>
-
-                    <input type="text" id="PhoneNumber2" onChange={(event) => this.inputChange(event)} />
-                    <label>:פלאפון נוסף</label><br></br>
-
-                    <input type="text" id="Email" onChange={(event) => this.inputChange(event)} />
-                    <label>:כתובת מייל</label><br></br>
-
-                    <label>בחר את הסיסמא שתשרת אותך בכניסתך לאתר</label>
-                    <br></br>
-
-                    <input type="password" id="Password" onChange={(event) => this.inputChange(event)} />
-                    <label>:סיסמא</label><br></br>
-
-                    <input type="password" id="Valid-Password" />
-                    <label>:אימות סיסמא</label><br></br>
-
-                    <input type="button" value="button" onClick={() => this.newPateintHandler(this.state.patient)} />
-                    <center><input type="submit" value="אישור" onClick={() => this.newPateintHandler(this.state.patient)} /></center>
-                </form> */}
+                        <Form.Group as={Col} controlId="confirm_password">
+                            <Form.Control type="password" placeholder="אימות סיסמא " />
+                        </Form.Group>
+                    </Form.Row>
+               </Form>
+               <img src={arrow} id="arrow"/>
             </div>
         );
     }//render
