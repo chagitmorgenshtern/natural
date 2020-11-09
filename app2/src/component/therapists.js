@@ -47,8 +47,9 @@ class Therapists extends Component {
                     <Link to="/signup"><label id="labal">צור קשר</label></Link>
                 </header>
                 <h3>המטפלים שלנו</h3>
-                {therapistList}
-
+                <div className="therapists_table">
+                    {therapistList}
+                </div>
                 {/* <TherapistCard /> */}
 
 

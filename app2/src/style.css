@@ -3,8 +3,14 @@
     background-color: rgb(114, 177, 171);
     width: 90px;
     height: 200px;
+    inline-size: 10%;
     
 }
+
+.therapists_table{
+    list-style: square;
+}
+
 #x
 {
     margin-bottom: 50%;

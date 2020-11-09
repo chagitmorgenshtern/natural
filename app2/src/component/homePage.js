@@ -9,20 +9,19 @@ import { Link } from 'react-router-dom'
 import Signup from './signup';
 // import { NavDropdown } from 'react-bootstrap';
 class HomePage extends Component {
-    
-    state = {
-        displaySignup : false
-     }
 
-    handleClick()
-    {
-        alert("cscsc");
-        this.setState({displaySignup: true});
-        
+    state = {
+        displaySignup: false
     }
-    
+
+    handleClick() {
+        alert("cscsc");
+        this.setState({ displaySignup: true });
+
+    }
+
     render() {
-       
+
         return (
             //check how to do this in the css
             <div className="homePage" style={{
@@ -31,7 +30,7 @@ class HomePage extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
-   
+
                 {/* <Navbar bg="light" variant="light">
                     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
                     <Nav className="mr-auto">
@@ -47,12 +46,12 @@ class HomePage extends Component {
 
                 <header className="homepage_header">
                     <img src={icon} id="icon" />
-                    <label id="in" onClick={this.handleClick}>כניסה</label>
+                    <label id="in" onClick={this.handleClick.bind(this)}>כניסה</label>
                     <Link to="/signup"><label id="up">הרשמה</label></Link>
                 </header>
-                
+
                 <article className="article">
-                
+
                     <h1 className="slogen" >הדרך החדשה <br />לרפואה משלימה</h1>
                     {/* <br /> */}
                     <b>Natural Way</b>  המאגר המקצועי והאמין ביותר
@@ -63,12 +62,12 @@ class HomePage extends Component {
                 {/* להפוך את התמונה לקישור-באחד משניהם */}
                 <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
 
-                <Link to= "/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
-                {this.state.displaySignup && <Signup/>}
+                <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
+                {this.state.displaySignup && <Signup />}
             </div>
         );
     }
-   
+
 }
 
 export default HomePage;
