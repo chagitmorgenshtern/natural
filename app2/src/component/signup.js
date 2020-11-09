@@ -22,6 +22,7 @@ class Signup extends Component {
         return (
             <div className="signup">
                 {/* <form> */}
+                <h2 className="headerSignUp" >הרשמת מטופל</h2>
                 <Form>
                     <Form.Row>
                         <Form.Group as={Col} controlId="first_name">
