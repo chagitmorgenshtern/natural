@@ -5,7 +5,13 @@
     height: 200px;
     
 }
-
+#x
+{
+    margin-bottom: 50%;
+    /* width: 45vw;
+    height: 50vh; */
+  
+}
 .homePage{
 
     width: 100vw;
@@ -25,11 +31,13 @@
     font-family: inherit;
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     color: white;
+    z-index: -1;
 }
 .slogen{
     font-weight: 600;
     font-size: 170%;
     margin-bottom: 1vh;
+    z-index: -1;
 }
 #labal{
     margin-bottom: .5rem;
@@ -145,10 +153,12 @@
 .signup{
     text-align: center;
     background-color:rgb(29,150,161);
-    width: 66vw;
-    height: 44vw;
-    margin-top: 10vw;
-    margin-right: 15vw;
+    width: 45vw;
+    height: 50vh;
+    margin-bottom: 50% !important;
+    /* display: none; */
+    /* margin-top: 10vw;
+    margin-right: 15vw; */
 }
 
 .input
@@ -213,11 +223,11 @@
 
 .readMore
 {
-    width: 100vw;
+    /* width: 100vw;
     height: 100vh;
     position: fixed;
     padding: 0;
-    margin: 0;
+    margin: 0; */
 }
 /* 
 .inf_therapist

@@ -15,7 +15,7 @@ class ReadMore extends Component {
         return (
             <div className="readMore" style={{
                 backgroundImage: `url(${Transition_background})`,
-                backgroundPosition: 'center',
+                // backgroundPosition: 'center',
                 // backgroundSize: 'cover',
                 // backgroundRepeat: 'no-repeat'
             }}>
@@ -79,7 +79,7 @@ class ReadMore extends Component {
 </section>
 
 <section>
-<div> <h1>dvzzvzv</h1></div>
+
 
 </section>
 
