@@ -20,13 +20,14 @@ class Signup extends Component {
     }
     render() {
         return (
+
             <div className="signup">
                 {/* <form> */}
                 <h2 className="headerSignUp" >הרשמת מטופל</h2>
                 <Form>
                     <Form.Row>
                         <Form.Group as={Col} controlId="first_name">
-                            <Form.Control placeholder="שם פרטי"  />
+                            <Form.Control placeholder="שם פרטי" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="last_name">
@@ -40,7 +41,7 @@ class Signup extends Component {
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="date">
-                            <Form.Control type="date" placeholder="תאריך לידה"  />
+                            <Form.Control type="date" placeholder="תאריך לידה" />
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
@@ -58,19 +59,19 @@ class Signup extends Component {
                         </Form.Group>
                     </Form.Row>
                 </Form>
-               <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
-               <Form> 
-               <Form.Row>
+                <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
+                <Form>
+                    <Form.Row>
                         <Form.Group as={Col} controlId="password">
-                            <Form.Control type="password"placeholder="סיסמא"  />
+                            <Form.Control type="password" placeholder="סיסמא" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="confirm_password">
                             <Form.Control type="password" placeholder="אימות סיסמא " />
                         </Form.Group>
                     </Form.Row>
-               </Form>
-               <img src={arrow} id="arrow"/>
+                </Form>
+                <img src={arrow} id="arrow" />
             </div>
         );
     }//render

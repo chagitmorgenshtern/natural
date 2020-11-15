@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Form, Col } from 'react-bootstrap';
+import { Form, Col, Modal } from 'react-bootstrap';
 
 
 
@@ -11,20 +11,22 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login">  
-      <Form>
-      <Form.Row>
-          <Form.Group as={Col} controlId="email">
-              <Form.Control placeholder="מייל-שם משתמש"  />
-          </Form.Group>
-          <Form.Group as={Col} controlId="password">
-            <Form.Control placeholder="סיסמא" />
-              </Form.Group>
-       </Form.Row>
-      </Form>
-      </div>
 
-     
+      <Form>
+        <Form.Row>
+          {/* רקע נהפך ללבן כשבוחרים */}
+          <Form.Group as={Col} controlId="email">
+            <Form.Control type="email" placeholder="מייל-שם משתמש" />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
+          <Form.Group as={Col} controlId="password">
+            <Form.Control type="password" placeholder="סיסמא" />
+          </Form.Group>
+        </Form.Row>
+      </Form>
+
     );
   }
 

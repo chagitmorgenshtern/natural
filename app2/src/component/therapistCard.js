@@ -1,6 +1,7 @@
 // import src from '*.bmp';
 import React, { Component } from 'react';
 import '../style.css';
+import thImage from '../images/thImage.jpg';
 import icon from '../images/tempIcon.png'
 //להוסיף תמונה -לשאול איך
 
@@ -10,11 +11,11 @@ class TherapistCard extends Component {
     //     this.state = {
     //         name: ""
     //     }
-   //}
+    //}
     render() {
         return (
             <div className="therapistCard">
-                
+                <img src={thImage} id="thImage" />
                 <label>{this.props.firstName + " " + this.props.lastName} </label> <br /><br />
                 <label>{this.props.category} </label> <br /><br />
                 <label>{this.props.serviceArea} </label> <br /><br />

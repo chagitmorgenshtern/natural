@@ -50,7 +50,7 @@ class Therapists extends Component {
                 <div className="therapists_table">
                     {therapistList}
                 </div>
-                {/* <TherapistCard /> */}
+                <TherapistCard />
 
 
 

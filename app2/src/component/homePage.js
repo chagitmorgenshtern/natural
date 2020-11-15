@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button, Col, Modal } from 'react-bootstrap';
 import backg from '../images/background01.jpg'
 import btn_read_more from '../images/btn_read_more01.png'
 import btn_to_therapists from '../images/btn01.png'
@@ -16,16 +16,16 @@ class HomePage extends Component {
         displayLogIn: false
     }
 
-    openSignUp() {
-        alert("cscsc");
-        this.setState({ displaySignup: true });
+    // openSignUp() {
+    //     alert("cscsc");
+    //     this.setState({ displaySignup: true });
 
-    }
-    openLogIn() {
-        alert("1323");
-        this.setState({ displayLogIn: true });
+    // }
+    // openLogIn() {
+    //     //alert("1323");
 
-    }
+
+    // }
     render() {
 
         return (
@@ -52,8 +52,11 @@ class HomePage extends Component {
 
                 <header className="homepage_header">
                     <img src={icon} id="icon" />
-                    <label id="in" onClick={this.openLogIn.bind(this)}>כניסה</label>
-                   <label id="up" onClick={this.openSignUp.bind(this)}>הרשמה</label>
+                    <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>כניסה</label>
+                    <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>הרשמה</label>
+
+                    {/* איך להפעיל פונקציה עם ביינד */}
+                    {/* <label id="up" onClick={this.openSignUp.bind(this)}>הרשמה</label> */}
                 </header>
 
                 <article className="article">
@@ -68,8 +71,31 @@ class HomePage extends Component {
                 {/* להפוך את התמונה לקישור-באחד משניהם */}
                 <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
                 <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
-              {this.state.displaySignup && <Signup />} 
-               {this.state.displayLogIn && <Login />} 
+                {
+                /* {this.state.displaySignup && <Signup />} */}
+
+                {/* מודל כניסה לחשבון */}
+                <Modal centered show={this.state.displayLogIn} onHide={() => { }} onClick={() => { }}>
+                    {/* כפתור צריך להיצמד לשמאל=================================== */}
+                    <Modal.Header style={{ backgroundColor: 'rgb(76, 200, 166)' }} closeButton>
+                        <Modal.Title>כניסה לחשבונך</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ backgroundColor: 'rgb(76, 200, 166)' }}>
+                        <Login />
+                    </Modal.Body>
+                </Modal>
+
+                {/* מודל הרשמה */}
+                <Modal centered show={this.state.displaySignup} onHide={() => { }} onClick={() => { }}>
+                    {/* כפתור צריך להיצמד לשמאל ====================================*/}
+                    <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)' }} closeButton>
+                        <Modal.Title>הרשמה</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ backgroundColor: 'rgb(47,172,166)' }}>
+                        <Signup />
+                    </Modal.Body>
+                </Modal>
+
             </div>
         );
     }
