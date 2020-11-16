@@ -68,7 +68,7 @@ class HomePage extends Component {
                 <br />אשר נותן שירותים לשני הצדדים: המטפל והמטופל...
                 </article>
                 {/* <Signup/> */}
-                {/* להפוך את התמונה לקישור-באחד משניהם */}
+
                 <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
                 <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
                 {
