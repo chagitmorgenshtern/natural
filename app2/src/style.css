@@ -1,14 +1,53 @@
+.therapists
+{
+    
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    
+}
+
+.therapists_table{
+    height: 100%;
+    display: grid;
+    grid-gap:10px;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-auto-rows: 125px;
+    justify-content: space-evenly;
+    padding-right: 120px;
+    padding-left: 120px;
+}
 
 .therapistCard{
     background-color:white;
-    /* width: 90px; */
-    height: 42vh;
-    inline-size: fit-content;
-    box-shadow: 0 0 20px 0px #766c6c;
+    width: 225px;
+    height: 250px;
+    /* inline-size: fit-content; */
+    box-shadow: 0 0 20px 0px white;
     text-align: -webkit-center;
     display: flex;
     flex-direction: column;
     
+    grid-row: span 2;
+}
+.therapistCard:hover{
+    box-shadow: 0 0 20px 3px black;
+}
+
+
+.therapists_header
+{
+    grid-column: 1/-1;
+    text-align: center;
+    background-color:#ccdada94;
+    height:3vw;
+    font-size: medium;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #thCard_btn{
@@ -25,7 +64,7 @@
 
 #thImage{
     
-    width: 6vw;
+    width: 30%;
     box-shadow: 0 0 6px 2px grey;
     /* margin: 7% 9%; */
     margin-right: auto;
@@ -33,8 +72,18 @@
     margin-top: 9%;
 }
 
-.therapists_table{
-    list-style: square;
+#selectbox1, #selectbox2{
+    background-color: #f8f9faa8;
+    width: 250px;
+    box-shadow: inset 0 0 7px 0px white;
+}
+
+#therapist_title{
+    color: white;
+    font-weight: 500;
+    font-size: mediumxx-large;
+    text-shadow: 0 0 6px #212529;
+    font-size: xxx-large;
 }
 
 #x
@@ -120,26 +169,8 @@
     margin-right: 20%;
 }
 
-.therapists
-{
-    
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-}
 
-.therapists_header
-{
-    text-align: center;
-    background-color:#ccdada94;
-    height:3vw;
-    font-size: medium;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
 
 
 .homepage_header{
@@ -263,18 +294,9 @@
     padding: 0.5rem 1rem;
 }
 
-.carousel{
-    margin: 0;
-}
 
-.readMore
-{
-    /* width: 100vw;
-    height: 100vh;
-    position: fixed;
-    padding: 0;
-    margin: 0; */
-}
+
+
 /* 
 .inf_therapist
 {

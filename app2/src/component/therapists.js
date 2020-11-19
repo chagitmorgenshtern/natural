@@ -4,7 +4,7 @@ import icon from '../images/tempIcon.png'
 import { Link } from 'react-router-dom';
 import TherapistCard from './therapistCard';
 import axios from '../axios'
-
+import { Form } from 'react-bootstrap';
 // import TherapistCard from './therapistCard';
 
 
@@ -25,6 +25,7 @@ class Therapists extends Component {
 
 
     render() {
+
         const therapistList = this.state.therapists.map((t, index) => {
             return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
                 category={t.Category} serviceArea={t.ServiceArea} key={index} />
@@ -46,11 +47,38 @@ class Therapists extends Component {
                     <Link to="/signupTh"><label id="labal">האזור האישי</label></Link>
                     <Link to="/signup"><label id="labal">צור קשר</label></Link>
                 </header>
-                <h3>המטפלים שלנו</h3>
+                <h3 id="therapist_title">המטפלים שלנו</h3>
+                <Form.Control id="selectbox1" as="select" custom>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </Form.Control>
+                <Form.Control id="selectbox2" as="select" custom>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </Form.Control>
                 <div className="therapists_table">
                     {therapistList}
+                    <TherapistCard firstName="1" />
+                    <TherapistCard firstName="2" />
+                    <TherapistCard firstName="3" />
+                    <TherapistCard firstName="4" />
+                    <TherapistCard firstName="5" />
+                    <TherapistCard firstName="6" />
+                    <TherapistCard firstName="1" />
+                    <TherapistCard firstName="2" />
+                    <TherapistCard firstName="3" />
+                    <TherapistCard firstName="4" />
+                    <TherapistCard firstName="5" />
+                    <TherapistCard firstName="6" />
+
                 </div>
-                <TherapistCard />
+
 
 
 

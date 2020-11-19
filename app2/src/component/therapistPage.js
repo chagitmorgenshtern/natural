@@ -12,6 +12,8 @@ class TherapistPage extends Component {
                 backgroundRepeat: 'no-repeat'
             }}>
                 <h1>TherapistPage</h1>
+                <div id="details"></div>
+                <div id="feedbacks"></div>
             </div>
         );
     }
