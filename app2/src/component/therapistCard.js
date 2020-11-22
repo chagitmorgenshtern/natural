@@ -17,9 +17,9 @@ class TherapistCard extends Component {
         return (
             <div className="therapistCard">
                 <img src={thImage} id="thImage" />
-                <label>{this.props.firstName + " " + this.props.lastName} </label> <br /><br />
-                <label>{this.props.category} </label> <br /><br />
-                <label>{this.props.serviceArea} </label> <br /><br />
+                <label>{this.props.firstName + " " + this.props.lastName}j </label>
+                <label>{this.props.category} gg</label>
+                <label>{this.props.serviceArea} kk</label>
                 {/* <button id="thCard_btn">לעמוד שלי</button> */}
                 <Button href="/therapistPage" variant="info" id="thCard_btn">כניסה לפרופיל</Button>{' '}
             </div>

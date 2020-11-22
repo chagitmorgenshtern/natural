@@ -3,7 +3,7 @@
     
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    position: absolute;
     padding: 0;
     margin: 0;
     display: grid;
@@ -47,7 +47,8 @@
     font-size: medium;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-content: center;
+    /* align-items: center; */
 }
 
 #thCard_btn{
@@ -383,10 +384,11 @@
     height: 6vh;
 }
 #email{
-    border-radius: 1px;
+    
     margin-right: 30%;
-    background-color: transparent;
     margin-top: 1%;
+    background-color: transparent;
+    border-radius: 1px;
     width: 16vw;
     height: 6vh;
 }

@@ -26,6 +26,8 @@ class HomePage extends Component {
 
 
     // }
+    // handleClose = () => setShow(false);
+
     render() {
 
         return (
@@ -75,7 +77,7 @@ class HomePage extends Component {
                 /* {this.state.displaySignup && <Signup />} */}
 
                 {/* מודל כניסה לחשבון */}
-                <Modal centered show={this.state.displayLogIn} onHide={() => { }} onClick={() => { }}>
+                <Modal centered show={this.state.displayLogIn} onHide={() => { this.setState({ displayLogIn: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל=================================== */}
                     <Modal.Header style={{ backgroundColor: 'rgb(76, 200, 166)' }} closeButton>
                         <Modal.Title>כניסה לחשבונך</Modal.Title>
@@ -86,7 +88,7 @@ class HomePage extends Component {
                 </Modal>
 
                 {/* מודל הרשמה */}
-                <Modal centered show={this.state.displaySignup} onHide={() => { }} onClick={() => { }}>
+                <Modal centered show={this.state.displaySignup} onHide={() => { this.setState({ displaySignup: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל ====================================*/}
                     <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)' }} closeButton>
                         <Modal.Title>הרשמה</Modal.Title>

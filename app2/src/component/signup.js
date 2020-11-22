@@ -54,8 +54,8 @@ class Signup extends Component {
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="email">
-                            <Form.Control type="mail" placeholder="כתובת מייל" />
+                        <Form.Group key={3} as={Col} controlId="email">
+                            <Form.Control key={4} type="mail" placeholder="כתובת מייל" />
                         </Form.Group>
                     </Form.Row>
                 </Form>

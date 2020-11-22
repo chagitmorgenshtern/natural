@@ -33,9 +33,9 @@ class Therapists extends Component {
         return (
             <div className="therapists" style={{
                 backgroundImage: `url(${Transition_background})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'
+                // backgroundPosition: 'center',
+                // backgroundSize: 'cover',
+                // backgroundRepeat: 'no-repeat'
             }}>
 
 
