@@ -26,7 +26,7 @@
     width: 225px;
     height: 250px;
     /* inline-size: fit-content; */
-    box-shadow: 0 0 20px 0px white;
+    box-shadow: 0 0 4px 1px #6c757d;
     text-align: -webkit-center;
     display: flex;
     flex-direction: column;
