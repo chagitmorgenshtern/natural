@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import Transition_background from '../../images/Transition_background.jpg';
-import { DropdownButton, Dropdown } from 'react-bootstrap';
 import Feedback from './feedback';
+import Transition_background from '../../images/Transition_background.jpg';
+import Calendar from './calendar.jsx';
+// import { DropdownButton, Dropdown } from 'react-bootstrap';
+import '../../therapistPage.css'
+
 
 class TherapistPage extends Component {
     render() {
         return (
-            <div className="therapists" style={{
+            <div className="therapistPage" style={{
                 backgroundImage: `url(${Transition_background})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
@@ -14,9 +17,16 @@ class TherapistPage extends Component {
             }}>
                 <h1>TherapistPage</h1>
                 <div id="details"></div>
-                <div id="feedbacks"></div>
+                <div id="feedbacks">
+                    <Feedback />
+                    <Feedback />
+                    <Feedback />
+                    <Feedback />
+                    <Feedback />
+                    <Feedback />
+                </div>
 
-                <Feedback />
+                <Calendar />
 
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">

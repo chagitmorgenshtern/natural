@@ -10,6 +10,7 @@ class Feedback extends Component {
                 <img src={matt} style={{ borderRadius: '50%' }} />
                 <label>שם</label>
                 <label>....................תגובה.........................</label>
+                {/* stars */}
 
             </div>);
     }
