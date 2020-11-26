@@ -26,6 +26,7 @@ h2 {
   }
   
   .demo-app-sidebar {
+    display: none;
     width: 300px;
     line-height: 1.5;
     background: #eaf9ff;
@@ -45,3 +46,20 @@ h2 {
     max-width: 1100px;
     margin: 0 auto;
   }
+
+  a {
+    color: rgb(47 172 166 / 1);
+    font-weight: 900;
+    text-decoration: none;
+    font-family: sans-serif;
+    background-color: transparent;
+}
+
+.fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active {
+  font-weight: 900;
+  color: #17a2b8;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+  
