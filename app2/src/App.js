@@ -10,7 +10,7 @@ import SignupTh from './component/signupTh';
 import HomePage from './component/homePage';
 import ReadMore from './component/readMore';
 import Therapists from './component/therapists';
-import TherapistPage from './component/therapistPage';
+import TherapistPage from './component/therapistPage/therapistPage';
 
 function App() {
   return (

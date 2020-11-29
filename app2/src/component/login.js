@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD
-import {Form, Col } from 'react-bootstrap';
+
 import arrow from '../images/arrow.png';
-import '../style1.css';
-=======
-import { Form, Col, Modal } from 'react-bootstrap';
->>>>>>> ce927937ff8557f46302063d27522c807ccc6bd6
+
+import { Form, Col, Modal, Button } from 'react-bootstrap';
 
 
 
@@ -15,30 +12,33 @@ class Login extends Component {
 
   }
 
+  // onChangehandler(e) {
+  // onChange={(e) => { onChangehandler(e) }}
+  // }
+
   render() {
     return (
-<<<<<<< HEAD
-      <div className="login">  
-      <center><h2 className="headerLogIn" >כניסה</h2> </center>
-      <Form>
-      <Form.Row>
-          <Form.Group as={Col} controlId="emailFromLogIn">
-              <Form.Control type="Email" placeholder="שם משתמש"  />
-          </Form.Group>
-          <Form.Group as={Col} controlId="passwordFromLogIn" >
-            <Form.Control type="password" placeholder="סיסמא" />
-              </Form.Group>
-       </Form.Row>
-      </Form>
-      <img src={arrow} id="arrowFromLogIn"/>
-      </div>
-=======
+     
+      
 
-      <Form>
-        <Form.Row>
-          {/* רקע נהפך ללבן כשבוחרים */}
+      <Form  className="login">
+        <center><h2 className="headerLogIn" >כניסה</h2> </center>
+        {/* <Form.Group as={Col} controlId="email">
+          <Form.Control id="email" type="mail" placeholder="מייל-שם משתמש" />
+        </Form.Group> */}
+
+        <Form.Group key={1} as={Col} controlId="emailFromLogIn">
+          <Form.Control key={2} type="email" placeholder="כתובת מייל" />
+        </Form.Group>
+
+        <Form.Control id="passwordFromLogIn" type="password" placeholder="סיסמא" />
+        <Button variant="light" type="submit">כניסה</Button> <img src={arrow} id="arrowFromLogIn"/>
+
+        {/* רקע נהפך ללבן כשבוחרים  */}
+        {/* <Form.Row>
+          
           <Form.Group as={Col} controlId="email">
-            <Form.Control type="email" placeholder="מייל-שם משתמש" />
+            <Form.Control onChange = {(e)=>{onChangehandler(e)}} type="email" placeholder="מייל-שם משתמש" />
           </Form.Group>
         </Form.Row>
 
@@ -47,8 +47,9 @@ class Login extends Component {
             <Form.Control type="password" placeholder="סיסמא" />
           </Form.Group>
         </Form.Row>
+        */}
+
       </Form>
->>>>>>> ce927937ff8557f46302063d27522c807ccc6bd6
 
     );
   }
