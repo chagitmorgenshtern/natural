@@ -10,6 +10,7 @@ import SignupTh from './component/signupTh';
 import HomePage from './component/homePage';
 import ReadMore from './component/readMore';
 import Therapists from './component/therapists';
+import TherapistPage from './component/therapistPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/signupTh" component={SignupTh} />
           <Route path="/readMore" component={ReadMore} />
           <Route path="/therapists" component={Therapists} />
+          <Route path="/therapistPage" component={TherapistPage} />
           <Route path="/" component={HomePage} />
           {/*  <Route component={Error} /> */}
         </Switch>
