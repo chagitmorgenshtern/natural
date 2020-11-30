@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Transition_background from '../images/Transition_background.jpg';
+import Transition_background from '../../images/Transition_background.jpg';
 import { Link } from 'react-router-dom';
 import { Form, Col, Button, Row, Container, InputGroup, Carousel } from 'react-bootstrap';
-import alovera from '../images/alovera.jpg'
-import hot_stones from '../images/hot_stones.jpg'
-import wide from '../images/wide.jpg'
+import alovera from '../../images/alovera.jpg'
+import hot_stones from '../../images/hot_stones.jpg'
+import wide from '../../images/wide.jpg'
 
 
 class ReadMore extends Component {

@@ -1,9 +1,9 @@
 // import src from '*.bmp';
 import React, { Component } from 'react';
-import '../style.css';
+import '../../style.css';
 import { Button } from 'react-bootstrap';
-import thImage from '../images/thImage.jpg';
-import icon from '../images/tempIcon.png'
+import thImage from '../../images/thImage.jpg';
+import icon from '../../images/tempIcon.png'
 //להוסיף תמונה -לשאול איך
 
 class TherapistCard extends Component {

@@ -1,16 +1,16 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import Login from './component/login.js'
+import Login from './component/HomePage/login.js'
 import Error from './component/error.js'
-import Signup from './component/signup.js';
+import Signup from './component/HomePage/signup.js';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import TherapistCard from './component/therapistCard';
-import SignupTh from './component/signupTh';
-import HomePage from './component/homePage';
-import ReadMore from './component/readMore';
-import Therapists from './component/therapists';
-import TherapistPage from './component/therapistPage/therapistPage';
+import TherapistCard from './component/Therapists/therapistCard';
+import SignupTh from './component/HomePage/signupTh';
+import HomePage from './component/HomePage/homePage';
+import ReadMore from './component/ReadMore/readMore';
+import Therapists from './component/Therapists/therapists';
+import TherapistPage from './component/TherapistPage/therapistPage';
 
 function App() {
   return (

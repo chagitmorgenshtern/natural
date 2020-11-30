@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Transition_background from '../images/Transition_background.jpg';
-import icon from '../images/tempIcon.png'
+import Transition_background from '../../images/Transition_background.jpg';
+import icon from '../../images/tempIcon.png'
 import { Link } from 'react-router-dom';
 import TherapistCard from './therapistCard';
-import axios from '../axios'
+import axios from '../../axios'
 import { Form } from 'react-bootstrap';
 // import TherapistCard from './therapistCard';
 

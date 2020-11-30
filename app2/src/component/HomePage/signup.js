@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from '../axios'
+import axios from '../../axios'
 import { Form, Col } from 'react-bootstrap';
-import arrow from '../images/arrow.png'
+import arrow from '../../images/arrow.png'
 
 class Signup extends Component {
     state = {
@@ -27,7 +27,7 @@ class Signup extends Component {
                 <Form>
                     <Form.Row>
                         <Form.Group as={Col} controlId="first_name" id="Firstname" value={this.state.Firstname} onChange={this.inputChange.event}>
-                            <Form.Control placeholder="שם פרטי"  />
+                            <Form.Control placeholder="שם פרטי" />
                         </Form.Group>
                         <Form.Group as={Col} controlId="first_name">
                             <Form.Control placeholder="שם פרטי" />

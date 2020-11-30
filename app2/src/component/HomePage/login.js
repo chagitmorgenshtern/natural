@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import arrow from '../images/arrow.png';
+import arrow from '../../images/arrow.png';
 
 import { Form, Col, Modal, Button } from 'react-bootstrap';
 
@@ -18,10 +18,10 @@ class Login extends Component {
 
   render() {
     return (
-     
-      
 
-      <Form  className="login">
+
+
+      <Form className="login">
         <center><h2 className="headerLogIn" >כניסה</h2> </center>
         {/* <Form.Group as={Col} controlId="email">
           <Form.Control id="email" type="mail" placeholder="מייל-שם משתמש" />
@@ -32,7 +32,7 @@ class Login extends Component {
         </Form.Group>
 
         <Form.Control id="passwordFromLogIn" type="password" placeholder="סיסמא" />
-        <Button variant="light" type="submit">כניסה</Button> <img src={arrow} id="arrowFromLogIn"/>
+        <Button variant="light" type="submit">כניסה</Button> <img src={arrow} id="arrowFromLogIn" />
 
         {/* רקע נהפך ללבן כשבוחרים  */}
         {/* <Form.Row>

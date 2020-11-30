@@ -17,10 +17,14 @@ class TherapistPage extends Component {
             }}>
 
                 <div id="details-card">
-                    <img src={thImage} id="thImage" />
-                    <label>{this.props.firstName + " " + this.props.lastName}j </label>
-                    <label>{this.props.category} gg</label>
-                    <label>{this.props.serviceArea} kk</label>
+                    <img src={thImage} id="th-image" />
+                    {/* {this.props.firstName + " " + this.props.lastName} */}
+                    <label className="t-labels" id="t-fullName">פלוני פלמוני </label>
+                    <label className="t-labels" id="t-category">נטורופת</label>
+                    <label className="t-labels" id="t-s-area">אזור: השרון והסביבה</label>
+                    <label className="t-labels" id="t-phone">0526458558 :טלפון </label>
+                    <label className="t-labels" id="t-email">a345@gmail.com :מייל</label>
+
                 </div>
                 <div id="feedbacks">
                     <Feedback />
@@ -30,9 +34,9 @@ class TherapistPage extends Component {
                     <Feedback />
                     <Feedback />
                 </div>
-
-                <Calendar id="calendar-id" />
-
+                <div id="calendar-id" >
+                    <Calendar />
+                </div>
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">
 
