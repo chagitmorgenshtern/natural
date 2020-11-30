@@ -24,6 +24,11 @@ class Calendar extends Component {
         currentEvents: []
     }
 
+    componentDidMount() {
+        console.log(document.getElementsByClassName('fc-col-header-cell-cushion')[0].innerHTML)
+
+        document.getElementsByClassName('fc-col-header-cell-cushion')[6].innerHTML = "שבת"
+    }
     render() {
         return (
             <div className='demo-app'>

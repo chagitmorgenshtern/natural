@@ -3,7 +3,7 @@ import Feedback from './feedback';
 import Transition_background from '../../images/Transition_background.jpg';
 import Calendar from './calendar.jsx';
 // import { DropdownButton, Dropdown } from 'react-bootstrap';
-import '../../therapistPage.css'
+import './therapistPage.css'
 import thImage from '../../images/thImage.jpg';
 
 class TherapistPage extends Component {

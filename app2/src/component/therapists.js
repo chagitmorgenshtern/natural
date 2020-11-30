@@ -33,9 +33,9 @@ class Therapists extends Component {
         return (
             <div className="therapists" style={{
                 backgroundImage: `url(${Transition_background})`,
-                // backgroundPosition: 'center',
-                // backgroundSize: 'cover',
-                // backgroundRepeat: 'no-repeat'
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
             }}>
 
 
@@ -48,14 +48,14 @@ class Therapists extends Component {
                     <Link to="/signup"><label id="labal">צור קשר</label></Link>
                 </header>
                 <h3 id="therapist_title">המטפלים שלנו</h3>
-                <Form.Control id="selectbox1" as="select" custom>
+                <Form.Control className="selectbox" id="selectbox1" as="select" custom>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
                 </Form.Control>
-                <Form.Control id="selectbox2" as="select" custom>
+                <Form.Control className="selectbox" id="selectbox2" as="select" custom>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>

@@ -1,15 +1,23 @@
 .therapists
 {
-    
+
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     position: absolute;
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
     display: grid;
+    grid-template-columns: 1fr 1fr 1.19fr 1fr 1fr;
+    /* justify-content: space-evenly; */
+    grid-template-rows: 40px 80px 80px auto;
+    grid-gap: 10px;
     
 }
-@media (min-width: 576px) { 
+/* קלס של בוטסרפ להזיז שמאלה*/
+.float-left{
+
+}
+/* @media (min-width: 576px) { 
 
     .therapists_table{
     height: 100%;
@@ -22,20 +30,22 @@
     padding-left: 60px;
 }
 
+
+
 .therapistCard{
     background-color:white;
     width: 115px;
     height: 125px;
-    /* inline-size: fit-content; */
+    
     box-shadow: 0 0 4px 1px #6c757d;
     text-align: -webkit-center;
     display: flex;
     flex-direction: column;
     
-    /* grid-row: span 2; */
+    
 }
-}
-@media (min-width: 1200px) { 
+} */
+/* @media (min-width: 1200px) { } */
     .therapists_table{
         height: 100%;
         display: grid;
@@ -45,6 +55,8 @@
         justify-content: space-evenly;
         padding-right: 120px;
         padding-left: 120px;
+        grid-column: 1/-1;
+        grid-row: 4;
     }
     
     .therapistCard{
@@ -59,7 +71,7 @@
         
         grid-row: span 2;
     }
-}
+
 
 .therapistCard:hover{
     box-shadow: 0 0 20px 3px black;
@@ -70,13 +82,11 @@
 {
     grid-column: 1/-1;
     text-align: center;
-    background-color:#ccdada94;
-    height:3vw;
+    background-color: #ccdada94;
+    height: 3vw;
     font-size: medium;
     display: flex;
     justify-content: space-evenly;
-    align-content: center;
-    /* align-items: center; */
 }
 
 #thCard_btn{
@@ -101,18 +111,29 @@
     margin-top: 9%;
 }
 
-#selectbox1, #selectbox2{
+.selectbox{
     background-color: #f8f9faa8;
     width: 250px;
     box-shadow: inset 0 0 7px 0px white;
+    
+}
+#selectbox1{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#selectbox2{
+    grid-column: 4;
+    grid-row: 3;
 }
 
 #therapist_title{
     color: white;
     font-weight: 500;
-    font-size: mediumxx-large;
     text-shadow: 0 0 6px #212529;
     font-size: xxx-large;
+    grid-row: 2;
+    grid-column: 3/5;
 }
 
 #x

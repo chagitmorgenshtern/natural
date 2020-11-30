@@ -4,7 +4,7 @@ import { Navbar, Nav, Form, FormControl, Button, Col, Modal } from 'react-bootst
 import backg from '../images/background01.jpg'
 import btn_read_more from '../images/btn_read_more01.png'
 import btn_to_therapists from '../images/btn01.png'
-import icon from '../images/tempIcon.png'
+import icon from '../images/--.png'
 import { Link } from 'react-router-dom'
 import Signup from './signup';
 import Login from './login';
