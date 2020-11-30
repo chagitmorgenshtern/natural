@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../axios'
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Col } from 'react-bootstrap';
 import arrow from '../images/arrow.png'
 
 class Signup extends Component {
@@ -26,15 +26,18 @@ class Signup extends Component {
                 <h2 className="headerSignUp" >הרשמת מטופל</h2>
                 <Form>
                     <Form.Row>
+                        <Form.Group as={Col} controlId="first_name" id="Firstname" value={this.state.Firstname} onChange={this.inputChange.event}>
+                            <Form.Control placeholder="שם פרטי"  />
+                        </Form.Group>
                         <Form.Group as={Col} controlId="first_name">
                             <Form.Control placeholder="שם פרטי" />
+
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="last_name">
                             <Form.Control placeholder="שם משפחה" />
                         </Form.Group>
                     </Form.Row>
-
                     <Form.Row>
                         <Form.Group as={Col} controlId="id">
                             <Form.Control placeholder=".ת.ז" />
@@ -81,7 +84,6 @@ class Signup extends Component {
         const newperson = { ...this.state.patient };
         const id = event.target.id;
         newperson[id] = event.target.value;
-
         this.setState({ pateint: newperson });
 
     }
