@@ -5,7 +5,7 @@ import Calendar from './calendar.jsx';
 // import { DropdownButton, Dropdown } from 'react-bootstrap';
 import './therapistPage.css'
 import thImage from '../../images/thImage.jpg';
-
+import star from '../../images/star.png'
 class TherapistPage extends Component {
     render() {
         return (
@@ -24,7 +24,13 @@ class TherapistPage extends Component {
                     <label className="t-labels" id="t-s-area">אזור: השרון והסביבה</label>
                     <label className="t-labels" id="t-phone">0526458558 :טלפון </label>
                     <label className="t-labels" id="t-email">a345@gmail.com :מייל</label>
-
+                    <div id="rating">
+                        <img className="stars" src={star} />
+                        <img className="stars" src={star} />
+                        <img className="stars" src={star} />
+                        <img className="stars" src={star} />
+                        <img className="stars" src={star} />
+                    </div>
                 </div>
                 <div id="feedbacks">
                     <Feedback />

@@ -7,39 +7,41 @@
     margin: 0;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows:repeat(13, 1fr);
-    grid-template-areas: 
+    grid-template-rows:repeat(9, 1fr);
+    grid-template-areas:
         ". . . . . . . . . . . ."
-        ". f f f . . . d d d d ."
-        ". f f f . . . d d d d ."
-        ". f f f . . . . . . . ."
-        ". f f f . . c c c c c ."
-        ". f f f . . c c c c c ."
-        ". . . . . . c c c c c ."
-        ". . . . . . . . . . . ."
+        ". . f f f . d d d d d ."
+        ". . f f f . d d d d d ."
+        ". . f f f . . . . . . ."
+        ". . f f f . c c c c c ."
+        ". . f f f . c c c c c ."
+        ". . f f f . c c c c c ."
+        ". . f f f . . . . . . ."
         ". . . . . . . . . . . .";
         direction: ltr;
-   
 }
 
 #details-card{
-    width: 30vw;
+    width: 40vw;
     height: 32vh;
     background-color: white;
     grid-area: d;
     
     display: grid;
-    grid-template-columns: 15vw 15vw;
+    grid-template-columns: 20vw 20vw;
     grid-template-rows: repeat(8,4vh);
+    box-shadow: inset 0 0 20px 2px #9ba6b1;
     /* grid-template-columns: repeat(2,1fr);
     /* grid-column: 7/11;
     grid-row: 2/4; */
 }
+
 .t-labels{
     color: rgb(29 150 161 / 1);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 600;
     font-size: 22px;
+    justify-self: center;
 }
 
 #th-image{
@@ -71,7 +73,15 @@
     grid-row: 7;
 }
 
-
+#rating{
+   background-color: transparent;
+   width: fit-content;
+   grid-column: 1;
+   grid-row: 1/2;
+}
+.stars{
+    width:45px;
+}
 
 #calendar-id{
     grid-area: c;
@@ -85,18 +95,26 @@
     width: fit-content;
     height: fit-content;
     grid-area: f;
+    box-shadow: 0 0 6px 2px #6c757d;
     /* grid-column: 2/5;
     grid-row: 2/8; 
    */
 }
 
 #feedback{
+    padding: 10px;
     background-color: #ffffff5c;
-    width: '300px';
-    height: '100px';
-    align-items: 'center'
+    color: rgb(18 115 124);
+    width: 300px;
+    height: 100px;
+    align-items: center;
 }
 
 #feedback-image{
     width: 50px;
+    margin-left: 10px;
+}
+.demo-app-main{
+
+    margin-top: 40px;
 }

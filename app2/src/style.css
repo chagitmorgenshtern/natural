@@ -97,10 +97,13 @@
     font-weight: bold;
     box-shadow: 0 0 4px 0px darkslategrey;
     margin-top: 12%;
-    margin-right: 1%;
+    margin-right: 2.9%;
     position: absolute;
 }
-
+#thCard_btn:hover{
+    box-shadow: 0 0 20px 5px white;
+    border-radius: 5%;
+}
 #thImage{
     
     width: 30%;
@@ -246,19 +249,29 @@
 
 #in{
     margin-left: 1vw;
-    color: white;
+    background-color: #f8f9faba;
+    border-radius: 22%;
+    color: rgb(13, 153, 118);
+    font-weight: 700;
+    font-size: x-large;
+    box-shadow: 0 0 9px 2px white;
 }
 #in:hover
 {
-    color:chartreuse;
+    color:rgb(76, 218, 182);
 }
 #up{
     margin-left: 2vw;
-    color: white;
+    background-color: #f8f9faba;
+    border-radius: 22%;
+    color: rgb(13, 153, 118);
+    font-weight: 700;
+    font-size: x-large;
+    box-shadow: 0 0 9px 2px white;
 }
 #up:hover
 {
-    color:chartreuse;
+    color:rgb(76, 218, 182);
 }
 
 #label

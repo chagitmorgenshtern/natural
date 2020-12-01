@@ -54,8 +54,8 @@ class HomePage extends Component {
 
                 <header className="homepage_header">
                     <img src={icon} id="icon" />
-                    <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>כניסה</label>
-                    <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>הרשמה</label>
+                    <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
+                    <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label>
 
                     {/* איך להפעיל פונקציה עם ביינד */}
                     {/* <label id="up" onClick={this.openSignUp.bind(this)}>הרשמה</label> */}
