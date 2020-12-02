@@ -283,11 +283,11 @@
     text-align: center;
     background-color:rgb(47,172,166);
     width: 45vw;
-    height: 65vh;
-    margin-bottom: 50% !important;
-    /* display: none; */
+    /* height: 65vh;
+   margin-bottom: 50% !important;
+     display: none;
     margin-top: 20vw;
-    margin-right: 15vw;
+    margin-right: 15vw; */
 }
 
 .input
@@ -616,11 +616,11 @@
 }
 .login
 {
-    width: 28vw;
+    /* width: 28vw;
     height: 65vh;
     margin-top: 5vw;
-    margin-right: 15vw;
-    background-color: rgb(29,150,161);
+    margin-right: 15vw; 
+    background-color: rgb(29,150,161);*/
 }
 .headerLogIn
 {
@@ -678,9 +678,9 @@
 {
     width: 4vw;
     height: 8.5vh;
-    margin-right: 74%;
-    margin-top: -24%;
-    box-shadow: #a5a0a0;;
+    margin-left: 17%;
+    margin-top: -16%;
+    box-shadow: #a5a0a0;
 }
 .btn-info
 {

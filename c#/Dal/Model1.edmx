@@ -407,16 +407,6 @@
           <Property Name="SAName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Therapists" Relationship="Self.FK_Therapists_ServiceAreas1" FromRole="ServiceAreas" ToRole="Therapists" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Therapists">
           <Key>
             <PropertyRef Name="TherapistId" />
@@ -547,7 +537,6 @@
           <EntitySet Name="Meets" EntityType="Self.Meets" />
           <EntitySet Name="Patients" EntityType="Self.Patients" />
           <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Therapists" EntityType="Self.Therapists" />
           <EntitySet Name="WorkHours" EntityType="Self.WorkHours" />
           <AssociationSet Name="FK_Archives_Categories" Association="Self.FK_Archives_Categories">

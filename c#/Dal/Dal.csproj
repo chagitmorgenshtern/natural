@@ -97,9 +97,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ServiceAreasDal.cs" />
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Therapists.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

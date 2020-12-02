@@ -80,16 +80,6 @@
     <Property Name="SAId" Type="int" Nullable="false" />
     <Property Name="SAName" Type="varchar" MaxLength="20" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Therapists">
     <Key>
       <PropertyRef Name="TherapistId" />
@@ -270,7 +260,6 @@
     <EntitySet Name="Meets" EntityType="Self.Meets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Therapists" EntityType="Self.Therapists" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkHours" EntityType="Self.WorkHours" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">

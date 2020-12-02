@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="Natural_wayModel.Meets" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.Patients" Width="1.5" PointX="11" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.ServiceAreas" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.Therapists" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Natural_wayModel.WorkHours" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="Natural_wayModel.FK_Archives_Categories" ManuallyRouted="false" />

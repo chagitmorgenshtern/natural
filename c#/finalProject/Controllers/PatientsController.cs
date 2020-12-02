@@ -11,15 +11,19 @@ using Bl;
 namespace finalProject.Controllers
 {
     [RoutePrefix("api/patients")]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PatientController : ApiController
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class PatientsController : ApiController
     {
         //EntityManager em = new EntityManager();
         [HttpGet]
-        [Route("Login")]
-        public IHttpActionResult Login(string name, string pass)
+        [Route("Login/{email}/{pass}")]
+        public IHttpActionResult Login(string email, string pass)
         {
-            return Ok("hello");
+            //if(Bl.PatientsBl.Login(email, pass))
+            //    return Ok();
+            return Ok();
+
+            
         }
 
         [HttpPost]

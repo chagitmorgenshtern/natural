@@ -23,7 +23,19 @@ namespace Dal
             return true;
         }
 
-        //GetById
+        //public static bool Login(string email, string pass)
+        //{
+        //    try
+        //    {
+        //        using (Natural_wayEntities3 db = new Natural_wayEntities3())
+        //        {
+                    
+        //        }
+        //    }
+        //}
+
+
+        //Get
         public static Patients GetById(int id)
         {
 
@@ -41,6 +53,23 @@ namespace Dal
             }
 
 
+        }
+
+        
+        public static Patients GetByEmail(string email)
+        {
+            try
+            {
+                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                {
+                    Patients p= db.Patients.Where(x => x.Email.Equals(email)).FirstOrDefault();
+                    return p;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
 

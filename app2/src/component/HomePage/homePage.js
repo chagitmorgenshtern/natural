@@ -8,6 +8,7 @@ import icon from '../../images/--.png'
 import { Link } from 'react-router-dom'
 import Signup from './signup';
 import Login from './login';
+import arrow from '../../images/arrow.png';
 // import { NavDropdown } from 'react-bootstrap';
 class HomePage extends Component {
 
@@ -27,6 +28,7 @@ class HomePage extends Component {
 
     // }
     // handleClose = () => setShow(false);
+
 
     render() {
 
@@ -90,10 +92,10 @@ class HomePage extends Component {
                 {/* מודל הרשמה */}
                 <Modal centered show={this.state.displaySignup} onHide={() => { this.setState({ displaySignup: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל ====================================*/}
-                    <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)' }} closeButton>
+                    <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} closeButton>
                         <Modal.Title>הרשמה</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body style={{ backgroundColor: 'rgb(47,172,166)' }}>
+                    <Modal.Body style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw', height: '65vh' }}>
                         <Signup />
                     </Modal.Body>
                 </Modal>

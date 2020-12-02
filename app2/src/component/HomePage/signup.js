@@ -21,61 +21,68 @@ class Signup extends Component {
     render() {
         return (
 
-            <div className="signup">
-                {/* <form> */}
-                <h2 className="headerSignUp" >הרשמת מטופל</h2>
-                <Form>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="first_name" id="Firstname" value={this.state.Firstname} onChange={this.inputChange.event}>
+            // <div >
+            /* <form> */
+            /* <h2 className="headerSignUp" >הרשמת מטופל</h2> */
+            <Form className="signup">
+                <Form.Row>
+                    <Form.Group as={Col} controlId="first_name" id="Firstname" value={this.state.Firstname} onChange={this.inputChange.event}>
+                        <Form.Control placeholder="שם פרטי" />
+                    </Form.Group>
+                    {/* <Form.Group as={Col} controlId="first_name">
                             <Form.Control placeholder="שם פרטי" />
-                        </Form.Group>
-                        <Form.Group as={Col} controlId="first_name">
-                            <Form.Control placeholder="שם פרטי" />
 
-                        </Form.Group>
+                        </Form.Group> */}
 
-                        <Form.Group as={Col} controlId="last_name">
-                            <Form.Control placeholder="שם משפחה" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="id">
-                            <Form.Control placeholder=".ת.ז" />
-                        </Form.Group>
+                    <Form.Group as={Col} controlId="last_name">
+                        <Form.Control placeholder="שם משפחה" />
+                    </Form.Group>
+                </Form.Row>
 
-                        <Form.Group as={Col} controlId="date">
-                            <Form.Control type="date" placeholder="תאריך לידה" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="Phone1">
-                            <Form.Control type="Phone" placeholder="טלפון" />
-                        </Form.Group>
+                <Form.Row>
+                    <Form.Group as={Col} controlId="id">
+                        <Form.Control placeholder=".ת.ז" />
+                    </Form.Group>
 
-                        <Form.Group as={Col} controlId="Phone2">
-                            <Form.Control placeholder="טלפון נוסף" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group key={3} as={Col} controlId="email">
-                            <Form.Control key={4} type="mail" placeholder="כתובת מייל" />
-                        </Form.Group>
-                    </Form.Row>
-                </Form>
-                <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
-                <Form>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="password">
-                            <Form.Control type="password" placeholder="סיסמא" />
-                        </Form.Group>
+                    <Form.Group as={Col} controlId="date">
+                        <Form.Control type="date" placeholder="תאריך לידה" />
+                    </Form.Group>
+                </Form.Row>
 
-                        <Form.Group as={Col} controlId="confirm_password">
-                            <Form.Control type="password" placeholder="אימות סיסמא " />
-                        </Form.Group>
-                    </Form.Row>
-                </Form>
-                <img src={arrow} id="arrow" />
-            </div>
+                <Form.Row>
+                    <Form.Group as={Col} controlId="Phone1">
+                        <Form.Control type="Phone" placeholder="טלפון" />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="Phone2">
+                        <Form.Control placeholder="טלפון נוסף" />
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group key={3} as={Col} controlId="email">
+                        <Form.Control key={4} type="email" placeholder="כתובת מייל" />
+                    </Form.Group>
+                </Form.Row>
+                {/* </Form> */}
+
+                <Form.Row>
+                    <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
+                </Form.Row>
+
+                {/* <Form> */}
+                <Form.Row>
+                    <Form.Group as={Col} controlId="password">
+                        <Form.Control type="password" placeholder="סיסמא" />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="confirm_password">
+                        <Form.Control type="password" placeholder="אימות סיסמא " />
+                        <img src={arrow} id="arrow" />
+                    </Form.Group>
+                </Form.Row>
+            </Form>
+
+
         );
     }//render
 

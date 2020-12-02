@@ -14,6 +14,7 @@ class Therapists extends Component {
     }
 
     componentDidMount() {
+        debugger;
         axios.get('therapists/GetAll')
             .then(res => {
                 console.log(res);
