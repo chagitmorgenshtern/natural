@@ -1,14 +1,16 @@
 .App {
   
   text-align: right;
-
-  background-color:transparent;
-
+  width: 100vw;
+  height: 100vh;
+    position: absolute;
+/*  background-color:transparent;
+ 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 0px; */
   /* border-style: groove; */
   /* border-color:black;
   border-radius: 15%;

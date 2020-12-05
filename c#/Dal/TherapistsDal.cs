@@ -13,7 +13,7 @@ namespace Dal
 
                 try
                 {
-                    using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                    using (Natural_wayEntities4 db = new Natural_wayEntities4())
                     {
                         db.Therapists.Add(t);
                         db.SaveChanges();
@@ -32,7 +32,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     return db.Therapists.Find(id);
                 }
@@ -51,7 +51,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     List<Therapists> lst = db.Therapists.ToList();
                     return lst;
@@ -69,7 +69,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     db.Therapists.Remove(db.Therapists.Where(x => x.TherapistId == id).FirstOrDefault());
                     db.SaveChanges();

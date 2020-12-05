@@ -14,7 +14,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     db.Applicants.Add(a);
                     db.SaveChanges();
@@ -32,7 +32,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     return db.Applicants.Find(id);
                 }
@@ -51,7 +51,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     db.Applicants.Remove(db.Applicants.Where(x => x.ApplicantId == id).FirstOrDefault());
                     db.SaveChanges();

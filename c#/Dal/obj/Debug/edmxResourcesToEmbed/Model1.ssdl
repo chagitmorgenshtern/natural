@@ -68,7 +68,7 @@
     <Property Name="Lastname" Type="varchar" MaxLength="20" />
     <Property Name="PatientTz" Type="varchar" MaxLength="9" />
     <Property Name="DateOfBirth" Type="date" />
-    <Property Name="Email" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="30" />
     <Property Name="Password" Type="varchar" MaxLength="10" />
     <Property Name="PhoneNumber1" Type="varchar" MaxLength="10" />
     <Property Name="PhoneNumber2" Type="varchar" MaxLength="10" />

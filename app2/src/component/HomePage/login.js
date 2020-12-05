@@ -22,14 +22,18 @@ class Login extends Component {
 
 
   checkLogin() {
-    debugger;
-    // 
-    // axios.get('patients/Login/{email}/{pass}', this.state.email, this.state.pass).then(res => { debugger; alert(res) })
-    axios.get('patients/Login/', {
-      params: {
-        email: this.state.email, pass: this.state.pass
-      }
-    }).then(res => { debugger; alert(res) })
+    //debugger;
+    // , this.state.pass
+    //axios.get('patients/Login/' + this.state.email).then(res => { debugger; alert(res) })
+
+
+    // axios.get('patients/Login/', {
+    //   params: {
+    //     email: this.state.email, pass: this.state.pass
+    //   }
+    // }).then(res => { debugger; alert(res) })
+
+
 
     // axios.get('therapists/GetAll')
     //   .then(res => {

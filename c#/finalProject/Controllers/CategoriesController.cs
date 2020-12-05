@@ -21,6 +21,16 @@ namespace finalProject.Controllers
             return Ok();
         }
 
+        [Route("GetAllCategories")]
+        public IHttpActionResult GetAllCategories()
+        {
+            //List<DTO.Categories1> lst = Bl.CategoriesBl.GetAllCategories();
+            //if (lst == null)
+            //    return BadRequest();
+            //יותר הגיוני ככה- כי אם הטבלה ריקה או שיש בעיה אחרת במסד נתונים זה לא תקלה בבקשה
+            return Ok(Bl.CategoriesBl.GetAllCategories());
+        }
+
         [HttpGet]
         [Route("GetById")]
         public IHttpActionResult GetById([FromBody] int id)

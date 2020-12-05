@@ -22,7 +22,7 @@ namespace Dal
         public Nullable<bool> IsDone { get; set; }
     
         public virtual Categories Categories { get; set; }
-        public virtual Therapists Therapists { get; set; }
         public virtual Patients Patients { get; set; }
+        public virtual Therapists Therapists { get; set; }
     }
 }

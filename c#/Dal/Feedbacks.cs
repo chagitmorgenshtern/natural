@@ -22,7 +22,7 @@ namespace Dal
         public Nullable<int> Expertise { get; set; }
         public Nullable<System.DateTime> FeedbackDate { get; set; }
     
-        public virtual Therapists Therapists { get; set; }
         public virtual Patients Patients { get; set; }
+        public virtual Therapists Therapists { get; set; }
     }
 }

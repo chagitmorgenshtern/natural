@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../style.css'
 import axios from '../../axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import backg from '../../images/background01.jpg'
 import { Form, Col, Button, Row, Container, InputGroup } from 'react-bootstrap';
 
 class SignupTh extends Component {

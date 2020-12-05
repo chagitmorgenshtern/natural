@@ -15,7 +15,7 @@ namespace DTO
         public string Lastname { get; set; }
         public string PatientTz { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public Nullable<int> Email { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public string PhoneNumber1 { get; set; }
         public string PhoneNumber2 { get; set; }

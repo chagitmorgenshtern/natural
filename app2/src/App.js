@@ -11,11 +11,17 @@ import HomePage from './component/HomePage/homePage';
 import ReadMore from './component/ReadMore/readMore';
 import Therapists from './component/Therapists/therapists';
 import TherapistPage from './component/TherapistPage/therapistPage';
+import Transition_background from './images/Transition_background.jpg';
 
 function App() {
   return (
     <center>
-      <div className="App">
+      <div className="App" style={{
+        backgroundImage: `url(${Transition_background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}>
         {/* <center>
         <TherapistCard firstName="Sivan" lastName="Tziyonov" />
       </center> */}

@@ -13,13 +13,13 @@ namespace finalProject.Controllers
     //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TherapistsController : ApiController
     {
-        [HttpGet]
-        [Route("login")]
-         //לשנות בהמשך לפי מה שמתאים
-        public IHttpActionResult Login()
-        {
-            return Ok("hello");
-        }
+        //[HttpGet]
+        //[Route("login")]
+        // //לשנות בהמשך לפי מה שמתאים
+        //public IHttpActionResult Login()
+        //{
+        //    return Ok("hello");
+        //}
 
         [HttpPost]
         public IHttpActionResult Register([FromBody] DTO.Therapists1 t)
@@ -39,7 +39,8 @@ namespace finalProject.Controllers
         [Route("GetAll")]
         public IHttpActionResult GetAll()
         {
-            return Ok(Bl.TherapistsBl.GetAll());
+            List<DTO.Therapists1> lst = Bl.TherapistsBl.GetAll();
+            return Ok(lst);
         }
 
         [HttpDelete]

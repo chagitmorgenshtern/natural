@@ -53,9 +53,11 @@ class HomePage extends Component {
                         <Button variant="outline-primary">Search</Button>
                     </Form>
                 </Navbar> */}
-
+                {/* <u id="link_register"></u> */}
                 <header className="homepage_header">
                     <img src={icon} id="icon" />
+                    <label id="label_new_t_register" className="float-right">
+                        מעוניין לפרסם את שירותיך באתר?  <Link to="/signupTh" ><label>לחץ כאן</label></Link>!</label>
                     <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
                     <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label>
 

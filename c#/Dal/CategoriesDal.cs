@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Dal
 {
@@ -11,7 +12,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     db.Categories.Add(c);
                     db.SaveChanges();
@@ -32,7 +33,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     //where אפשר גם לפי
                     return db.Categories.Find(id);
@@ -46,13 +47,32 @@ namespace Dal
 
         }
 
+        //GetAll
+        public static List<Categories> GetAll()
+        {
+
+            try
+            {
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                {
+                    List<Categories> lst = db.Categories.ToList();
+                    return lst;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+        }
 
         //Delete
         public static bool DeleteById(int id)
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     db.Categories.Remove(db.Categories.Where(x => x.CategoryId == id).FirstOrDefault());
                     db.SaveChanges();

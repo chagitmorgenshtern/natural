@@ -21,7 +21,7 @@ namespace DTO
         {
 
         }
-        //gets dal and convert it to dto (by the ctor)
+        //gets dal and converts it to dto (by the ctor)
         public Categories1(Dal.Categories c)
         {
             CategoryId = c.CategoryId;
@@ -39,6 +39,13 @@ namespace DTO
                 CategoryId = c.CategoryId,
                 CategoryName = c.CategoryName
             };
+        }
+
+        public static List<Categories1> ConvertToListDto(List<Categories> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(c => new Categories1(c)).ToList();
         }
     }
 }

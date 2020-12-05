@@ -49,7 +49,7 @@ namespace DTO
 
 
 
-        //-----------methodes => converts-----------
+        //-----------methodes => convertors-----------
         public static Therapists Todal(Therapists1 t)
         {
             return new Dal.Therapists

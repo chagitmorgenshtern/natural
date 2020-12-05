@@ -10,7 +10,7 @@ namespace Dal
 
             try
             {
-                using(Natural_wayEntities3 db=new Natural_wayEntities3())
+                using(Natural_wayEntities4 db=new Natural_wayEntities4())
                 {
                     db.Patients.Add(p);
                     db.SaveChanges();
@@ -27,7 +27,7 @@ namespace Dal
         //{
         //    try
         //    {
-        //        using (Natural_wayEntities3 db = new Natural_wayEntities3())
+        //        using (Natural_wayEntities4 db = new Natural_wayEntities4())
         //        {
                     
         //        }
@@ -41,7 +41,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     //where אפשר גם לפי
                     return db.Patients.Find(id);
@@ -60,7 +60,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     Patients p= db.Patients.Where(x => x.Email.Equals(email)).FirstOrDefault();
                     return p;
@@ -78,7 +78,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities3 db = new Natural_wayEntities3())
+                using (Natural_wayEntities4 db = new Natural_wayEntities4())
                 {
                     db.Patients.Remove(db.Patients.Where(x => x.PatientId == id).FirstOrDefault());
                     db.SaveChanges();

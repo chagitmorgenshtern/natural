@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DTO;
 
 namespace Bl
@@ -23,5 +24,9 @@ namespace Bl
             Dal.CategoriesDal.DeleteById(id);
         }
 
+        public static List<Categories1> GetAllCategories()
+        {
+            return Categories1.ConvertToListDto(Dal.CategoriesDal.GetAll());
+        }
     }
 }
