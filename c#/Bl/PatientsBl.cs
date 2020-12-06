@@ -6,6 +6,15 @@ namespace Bl
 {
     public class PatientsBl
     {
+        public static bool Login(string email, string pass)
+        {
+            Patients p = PatientsDal.GetByEmail(email);
+            if (p != null)
+                if (p.Password.Equals(pass))
+                    return true;
+            return false;
+        }
+
         public static bool Register(Patients1 p)
         {
              
@@ -26,13 +35,6 @@ namespace Bl
             Dal.PatientsDal.DeleteById(id);
         }
 
-        public static bool Login(string email, string pass)
-        {
-            Patients p= PatientsDal.GetByEmail(email);
-            if (p != null)
-                if (p.Password.Equals(pass))
-                    return true;
-            return false;
-        }
+        
     }
 }

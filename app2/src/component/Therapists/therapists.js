@@ -60,8 +60,8 @@ class Therapists extends Component {
 
                     <Link to="/readmore"><label id="labal" >אודות</label></Link>
                     <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
-                    <Link to="/signupTh"><label id="labal">האזור האישי</label></Link>
-                    <Link to="/signup"><label id="labal">צור קשר</label></Link>
+                    <Link to="/"><label id="labal">לדף הבית</label></Link>
+                    <Link to="/signupTh"><label id="labal">צור קשר</label></Link>
                 </header>
                 <h3 id="therapist_title">המטפלים שלנו</h3>
                 <Form.Control className="selectbox" id="selectbox1" as="select" custom>
@@ -84,7 +84,7 @@ class Therapists extends Component {
                 </Form.Control>
                 <div className="therapists_table">
                     {therapistList}
-                    {/* <TherapistCard firstName="1 שם מלא" lastName="" />
+                    <TherapistCard firstName="1 שם מלא" lastName="" />
                     <TherapistCard firstName="2 שם מלא" lastName="" />
                     <TherapistCard firstName="3 שם מלא" lastName="" />
                     <TherapistCard firstName="4 שם מלא" lastName="" />
@@ -96,7 +96,7 @@ class Therapists extends Component {
                     <TherapistCard firstName="10 שם מלא" lastName="" />
                     <TherapistCard firstName="11 שם מלא" lastName="" />
                     <TherapistCard firstName="12 שם מלא" lastName="" />
-                    <TherapistCard firstName="13 שם מלא" lastName="" /> */}
+                    <TherapistCard firstName="13 שם מלא" lastName="" />
 
                 </div>
 

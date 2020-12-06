@@ -19,9 +19,9 @@ namespace finalProject.Controllers
         [Route("Login/{email}/{pass}")]
         public IHttpActionResult Login(string email, string pass)
         {
-            //if(Bl.PatientsBl.Login(email, pass))
-            //    return Ok();
-            return Ok(email+" "+pass);
+           //if(Bl.PatientsBl.Login(email, pass))
+           //    return Ok();
+            return Ok(Bl.PatientsBl.Login(email, pass));
 
             
         }

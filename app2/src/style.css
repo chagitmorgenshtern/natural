@@ -365,7 +365,9 @@
 #login{
     justify-content: center !important;
 }
-
+#modal_signup{
+    left: 100px;
+}
 .modal-title {
     color: white;
 }
@@ -536,8 +538,8 @@
 #arrow{
     width: 4vw;
     height: 9vh;
-    margin-right: 72.5%;
-    margin-top: -15%;
+    margin-right: 17.5%;
+    margin-top: -22%;
     box-shadow: #a5a0a0;;
 }
 .headerSignUp

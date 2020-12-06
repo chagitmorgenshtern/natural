@@ -92,7 +92,7 @@ class HomePage extends Component {
                 </Modal>
 
                 {/* מודל הרשמה */}
-                <Modal centered show={this.state.displaySignup} onHide={() => { this.setState({ displaySignup: false }); }} >
+                <Modal id="modal_signup" centered show={this.state.displaySignup} onHide={() => { this.setState({ displaySignup: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל ====================================*/}
                     <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} closeButton>
                         <Modal.Title>הרשמה</Modal.Title>
