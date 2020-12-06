@@ -13,10 +13,10 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Natural_wayEntities4 : DbContext
+    public partial class Natural_wayEntities : DbContext
     {
-        public Natural_wayEntities4()
-            : base("name=Natural_wayEntities4")
+        public Natural_wayEntities()
+            : base("name=Natural_wayEntities")
         {
         }
     

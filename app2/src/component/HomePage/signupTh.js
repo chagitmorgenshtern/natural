@@ -35,12 +35,24 @@ class SignupTh extends Component {
             </Form.Group>
           </Form.Row>
           <Form.Group>
+            <Form.Label id="cv_label_nameFromsignupTh">אנא צרף קובץ קורות חיים</Form.Label>
             <Form.File id="file" />
           </Form.Group>
-          <Button variant="info">אישור</Button>{' '}
+          <Button variant="info" type="submit">אישור</Button>{' '}
 
 
         </Form>
+
+        {/* <Modal centered show={this.state.displayModal} onHide={() => { this.setState({ displaySignup: false }); }} >
+         
+          <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} closeButton>
+            <Modal.Title>הרשמה</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw', height: '65vh' }}>
+            <Signup />
+          </Modal.Body>
+        </Modal> */}
+
       </div>);
 
   }

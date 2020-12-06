@@ -12,7 +12,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.Categories.Add(c);
                     db.SaveChanges();
@@ -33,7 +33,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     //where אפשר גם לפי
                     return db.Categories.Find(id);
@@ -53,7 +53,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     List<Categories> lst = db.Categories.ToList();
                     return lst;
@@ -72,7 +72,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.Categories.Remove(db.Categories.Where(x => x.CategoryId == id).FirstOrDefault());
                     db.SaveChanges();

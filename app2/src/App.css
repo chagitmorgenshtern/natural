@@ -4,8 +4,12 @@
   width: 100vw;
   height: 100vh;
     position: absolute;
-/*  background-color:transparent;
+    display: inherit;
+    justify-content: center;
+/* 
  
+
+  background-color:transparent;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);

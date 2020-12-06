@@ -14,7 +14,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.WorkHours.Add(w);
                     db.SaveChanges();
@@ -32,7 +32,7 @@ namespace Dal
 
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     return db.WorkHours.Find(id);
                 }
@@ -51,7 +51,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.WorkHours.Remove(db.WorkHours.Where(x => x.WorkHoursId == id).FirstOrDefault());
                     db.SaveChanges();

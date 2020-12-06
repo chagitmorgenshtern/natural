@@ -13,7 +13,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.Archives.Add(a);
                     db.SaveChanges();
@@ -32,7 +32,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     //where אפשר גם לפי
                     return db.Archives.Find(id);
@@ -52,7 +52,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.Archives.Remove(db.Archives.Where(x => x.ArchivesId == id).FirstOrDefault());
                     db.SaveChanges();

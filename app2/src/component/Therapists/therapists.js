@@ -77,8 +77,8 @@ class Therapists extends Component {
                     <option>5</option>
                 </Form.Control>
                 <div className="therapists_table">
-                    {/* {therapistList} */}
-                    <TherapistCard firstName="1 שם מלא" lastName="" />
+                    {therapistList}
+                    {/* <TherapistCard firstName="1 שם מלא" lastName="" />
                     <TherapistCard firstName="2 שם מלא" lastName="" />
                     <TherapistCard firstName="3 שם מלא" lastName="" />
                     <TherapistCard firstName="4 שם מלא" lastName="" />
@@ -90,7 +90,7 @@ class Therapists extends Component {
                     <TherapistCard firstName="10 שם מלא" lastName="" />
                     <TherapistCard firstName="11 שם מלא" lastName="" />
                     <TherapistCard firstName="12 שם מלא" lastName="" />
-                    <TherapistCard firstName="13 שם מלא" lastName="" />
+                    <TherapistCard firstName="13 שם מלא" lastName="" /> */}
 
                 </div>
 

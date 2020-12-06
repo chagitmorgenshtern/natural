@@ -10,7 +10,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     db.Feedbacks.Add(f);
                     db.SaveChanges();
@@ -30,7 +30,7 @@ namespace Dal
             
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     //where אפשר גם לפי
                     return db.Feedbacks.Find(id);
@@ -50,7 +50,7 @@ namespace Dal
         {
             try
             {
-                using (Natural_wayEntities4 db = new Natural_wayEntities4())
+                using (Natural_wayEntities db = new Natural_wayEntities())
                 {
                     //db.Entry(item).State = EntityState.Deleted;
                     //pay <3!!! delete by id

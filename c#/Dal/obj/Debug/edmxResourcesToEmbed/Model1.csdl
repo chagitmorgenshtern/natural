@@ -245,7 +245,7 @@
     <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="Natural_wayEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Natural_wayEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Applicants" EntityType="Self.Applicants" />
     <EntitySet Name="Archives" EntityType="Self.Archives" />
     <EntitySet Name="Categories" EntityType="Self.Categories" />

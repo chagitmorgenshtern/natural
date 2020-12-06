@@ -250,7 +250,12 @@
 }
 
 #label_new_t_register{
-
+   /* margin-top: 1%;
+     margin-right: 0%; */
+    color: #2faca6;
+    font-weight: 700;
+    font-size: larger;
+    text-shadow: 0 0 20px white;
 }
 
 #link_register{
@@ -546,21 +551,34 @@
    
     width: 28vw;
     height: 75vh;
-    margin-top: 5vw;
-    margin-right: 15vw;
+    margin-top: 6%;
+    margin-right: 36%;
     background-color: rgb(76,200,166);
+    box-shadow: 0 0 20px 1px white;
+    display: grid;
+    align-content: baseline;
 }
 .headerSignUpTh{
     margin-top:7%;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-large;
 }
 .textSignUpTh
 {
     margin-top:5%;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
 }
+
+#cv_label_nameFromsignupTh{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 14%;
+    font-size: large;
+}
+
 #first_nameFromsignupTh
 {
     border-radius: 1px;
@@ -597,21 +615,26 @@
     width: 16vw;
     height: 6vh;
 }
+
 #email_nameFromsignupTh::placeholder
 {
     color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #id_nameFromsignupTh::placeholder
 {
     color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #last_nameFromsignupTh::placeholder
 {
     color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #first_nameFromsignupTh::placeholder
 {
     color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #file
 {
@@ -626,6 +649,7 @@
 #file-upload-button{
     width: 20% !important;
 }
+
 .login
 {
     /* width: 28vw;
