@@ -9,9 +9,11 @@ import { Form } from 'react-bootstrap';
 
 
 class Therapists extends Component {
+
     state = {
         therapists: [],
-        categories: []
+        categories: [],
+        serviceAreas: []
     }
 
     componentDidMount() {
@@ -36,11 +38,12 @@ class Therapists extends Component {
 
         const therapistList = this.state.therapists.map((t, index) => {
             return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
-                category={t.Category} serviceArea={t.ServiceArea} key={index} />
+                category={t.Category} key={index} />
         });
+        // serviceArea={t.ServiceAreaId}
 
         const categoriesList = this.state.categories
-            .map((x, index) => { return <option key={index}>x.CategoryName</option> });
+            .map((x, index) => { return <option key={index}>{x.CategoryName}</option> });
 
 
         return (
@@ -62,19 +65,22 @@ class Therapists extends Component {
                 </header>
                 <h3 id="therapist_title">המטפלים שלנו</h3>
                 <Form.Control className="selectbox" id="selectbox1" as="select" custom>
-                    {/* {categoriesList} */}
-                    <option>1</option>
+                    <option>הכל</option>
+                    {categoriesList}
+                    {/* <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5</option>
+                    <option>5</option> */}
                 </Form.Control>
                 <Form.Control className="selectbox" id="selectbox2" as="select" custom>
-                    <option>1</option>
+                    <option>הכל</option>
+
+                    {/* <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5</option>
+                    <option>5</option> */}
                 </Form.Control>
                 <div className="therapists_table">
                     {therapistList}

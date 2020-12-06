@@ -21,7 +21,7 @@ namespace finalProject.Controllers
         {
             //if(Bl.PatientsBl.Login(email, pass))
             //    return Ok();
-            return Ok();
+            return Ok(email+" "+pass);
 
             
         }

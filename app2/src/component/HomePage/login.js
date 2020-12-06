@@ -23,23 +23,9 @@ class Login extends Component {
 
   checkLogin() {
     //debugger;
-    // , this.state.pass
-    //axios.get('patients/Login/' + this.state.email).then(res => { debugger; alert(res) })
 
+    axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data) })
 
-    // axios.get('patients/Login/', {
-    //   params: {
-    //     email: this.state.email, pass: this.state.pass
-    //   }
-    // }).then(res => { debugger; alert(res) })
-
-
-
-    // axios.get('therapists/GetAll')
-    //   .then(res => {
-    //     console.log(res);
-
-    //   })
     alert("in");
   }
 
@@ -60,8 +46,8 @@ class Login extends Component {
         </Form.Group> */}
 
 
-        <Form.Group controlId="email">
-          <Form.Control type="email" placeholder="כתובת מייל" onChange={(event) => { this.setState({ email: event.target.value }) }} />
+        <Form.Group type="email">
+          <Form.Control id="emailFromLogIn" type="email" placeholder="כתובת מייל" onChange={(event) => { this.setState({ email: event.target.value }) }} />
         </Form.Group>
 
 

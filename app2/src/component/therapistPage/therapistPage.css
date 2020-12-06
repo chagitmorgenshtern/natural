@@ -76,6 +76,9 @@
 #rating{
    background-color: transparent;
    width: fit-content;
+   height: fit-content;
+   margin-left: 11%;
+   margin-top: 16%;
    grid-column: 1;
    grid-row: 1/2;
 }

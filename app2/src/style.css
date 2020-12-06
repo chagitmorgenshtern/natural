@@ -664,16 +664,17 @@
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.emailFromLogin
+/* #emailFromLogin
 {
     border-radius: 1px;
-    /* margin-right: -5%; */
     background-color:transparent;
+    color: white;
+    margin-right: 15%;
     margin-top: 1%;
-    width: 50vw;
+    width: 20vw;
     height: 6vh;
-}
-.passwordFromLogin{
+} */
+/* .passwordFromLogin{
     border-radius: 1px;
     background-color: transparent;
     color: white;
@@ -681,7 +682,7 @@
     margin-top: 12%;
     width: 16vw;
     height: 6vh;
-}
+} */
 #passwordFromLogIn
 {
     border-radius: 1px;
