@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom'
 import Signup from './signup';
 import Login from './login';
 import arrow from '../../images/arrow.png';
+import user_no from '../../images/user_no.png'
+
 // import { NavDropdown } from 'react-bootstrap';
 class HomePage extends Component {
 
@@ -60,7 +62,7 @@ class HomePage extends Component {
                         מעוניין לפרסם את שירותיך באתר?  <Link to="/signupTh" ><label>לחץ כאן</label></Link>!</label>
                     <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
                     <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label>
-
+                    <img src={user_no} />
                     {/* איך להפעיל פונקציה עם ביינד */}
                     {/* <label id="up" onClick={this.openSignUp.bind(this)}>הרשמה</label> */}
                 </header>

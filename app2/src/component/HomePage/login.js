@@ -26,7 +26,7 @@ class Login extends Component {
 
     axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data) })
 
-    alert("in");
+    //alert("in");
   }
 
   render() {
