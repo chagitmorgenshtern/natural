@@ -159,7 +159,7 @@
 }
 
 .article{
-    margin-top: 17vh;
+    margin-top: 22vh;
     margin-right: 10vw;
     font-size: 150%;
     font-family: inherit;
@@ -256,6 +256,8 @@
     font-weight: 700;
     font-size: larger;
     text-shadow: 0 0 20px white;
+    margin-right: -28px;
+    margin-top: 3px;
 }
 
 #link_register{
@@ -294,6 +296,22 @@
 #label
 {
     margin-top: 10vh;
+}
+
+
+#login_container{
+    background-color: #ffffff7a;
+    width: 155px;
+    height: 78px;
+    float: left;
+    border-radius: 40%;
+    margin-top: -27px;
+    margin-left: 31px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 6px;
+
 }
 
 .signup{
@@ -370,6 +388,9 @@
 }
 .modal-title {
     color: white;
+}
+#sub-title{
+    font-size: medium;
 }
 
 .modal-header {

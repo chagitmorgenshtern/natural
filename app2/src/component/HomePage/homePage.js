@@ -60,9 +60,15 @@ class HomePage extends Component {
                     <img src={icon} id="icon" />
                     <label id="label_new_t_register" className="float-right">
                         מעוניין לפרסם את שירותיך באתר?  <Link to="/signupTh" ><label>לחץ כאן</label></Link>!</label>
-                    <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
-                    <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label>
-                    <img src={user_no} />
+                    <div id="login_container">
+                        <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
+                        {/* <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label> */}
+                        <img src={user_no} />
+                    </div>
+
+
+
+
                     {/* איך להפעיל פונקציה עם ביינד */}
                     {/* <label id="up" onClick={this.openSignUp.bind(this)}>הרשמה</label> */}
                 </header>
@@ -86,7 +92,17 @@ class HomePage extends Component {
                 <Modal centered show={this.state.displayLogIn} onHide={() => { this.setState({ displayLogIn: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל=================================== */}
                     <Modal.Header style={{ backgroundColor: 'rgb(76, 200, 166)' }} closeButton>
-                        <Modal.Title>כניסה לחשבונך</Modal.Title>
+                        <section>
+                            <Modal.Title>כניסה לחשבונך</Modal.Title> <br />
+                        </section>
+                        <section>
+                            <Modal.Title id="sub-title"
+                                onClick={() => {
+                                    this.setState({ displayLogIn: false });
+                                    this.setState({ displaySignup: true });
+                                }}>עוד לא רשום? הרשם כאן!
+                   </Modal.Title>
+                        </section>
                     </Modal.Header>
                     <Modal.Body style={{ backgroundColor: 'rgb(76, 200, 166)' }}>
                         <Login />
