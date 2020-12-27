@@ -31,6 +31,12 @@ class Therapists extends Component {
                 this.setState({ categories: [...res.data] });
             })
 
+
+        axios.get('serviceAreas/GetAllServiceAreas')
+            .then(res => {
+                console.log(res);
+                this.setState({ serviceAreas: [...res.data] });
+            })
     }
 
 
@@ -43,8 +49,10 @@ class Therapists extends Component {
         // serviceArea={t.ServiceAreaId}
 
         const categoriesList = this.state.categories
-            .map((x, index) => { return <option key={index}>{x.CategoryName}</option> });
+            .map((x, index) => { return <option key={index} id={x.CategoryId}>{x.CategoryName}</option> });
 
+        const serviceAreasList = this.state.serviceAreas
+            .map((x, index) => { return <option key={index} id={x.SAId}>{x.SAName}</option> });
 
         return (
             <div className="therapists" style={{
@@ -65,7 +73,7 @@ class Therapists extends Component {
                 </header>
                 <h3 id="therapist_title">המטפלים שלנו</h3>
                 <Form.Control className="selectbox" id="selectbox1" as="select" custom>
-                    <option>הכל</option>
+                    <option id="0">הכל</option>
                     {categoriesList}
                     {/* <option>1</option>
                     <option>2</option>
@@ -74,8 +82,8 @@ class Therapists extends Component {
                     <option>5</option> */}
                 </Form.Control>
                 <Form.Control className="selectbox" id="selectbox2" as="select" custom>
-                    <option>הכל</option>
-
+                    <option id="0">הכל</option>
+                    {serviceAreasList}
                     {/* <option>1</option>
                     <option>2</option>
                     <option>3</option>

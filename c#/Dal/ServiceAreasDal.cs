@@ -45,6 +45,22 @@ namespace Dal
 
         }
 
+        public static List<ServiceAreas> GetAll()
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+                    List<ServiceAreas> lst = db.ServiceAreas.ToList();
+                    return lst;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
 
         //Delete
         public static bool DeleteById(int id)

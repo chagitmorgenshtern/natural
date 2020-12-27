@@ -30,10 +30,12 @@ namespace finalProject.Controllers
 
         [HttpGet]
         [Route("GetById")]
-        public IHttpActionResult GetById([FromBody] int id)//
+        public IHttpActionResult GetById([FromBody] int id)
         {
-            return Ok(Bl.TherapistsBl.GetById(id));// 
+            return Ok(Bl.TherapistsBl.GetById(id)); 
         }
+
+
 
         [HttpGet]
         [Route("GetAll")]

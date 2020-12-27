@@ -91,21 +91,21 @@ class HomePage extends Component {
                 {/* מודל כניסה לחשבון */}
                 <Modal centered show={this.state.displayLogIn} onHide={() => { this.setState({ displayLogIn: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל=================================== */}
-                    <Modal.Header style={{ backgroundColor: 'rgb(76, 200, 166)' }} closeButton>
-                        <section>
-                            <Modal.Title>כניסה לחשבונך</Modal.Title> <br />
-                        </section>
-                        <section>
-                            <Modal.Title id="sub-title"
-                                onClick={() => {
-                                    this.setState({ displayLogIn: false });
-                                    this.setState({ displaySignup: true });
-                                }}>עוד לא רשום? הרשם כאן!
-                   </Modal.Title>
-                        </section>
+                    <Modal.Header style={{ backgroundColor: 'rgb(76, 200, 166)' }} >
+
+                        <Modal.Title>כניסה לחשבונך</Modal.Title> <br />
+
+
+
                     </Modal.Header>
                     <Modal.Body style={{ backgroundColor: 'rgb(76, 200, 166)' }}>
                         <Login />
+                        <Modal.Title id="sub-title"
+                            onClick={() => {
+                                this.setState({ displayLogIn: false });
+                                this.setState({ displaySignup: true });
+                            }}>עוד לא רשום? הרשם כאן!
+                   </Modal.Title>
                     </Modal.Body>
                 </Modal>
 

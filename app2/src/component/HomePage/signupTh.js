@@ -7,6 +7,11 @@ import { Form, Col, Button, Row, Container, InputGroup } from 'react-bootstrap';
 
 class SignupTh extends Component {
 
+
+  sendMailDetails() {
+    axios.post(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data) })
+  }
+
   render() {
     return (
       <div className="signupTh">
@@ -38,7 +43,7 @@ class SignupTh extends Component {
             <Form.Label id="cv_label_nameFromsignupTh">אנא צרף קובץ קורות חיים</Form.Label>
             <Form.File id="file" />
           </Form.Group>
-          <Button variant="info" type="submit">אישור</Button>{' '}
+          <Button variant="info" onClick={() => this.sendMailDetails()} type="submit">אישור</Button>{' '}
 
 
         </Form>

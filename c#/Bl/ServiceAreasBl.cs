@@ -25,5 +25,10 @@ namespace Bl
         {
             Dal.ServiceAreasDal.DeleteById(id);
         }
+
+        public static List<ServiceAreas1> GetAllServiceAreas()
+        {
+            return DTO.ServiceAreas1.ConvertToListDto(Dal.ServiceAreasDal.GetAll());
+        }
     }
 }

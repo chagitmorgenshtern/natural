@@ -28,12 +28,12 @@ namespace finalProject.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public IHttpActionResult Register([FromBody] DTO.Patients1 p)
+        public IHttpActionResult Register(DTO.Patients1 p)
         {
-            bool b=Bl.PatientsBl.Register(p);
-            if (b == true)
-                return Ok();
-            return BadRequest();
+            //bool b;
+            //if (b == true)
+                return Ok(Bl.PatientsBl.Register(p));
+            
         }
 
         [HttpGet]

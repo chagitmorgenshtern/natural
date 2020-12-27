@@ -37,7 +37,12 @@ namespace DTO
             };
         }
 
-
+        public static List<ServiceAreas1> ConvertToListDto(List<ServiceAreas> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(s => new ServiceAreas1(s)).ToList();
+        }
 
 
 

@@ -29,6 +29,13 @@ namespace finalProject.Controllers
             return Ok(Bl.ServiceAreasBl.GetById(id));
         }
 
+        [Route("GetAllServiceAreas")]
+        public IHttpActionResult GetAllServiceAreas()
+        {
+            List<DTO.ServiceAreas1> ls = Bl.ServiceAreasBl.GetAllServiceAreas();
+            return Ok(ls);
+        }
+
         [HttpDelete]
         [Route("DeleteById")]
         public IHttpActionResult DeleteById([FromBody] int id)
