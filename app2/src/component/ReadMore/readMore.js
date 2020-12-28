@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Transition_background from '../../images/Transition_background.jpg';
 import { Link } from 'react-router-dom';
-import { Form, Col, Button, Row, Container, InputGroup, Carousel } from 'react-bootstrap';
+import { Form, Col, Button, Row, Container, InputGroup, Carousel, Navbar } from 'react-bootstrap';
 import alovera from '../../images/alovera.jpg'
 import hot_stones from '../../images/hot_stones.jpg'
 import wide from '../../images/wide.jpg'
-
+import MyNavbar from '../navbar'
 
 class ReadMore extends Component {
   state = {
@@ -19,15 +19,7 @@ class ReadMore extends Component {
         // backgroundSize: 'cover',
         // backgroundRepeat: 'no-repeat'
       }}>
-        <header className="therapists_header">
-          {/* <img src={icon} id="icon" /> */}
-
-
-          <Link to="/readmore"><label id="labal" >אודות</label></Link>
-          <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
-          <Link to="/"><label id="labal">לדף הבית</label></Link>
-          <Link to="/signupTh"><label id="labal">צור קשר</label></Link>
-        </header>
+        <MyNavbar />
         {/* <center><h4 className="TitleReadMore">אז מה האתר שלנו בעצם מציע....?  </h4></center> */}
         {/* <div className="inf_therapist"> 
                <center>  <p> מטפל חדש בתחום הרפואה הטבעית?<br/> 

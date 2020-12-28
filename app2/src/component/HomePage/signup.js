@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from '../../axios'
 import { Form, Col } from 'react-bootstrap';
 import arrow from '../../images/arrow.png'
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
     state = {
@@ -24,11 +25,12 @@ class Signup extends Component {
         const newperson = { ...this.state.patient };
         const id = event.target.id;
         newperson[id] = event.target.value;
-        this.setState({ pateint: newperson });
+        this.setState({ patient: newperson });
 
     }
 
-    newPateintHandler = () => {
+    register = () => {
+        alert("hello");
         const newP = { ...this.state.patient };
         debugger;
         alert(this.state.patient.Firstname + " " + this.state.patient.Email);
@@ -54,43 +56,43 @@ class Signup extends Component {
             // <div >
             /* <form> */
             /* <h2 className="headerSignUp" >הרשמת מטופל</h2> */
-            <Form className="signup" onSubmit={this.newPateintHandler}>
+            <Form className="signup" onSubmit={this.register}>
                 <Form.Row>
-                    <Form.Group as={Col} controlId="first_name" >
-                        <Form.Control placeholder="שם פרטי" id="Firstname" value={this.state.Firstname} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col}  >
+                        <Form.Control placeholder="שם פרטי" className="inputs" id="Firstname" value={this.state.Firstname} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                     {/* <Form.Group as={Col} controlId="first_name">
                             <Form.Control placeholder="שם פרטי" />
 
                         </Form.Group> */}
 
-                    <Form.Group as={Col} controlId="last_name">
-                        <Form.Control placeholder="שם משפחה" id="Lastname" value={this.state.Lastname} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col} >
+                        <Form.Control placeholder="שם משפחה" className="inputs" id="Lastname" value={this.state.Lastname} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                    <Form.Group as={Col} controlId="id">
-                        <Form.Control placeholder=".ת.ז" id="PatientTz" value={this.state.PatientTz} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col}>
+                        <Form.Control placeholder=".ת.ז" className="inputs" id="PatientTz" value={this.state.PatientTz} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="date">
-                        <Form.Control type="date" placeholder="תאריך לידה" id="DateOfBirth" value={this.state.DateOfBirth} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col} >
+                        <Form.Control type="date" placeholder="תאריך לידה" className="inputs" id="DateOfBirth" value={this.state.DateOfBirth} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
-                    <Form.Group as={Col} controlId="Phone1">
-                        <Form.Control type="Phone" placeholder="טלפון" id="PhoneNumber1" value={this.state.PhoneNumber1} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col}>
+                        <Form.Control type="Phone" placeholder="טלפון" className="inputs" id="PhoneNumber1" value={this.state.PhoneNumber1} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="Phone2">
-                        <Form.Control placeholder="טלפון נוסף" id="PhoneNumber2" value={this.state.PhoneNumber2} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col}>
+                        <Form.Control placeholder="טלפון נוסף" className="inputs" id="PhoneNumber2" value={this.state.PhoneNumber2} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
-                    <Form.Group key={3} as={Col} controlId="email">
-                        <Form.Control key={4} type="email" placeholder="כתובת מייל" id="Email" value={this.state.Email} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group key={3} as={Col}>
+                        <Form.Control key={4} type="email" placeholder="כתובת מייל" className="inputs" id="Email" value={this.state.Email} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
                 {/* </Form> */}
@@ -101,17 +103,18 @@ class Signup extends Component {
 
                 {/* <Form> */}
                 <Form.Row>
-                    <Form.Group as={Col} controlId="password">
-                        <Form.Control type="password" placeholder="סיסמא" id="Password" value={this.state.Password} onChange={(event) => this.inputChange(event)} />
+                    <Form.Group as={Col} >
+                        <Form.Control type="password" placeholder="סיסמא" className="inputs" id="Password" value={this.state.Password} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="confirm_password">
-                        <Form.Control type="password" placeholder="אימות סיסמא " />
+                    <Form.Group as={Col}>
+                        <Form.Control type="password" className="inputs" id="confirm_password" placeholder="אימות סיסמא " />
                     </Form.Group>
 
-                    <Form.Group >
-                        <img src={arrow} id="arrow" type="submit" onClick={this.newPateintHandler} />
-                    </Form.Group>
+
+                    {/* type="submit"  */}
+                    <Link onClick={() => { this.register() }}><img src={arrow} id="arrow" /></Link>
+
                 </Form.Row>
             </Form>
 

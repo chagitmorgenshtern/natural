@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import TherapistCard from './therapistCard';
 import axios from '../../axios'
 import { Form } from 'react-bootstrap';
+import MyNavbar from '../navbar'
 // import TherapistCard from './therapistCard';
 
 
@@ -63,15 +64,9 @@ class Therapists extends Component {
             }}>
 
 
-                <header className="therapists_header">
-                    {/* <img src={icon} id="icon" /> */}
-
-                    <Link to="/readmore"><label id="labal" >אודות</label></Link>
-                    <Link to="/therapists"><label id="labal">המטפלים שלנו</label></Link>
-                    <Link to="/"><label id="labal">לדף הבית</label></Link>
-                    <Link to="/signupTh"><label id="labal">צור קשר</label></Link>
-                </header>
+                <MyNavbar />
                 <h3 id="therapist_title">המטפלים שלנו</h3>
+                <label id="select_label1">סנן לפי קטגוריה:</label>
                 <Form.Control className="selectbox" id="selectbox1" as="select" custom>
                     <option id="0">הכל</option>
                     {categoriesList}
@@ -81,6 +76,8 @@ class Therapists extends Component {
                     <option>4</option>
                     <option>5</option> */}
                 </Form.Control>
+
+                <label id="select_label2">סנן לפי אזור בארץ:</label>
                 <Form.Control className="selectbox" id="selectbox2" as="select" custom>
                     <option id="0">הכל</option>
                     {serviceAreasList}

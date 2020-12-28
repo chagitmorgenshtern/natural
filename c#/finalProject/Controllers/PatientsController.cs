@@ -30,9 +30,9 @@ namespace finalProject.Controllers
         [Route("Register")]
         public IHttpActionResult Register(DTO.Patients1 p)
         {
-            //bool b;
+            bool b=Bl.PatientsBl.Register(p);
             //if (b == true)
-                return Ok(Bl.PatientsBl.Register(p));
+                return Ok(b);
             
         }
 
