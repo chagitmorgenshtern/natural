@@ -21,6 +21,8 @@ namespace Bl
             DTO.Archives1 aa = new Archives1(Dal.ArchivesDal.GetById(id));
             return aa;
         }
+
+
         //Delete
         public static void DeleteById(int id)
         {

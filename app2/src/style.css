@@ -220,10 +220,14 @@
 .readMore
 {
     width: 100vw;
-    height: 100vh;
-    position: fixed;
+    height: fit-content;
+    position: absolute;
+    /* position: fixed; */
     padding: 0;
     margin: 0;
+}
+.readMore > p{
+    text-shadow: 0 0 8px black;
 }
 
 .main_content_div{
@@ -435,7 +439,9 @@
 
 } */
 
-
+.carousel{
+    margin-top: 5%;
+}
 .carousel.slide{
     width: 65% !important; 
     height: 25%!important;
@@ -448,8 +454,11 @@
     background-color: #fcfcfc82;
     box-shadow: 0 0 16px 7px #ffffffcc;
     width: 60%;
-    height: 100%;
+    height: 100vh;
     margin-right: 20%;
+    margin-bottom: 4%;
+    padding: 1px 10px;
+
 }
 #name.form-control{
      margin-right: 20%;
@@ -458,17 +467,20 @@
      height: 5vh;
 }
 
-.inputs{
+.inputs, .inputsTh{
     border-radius: 1px;
     background-color: transparent;
     width: 16vw;
     height: 6vh;
     color: white;
+
+    
 }
 
-.inputs::placeholder{
+.inputs::placeholder, .inputsTh::placeholder{
     color: white;
 }
+
 
 #Firstname{
     margin-right: 20%;
@@ -501,12 +513,12 @@
     margin-top: 1%;
 }
 #Password{
-    margin-right: 20%;
+    margin-right: 25%;
     margin-top: 2%;
 }
 #confirm_password
 {
-    margin-right: -7%;
+    margin-right: 28%;
     margin-top: 2%;
 }
 
@@ -556,8 +568,8 @@
 #arrow{
     width: 4vw;
     height: 9vh;
-    margin-right: -196px;
-    margin-top: -5px;
+    margin-right: -105px;
+    margin-top: -7px;
 }
 .headerSignUp
 {
@@ -591,13 +603,17 @@
     font-size: large;
 }
 
+.inputsTh{
+    margin-right: 20%;
+}
+
 #cv_label_nameFromsignupTh{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-right: 14%;
     font-size: large;
 }
-
+/* 
 #first_nameFromsignupTh
 {
     border-radius: 1px;
@@ -612,7 +628,7 @@
     border-radius: 1px;
     background-color: transparent;
     margin-right: 20%;
-    /* margin-top: 2%; */
+    
     width: 16vw;
     height: 6vh;
 }
@@ -621,7 +637,7 @@
     border-radius: 1px;
     background-color: transparent;
     margin-right: 20%;
-    /* margin-top: 2%; */
+    
     width: 16vw;
     height: 6vh;
 }
@@ -630,7 +646,7 @@
     border-radius: 1px;
     background-color: transparent;
     margin-right: 20%;
-    /* margin-top: 2%; */
+   
     width: 16vw;
     height: 6vh;
 }
@@ -661,10 +677,10 @@
     border-color: white;
     background-color: transparent;
     margin-right: 20%;
-    /* margin-top: 2%; */
+  
     width: 16vw;
     height: 6vh;
-}
+} */
 #file-upload-button{
     width: 20% !important;
 }

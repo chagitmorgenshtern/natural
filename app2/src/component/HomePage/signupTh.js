@@ -7,9 +7,19 @@ import { Form, Col, Button, Row, Container, InputGroup } from 'react-bootstrap';
 
 class SignupTh extends Component {
 
+  state = {
+    applicant: {
+      FirstName: "",
+      LastName: "",
+      TherapistTz: "",
+      Email: ""
+    }
+  }
 
   sendMailDetails() {
-    axios.post(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data) })
+    const newA = { ...this.state.applicant };
+    axios.post('applicants/AddApplicant', newA).then(res => { debugger; alert(res.data) });
+
   }
 
   render() {
@@ -21,27 +31,27 @@ class SignupTh extends Component {
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="first_nameFromsignupTh">
-              <Form.Control type="name" placeholder="שם פרטי" />
+              <Form.Control type="name" className="inputsTh" id="FirstName" placeholder="שם פרטי" style={{ marginTop: '7%' }} />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="last_nameFromsignupTh">
-              <Form.Control type="name" placeholder="שם משפחה" />
+              <Form.Control type="name" className="inputsTh" id="LastName" placeholder="שם משפחה" />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="id_nameFromsignupTh">
-              <Form.Control type="id" placeholder="תעודת זהות " />
+              <Form.Control type="id" className="inputsTh" id="TherapistTz" placeholder="תעודת זהות " />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="email_nameFromsignupTh">
-              <Form.Control type="Email" placeholder="כתובת מייל " />
+              <Form.Control type="Email" className="inputsTh" id="Email" placeholder="כתובת מייל " style={{ marginRight: '20% !important' }} />
             </Form.Group>
           </Form.Row>
           <Form.Group>
             <Form.Label id="cv_label_nameFromsignupTh">אנא צרף קובץ קורות חיים</Form.Label>
-            <Form.File id="file" />
+            <Form.File className="inputsTh" id="file" />
           </Form.Group>
           <Button variant="info" onClick={() => this.sendMailDetails()} type="submit">אישור</Button>{' '}
 

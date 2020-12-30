@@ -27,7 +27,7 @@ class Calendar extends Component {
     componentDidMount() {
         console.log(document.getElementsByClassName('fc-col-header-cell-cushion')[0].innerHTML)
 
-        document.getElementsByClassName('fc-col-header-cell-cushion')[6].innerHTML = "שבת"
+        // document.getElementsByClassName('fc-col-header-cell-cushion')[6].innerHTML = "שבת"
     }
     render() {
         return (
@@ -103,6 +103,7 @@ class Calendar extends Component {
     }
 
     handleDateSelect = (selectInfo) => {
+        alert("לחיצה על יום בחודש");
         let title = prompt('Please enter a new title for your event')
         let calendarApi = selectInfo.view.calendar
 
@@ -120,9 +121,11 @@ class Calendar extends Component {
     }
 
     handleEventClick = (clickInfo) => {
-        // if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-        //     clickInfo.event.remove()
-        // }
+        //change prompt to confirm
+        const conf = prompt(`Are you sure you want to delete the event '${clickInfo.event.title}'`);
+        if (conf) {
+            clickInfo.event.remove()
+        }
     }
 
     handleEvents = (events) => {

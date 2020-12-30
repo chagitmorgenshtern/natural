@@ -113,8 +113,9 @@ class Signup extends Component {
 
 
                     {/* type="submit"  */}
-                    <Link onClick={() => { this.register() }}><img src={arrow} id="arrow" /></Link>
-
+                    <Form.Group as={Col}>
+                        <Link onClick={() => { this.register() }}><img src={arrow} id="arrow" /></Link>
+                    </Form.Group>
                 </Form.Row>
             </Form>
 

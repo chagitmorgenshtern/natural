@@ -6,6 +6,7 @@ import Calendar from './calendar.jsx';
 import './therapistPage.css'
 import thImage from '../../images/thImage.jpg';
 import star from '../../images/star.png'
+import MyNavbar from '../navbar'
 class TherapistPage extends Component {
     render() {
         return (
@@ -15,6 +16,7 @@ class TherapistPage extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
+                <MyNavbar />
 
                 <div id="details-card">
                     <img src={thImage} id="th-image" />
