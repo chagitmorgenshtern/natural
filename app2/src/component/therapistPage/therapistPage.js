@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Feedback from './feedback';
 import Transition_background from '../../images/Transition_background.jpg';
-import Calendar from './calendar.jsx';
+import Calendar from './fullCalendar/calendar.jsx';
 // import { DropdownButton, Dropdown } from 'react-bootstrap';
 import './therapistPage.css'
 import thImage from '../../images/thImage.jpg';
@@ -43,7 +43,8 @@ class TherapistPage extends Component {
                     <Feedback />
                 </div>
                 <div id="calendar-id" >
-                    <Calendar />
+                    {/* full calendar */}
+                    {/* <Calendar /> */}
                 </div>
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">

@@ -4,6 +4,7 @@ import axios from '../../axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import backg from '../../images/background01.jpg'
 import { Form, Col, Button, Row, Container, InputGroup } from 'react-bootstrap';
+import MyNavbar from '../navbar';
 
 class SignupTh extends Component {
 
@@ -25,6 +26,7 @@ class SignupTh extends Component {
   render() {
     return (
       <div className="signupTh">
+        {/* <MyNavbar /> */}
         <center><h2 className="headerSignUpTh" > הגשת מועמדות למטפל</h2>
           <h className="textSignUpTh">אנא מלא פרטיך האישיים ע"מ שנוכל ליצור איתך קשר:</h>
         </center>
@@ -46,7 +48,7 @@ class SignupTh extends Component {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="email_nameFromsignupTh">
-              <Form.Control type="Email" className="inputsTh" id="Email" placeholder="כתובת מייל " style={{ marginRight: '20% !important' }} />
+              <Form.Control type="Email" className="inputsTh" id="EmailTh" placeholder="כתובת מייל " style={{ marginRight: '20% !important' }} />
             </Form.Group>
           </Form.Row>
           <Form.Group>

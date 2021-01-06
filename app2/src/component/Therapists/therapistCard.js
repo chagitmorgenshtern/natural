@@ -13,7 +13,10 @@ class TherapistCard extends Component {
     //         name: ""
     //     }
     //}
+
+
     render() {
+
         return (
             <div className="therapistCard">
                 <img src={thImage} id="thImage" />

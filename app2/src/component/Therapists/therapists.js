@@ -12,17 +12,20 @@ import MyNavbar from '../navbar'
 class Therapists extends Component {
 
     state = {
-        therapists: [],
+        therapistsAll: [],
         categories: [],
-        serviceAreas: []
+        serviceAreas: [],
+        categoryId: "",
+        areaId: ""
     }
+
 
     componentDidMount() {
         debugger;
         axios.get('therapists/GetAll')
             .then(res => {
                 console.log(res);
-                this.setState({ therapists: [...res.data] });
+                this.setState({ therapistsAll: [...res.data] });
             });
 
 
@@ -40,17 +43,42 @@ class Therapists extends Component {
             })
     }
 
+    changeCategory(newCategory) {
+        console.log(newCategory);
+        this.setState({ categoryId: newCategory });
+        this.filtertrapists();
+    }
+    changeArea(newArea) {
+        // debugger;
+        // const traoist = [...this.state.therapistsAll];
+        // console.log(newArea);
+        // this.setState({ areaId: newArea });
+        // traoist = traoist.filter(t => t.SAName == newArea);
+        // this.setState({ therapistsAll: traoist })
+    }
+    filtertrapists(newItem, filterItem) {
+        // debugger;
+        // const traoist = [...this.state.therapistsAll];
+        // if (this.state.categoryId != "")
+        //     traoist = traoist.filter(t => t.categoryId == this.state.categoryId);
+        // if (this.state.areaId != "")
+        //     traoist = traoist.filter(t => t.ServiceAreaId == this.state.areaId);
+        // this.setState({ therapistsAll: traoist })
+    }
 
     render() {
 
-        const therapistList = this.state.therapists.map((t, index) => {
+        const therapistList = this.state.therapistsAll.map((t, index) => {
+            // console.log(t);
+            // var tt = { ...t };
+            // return <TherapistCard details={tt} key={index} />
             return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
-                category={t.Category} key={index} />
+                category={t.Category} key={index} serviceArea={t.ServiceAreaId} />
         });
-        // serviceArea={t.ServiceAreaId}
+
 
         const categoriesList = this.state.categories
-            .map((x, index) => { return <option key={index} id={x.CategoryId}>{x.CategoryName}</option> });
+            .map((x, index) => { return <option key={index} id={x.CategoryId} value={x.CategoryId}>{x.CategoryName}</option> });
 
         const serviceAreasList = this.state.serviceAreas
             .map((x, index) => { return <option key={index} id={x.SAId}>{x.SAName}</option> });
@@ -67,41 +95,33 @@ class Therapists extends Component {
                 <MyNavbar />
                 <h3 id="therapist_title">המטפלים שלנו</h3>
                 <label id="select_label1">סנן לפי קטגוריה:</label>
-                <Form.Control className="selectbox" id="selectbox1" as="select" custom>
+                <Form.Control className="selectbox" id="selectbox1" as="select" custom onChange={(event) => this.changeCategory(event.target.value)}>
                     <option id="0">הכל</option>
                     {categoriesList}
-                    {/* <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option> */}
+
                 </Form.Control>
 
                 <label id="select_label2">סנן לפי אזור בארץ:</label>
-                <Form.Control className="selectbox" id="selectbox2" as="select" custom>
+                <Form.Control className="selectbox" id="selectbox2" as="select" custom onChange={(event) => this.changeArea(event.target.value)}>
                     <option id="0">הכל</option>
                     {serviceAreasList}
-                    {/* <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option> */}
+
                 </Form.Control>
                 <div className="therapists_table">
                     {therapistList}
-                    <TherapistCard firstName="1 שם מלא" lastName="" />
-                    <TherapistCard firstName="2 שם מלא" lastName="" />
-                    <TherapistCard firstName="3 שם מלא" lastName="" />
-                    <TherapistCard firstName="4 שם מלא" lastName="" />
-                    <TherapistCard firstName="5 שם מלא" lastName="" />
-                    <TherapistCard firstName="6 שם מלא" lastName="" />
-                    <TherapistCard firstName="7 שם מלא" lastName="" />
-                    <TherapistCard firstName="8 שם מלא" lastName="" />
-                    <TherapistCard firstName="9 שם מלא" lastName="" />
-                    <TherapistCard firstName="10 שם מלא" lastName="" />
-                    <TherapistCard firstName="11 שם מלא" lastName="" />
-                    <TherapistCard firstName="12 שם מלא" lastName="" />
-                    <TherapistCard firstName="13 שם מלא" lastName="" />
+                    {/* <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard />
+                    <TherapistCard /> */}
 
                 </div>
 

@@ -12,6 +12,7 @@ import ReadMore from './component/ReadMore/readMore';
 import Therapists from './component/Therapists/therapists';
 import TherapistPage from './component/TherapistPage/therapistPage';
 import Transition_background from './images/Transition_background.jpg';
+import MyNavbar from './component/navbar';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}>
+        {/* <MyNavbar/> */}
         {/* <center>
         <TherapistCard firstName="Sivan" lastName="Tziyonov" />
       </center> */}
