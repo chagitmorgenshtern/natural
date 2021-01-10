@@ -15,10 +15,10 @@ namespace finalProject.Controllers
     { 
             [HttpPost]
             [Route("AddApplicant")]
-            public IHttpActionResult AddApplicant(DTO.Applicants1 a)
+            public IHttpActionResult AddApplicant(DTO.Applicants1 newA)
             {
 
-                Bl.ApplicantsBl.AddApplicant(a);
+                Bl.ApplicantsBl.AddApplicant(newA);
                 return Ok();
             }
 

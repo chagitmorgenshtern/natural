@@ -17,9 +17,19 @@ class SignupTh extends Component {
     }
   }
 
+  inputChange = (event) => {
+    const newperson = { ...this.state.applicant };
+    const id = event.target.id;
+    newperson[id] = event.target.value;
+    this.setState({ applicant: newperson });
+
+  }
+
   sendMailDetails() {
+    debugger;
     const newA = { ...this.state.applicant };
     axios.post('applicants/AddApplicant', newA).then(res => { debugger; alert(res.data) });
+
 
   }
 
@@ -33,22 +43,23 @@ class SignupTh extends Component {
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="first_nameFromsignupTh">
-              <Form.Control type="name" className="inputsTh" id="FirstName" placeholder="שם פרטי" style={{ marginTop: '7%' }} />
+              <Form.Control type="name" className="inputsTh" id="FirstName" placeholder="שם פרטי" style={{ marginTop: '7%' }} onChange={(event) => this.inputChange(event)} />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="last_nameFromsignupTh">
-              <Form.Control type="name" className="inputsTh" id="LastName" placeholder="שם משפחה" />
+              <Form.Control type="name" className="inputsTh" id="LastName" placeholder="שם משפחה" onChange={(event) => this.inputChange(event)} />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="id_nameFromsignupTh">
-              <Form.Control type="id" className="inputsTh" id="TherapistTz" placeholder="תעודת זהות " />
+              <Form.Control type="id" className="inputsTh" id="TherapistTz" placeholder="תעודת זהות " onChange={(event) => this.inputChange(event)} />
             </Form.Group>
           </Form.Row>
           <Form.Row>
+            {/* לשים לב שהאיי די הוא לא אימייל!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! אלא עם תי הייג */}
             <Form.Group as={Col} controlId="email_nameFromsignupTh">
-              <Form.Control type="Email" className="inputsTh" id="EmailTh" placeholder="כתובת מייל " style={{ marginRight: '20% !important' }} />
+              <Form.Control type="email" className="inputsTh" id="EmailTh" placeholder="כתובת מייל " style={{ marginRight: '20% !important' }} onChange={(event) => this.inputChange(event)} />
             </Form.Group>
           </Form.Row>
           <Form.Group>

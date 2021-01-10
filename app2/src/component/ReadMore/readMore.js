@@ -19,7 +19,7 @@ class ReadMore extends Component {
         // backgroundSize: 'cover',
         // backgroundRepeat: 'no-repeat'
       }}>
-        <MyNavbar />
+        {/* <MyNavbar /> */}
         {/* <center><h4 className="TitleReadMore">אז מה האתר שלנו בעצם מציע....?  </h4></center> */}
         {/* <div className="inf_therapist"> 
                <center>  <p> מטפל חדש בתחום הרפואה הטבעית?<br/> 

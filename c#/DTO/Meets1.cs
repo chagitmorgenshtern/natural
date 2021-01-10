@@ -46,5 +46,12 @@ namespace DTO
             CategoryId = m.CategoryId
             };
         }
+
+        public static List<Meets1> ConvertToListDto(List<Meets> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(m => new Meets1(m)).ToList();
+        }
     }
 }

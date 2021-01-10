@@ -12,6 +12,7 @@ import ReadMore from './component/ReadMore/readMore';
 import Therapists from './component/Therapists/therapists';
 import TherapistPage from './component/TherapistPage/therapistPage';
 import Transition_background from './images/Transition_background.jpg';
+import PatientArea from './component/PatientArea/patientArea'
 import MyNavbar from './component/navbar';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}>
-        {/* <MyNavbar/> */}
+        <MyNavbar />
         {/* <center>
         <TherapistCard firstName="Sivan" lastName="Tziyonov" />
       </center> */}
@@ -35,6 +36,7 @@ function App() {
           <Route path="/readMore" component={ReadMore} />
           <Route path="/therapists" component={Therapists} />
           <Route path="/therapistPage" component={TherapistPage} />
+          <Route path="/patientArea" component={PatientArea} />
           <Route path="/" component={HomePage} />
           {/*  <Route component={Error} /> */}
         </Switch>

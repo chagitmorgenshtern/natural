@@ -86,11 +86,15 @@
     width:45px;
 }
 
-#calendar-id{
+/* #calendar-id{
     grid-area: c;
-   /*
+  
      grid-column: 6/11;
-    grid-row: 5/10; */
+    grid-row: 5/10; 
+} */
+
+#calendar-month{
+   
 }
 
 #feedbacks{

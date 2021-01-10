@@ -28,6 +28,13 @@ namespace finalProject.Controllers
             return Ok(Bl.MeetsBl.GetById(id));
         }
 
+        [HttpGet]
+        [Route("GetByPatientId/{p_id}")]
+        public IHttpActionResult GetByPatientId(int p_id)
+        {
+            return Ok(Bl.MeetsBl.GetByPatientId(p_id));
+        }
+
         [HttpDelete]
         [Route("DeleteById")]
         public IHttpActionResult DeleteById([FromBody] int id)

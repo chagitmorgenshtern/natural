@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using Dal;
+using System.Collections.Generic;
 
 namespace Bl
 {
@@ -25,7 +26,9 @@ namespace Bl
             Dal.MeetsDal.DeleteById(id);
         }
 
-
-
+        public static List<DTO.Meets1> GetByPatientId(int p_id)
+        {
+            return DTO.Meets1.ConvertToListDto(Dal.MeetsDal.GetByPatientId(p_id));
+        }
     }
 }

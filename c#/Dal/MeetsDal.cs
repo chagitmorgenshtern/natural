@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Dal
 {
@@ -43,6 +44,22 @@ namespace Dal
 
         }
 
+        //GetByPatientId
+        public static List<Meets> GetByPatientId(int p_id)
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+                  
+                    return db.Meets.Where(x=>x.PatientId==p_id).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         //Delete
         public static bool DeleteById(int id)

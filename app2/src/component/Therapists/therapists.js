@@ -92,7 +92,7 @@ class Therapists extends Component {
             }}>
 
 
-                <MyNavbar />
+                {/* <MyNavbar /> */}
                 <h3 id="therapist_title">המטפלים שלנו</h3>
                 <label id="select_label1">סנן לפי קטגוריה:</label>
                 <Form.Control className="selectbox" id="selectbox1" as="select" custom onChange={(event) => this.changeCategory(event.target.value)}>
@@ -109,8 +109,8 @@ class Therapists extends Component {
                 </Form.Control>
                 <div className="therapists_table">
                     {therapistList}
-                    {/* <TherapistCard />
                     <TherapistCard />
+                    {/* <TherapistCard />
                     <TherapistCard />
                     <TherapistCard />
                     <TherapistCard />

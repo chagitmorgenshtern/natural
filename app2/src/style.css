@@ -441,6 +441,7 @@
 
 .carousel{
     margin-top: 5%;
+    box-shadow: 0 0 20px 1px #6c757d;;
 }
 .carousel.slide{
     width: 65% !important; 
@@ -582,7 +583,7 @@
    
     width: 28vw;
     height: 75vh;
-    margin-top: 6%;
+    margin-top: 5%;
     margin-right: 36%;
     background-color: rgb(76,200,166);
     box-shadow: 0 0 20px 1px white;

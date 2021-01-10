@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Feedback from './feedback';
 import Transition_background from '../../images/Transition_background.jpg';
-import Calendar from './fullCalendar/calendar.jsx';
+// import Calendar from './fullCalendar/calendar.jsx';
 // import { DropdownButton, Dropdown } from 'react-bootstrap';
 import './therapistPage.css'
 import thImage from '../../images/thImage.jpg';
 import star from '../../images/star.png'
 import MyNavbar from '../navbar'
+import Calendar from 'react-calendar';
+
+
 class TherapistPage extends Component {
     render() {
         return (
@@ -16,7 +19,7 @@ class TherapistPage extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}>
-                <MyNavbar />
+                {/* <MyNavbar /> */}
 
                 <div id="details-card">
                     <img src={thImage} id="th-image" />
@@ -43,8 +46,8 @@ class TherapistPage extends Component {
                     <Feedback />
                 </div>
                 <div id="calendar-id" >
-                    {/* full calendar */}
-                    {/* <Calendar /> */}
+
+                    <Calendar calendarType="Hebrew" />
                 </div>
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">
