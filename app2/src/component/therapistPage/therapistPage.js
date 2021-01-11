@@ -24,10 +24,10 @@ class TherapistPage extends Component {
                 <div id="details-card">
                     <img src={thImage} id="th-image" />
                     {/* {this.props.firstName + " " + this.props.lastName} */}
-                    <label className="t-labels" id="t-fullName">פלוני פלמוני </label>
+                    <label className="t-labels" id="t-fullName">אלחנן וייס </label>
                     <label className="t-labels" id="t-category">נטורופת</label>
                     <label className="t-labels" id="t-s-area">אזור: השרון והסביבה</label>
-                    <label className="t-labels" id="t-phone">0526458558 :טלפון </label>
+                    <label className="t-labels" id="t-phone">0526447693 :טלפון </label>
                     <label className="t-labels" id="t-email">a345@gmail.com :מייל</label>
                     <div id="rating">
                         <img className="stars" src={star} />
