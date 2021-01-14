@@ -56,6 +56,11 @@ namespace DTO
         };
         }
 
-        
+        public static List<Patients1> ConvertToListDto(List<Patients> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(p => new Patients1(p)).ToList();
+        }
     }
 }

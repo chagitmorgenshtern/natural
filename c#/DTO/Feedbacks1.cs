@@ -58,6 +58,11 @@ namespace DTO
         };
         }
 
-        
+        public static List<Feedbacks1> ConvertToListDto(List<Feedbacks> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(f => new Feedbacks1(f)).ToList();
+        }
     }
 }
