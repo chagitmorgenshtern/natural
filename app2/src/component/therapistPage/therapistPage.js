@@ -22,7 +22,7 @@ class TherapistPage extends Component {
                 {/* <MyNavbar /> */}
 
                 <div id="details-card">
-                    <img src={thImage} id="th-image" />
+                    <img src={thImage} id="th-image" alt="profile-picture" />
                     {/* {this.props.firstName + " " + this.props.lastName} */}
                     <label className="t-labels" id="t-fullName">אלחנן וייס </label>
                     <label className="t-labels" id="t-category">נטורופת</label>
@@ -30,11 +30,11 @@ class TherapistPage extends Component {
                     <label className="t-labels" id="t-phone">0526447693 :טלפון </label>
                     <label className="t-labels" id="t-email">a345@gmail.com :מייל</label>
                     <div id="rating">
-                        <img className="stars" src={star} />
-                        <img className="stars" src={star} />
-                        <img className="stars" src={star} />
-                        <img className="stars" src={star} />
-                        <img className="stars" src={star} />
+                        <img className="stars" src={star} alt="rating-star" />
+                        <img className="stars" src={star} alt="rating-star" />
+                        <img className="stars" src={star} alt="rating-star" />
+                        <img className="stars" src={star} alt="rating-star" />
+                        <img className="stars" src={star} alt="rating-star" />
                     </div>
                 </div>
                 <div id="feedbacks">
@@ -45,7 +45,7 @@ class TherapistPage extends Component {
                     <Feedback />
                     <Feedback />
                 </div>
-                <div id="calendar-id" >
+                <div id="calendar-id"  >
 
                     <Calendar calendarType="Hebrew" />
                 </div>

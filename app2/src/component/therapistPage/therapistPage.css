@@ -1,7 +1,7 @@
 .therapistPage{
    
     width: 100vw;
-    height:100%;
+    height:93%;
     position: absolute;
     padding: 0;
     margin: 0;
@@ -86,12 +86,31 @@
     width:45px;
 }
 
-/* #calendar-id{
+/* #calendar-id{//full calendar
     grid-area: c;
   
      grid-column: 6/11;
     grid-row: 5/10; 
 } */
+
+#calendar-id{
+    position: absolute;
+    margin-left: 53vw;
+    width: 500px;
+    margin-top: 52vh;
+}
+.react-calendar{
+    color: whitesmoke;
+}
+
+button,select{
+   
+        text-transform: none;
+        color: #20a7a0;
+        border: solid;
+        border-color: #17b89438;
+        background-color: #f8f9faa6;
+}
 
 #calendar-month{
    
