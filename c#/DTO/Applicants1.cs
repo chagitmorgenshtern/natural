@@ -49,5 +49,12 @@ namespace DTO
             Status = a.Status
         };
         }
+
+        public static List<Applicants1> ConvertToListDto(List<Applicants> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(a => new Applicants1(a)).ToList();
+        }
     }
 }

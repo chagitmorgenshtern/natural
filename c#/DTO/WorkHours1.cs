@@ -42,5 +42,12 @@ namespace DTO
             Hour = w.Hour
             };
         }
+
+        public static List<WorkHours1> ConvertToListDto(List<WorkHours> lst)
+        {
+            if (lst == null)
+                return null;
+            return lst.Select(w => new WorkHours1(w)).ToList();
+        }
     }
 }
