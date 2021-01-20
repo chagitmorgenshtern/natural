@@ -116,6 +116,12 @@ button,select{
    
 }
 
+#hours_table{
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+}
+
 #feedbacks{
     direction: rtl;
     width: fit-content;

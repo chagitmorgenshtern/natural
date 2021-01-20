@@ -24,12 +24,16 @@ function App() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}>
-        <MyNavbar />
+        {/* <Switch>
+
+        </Switch> */}
+        {/* <MyNavbar /> */}
         {/* <center>
         <TherapistCard firstName="Sivan" lastName="Tziyonov" />
       </center> */}
 
         <Switch>
+
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/signupTh" component={SignupTh} />
@@ -47,3 +51,59 @@ function App() {
 }
 
 export default App;
+
+//===================================
+//hide navbar
+//===================================
+// function App() {
+//   return (
+//     <Switch>
+//       <div className="App" style={{
+//         backgroundImage: `url(${Transition_background})`,
+//         backgroundPosition: 'center',
+//         backgroundSize: 'cover',
+//         backgroundRepeat: 'no-repeat'
+//       }}>
+
+//         <Route exact path="/" component={LoginContainer} />
+//         <Route component={DefaultContainer} />
+
+//       </div>
+//     </Switch>)
+// } export default App;
+
+// const LoginContainer = () => (
+//   <div className="container" style={{
+//     backgroundImage: `url(${Transition_background})`,
+//     backgroundPosition: 'center',
+//     backgroundSize: 'cover',
+//     backgroundRepeat: 'no-repeat'
+//   }}>
+//     <Route path="/" component={HomePage} />
+//   </div>
+// )
+
+
+// const DefaultContainer = () => (
+
+//   <div className="container" style={{
+//     width: '100vw',
+
+//     backgroundImage: `url(${Transition_background})`,
+//     backgroundPosition: 'center',
+//     backgroundSize: 'cover',
+//     backgroundRepeat: 'no-repeat'
+//   }}>
+//     <MyNavbar />
+//     <Route path="/login" component={Login} />
+//     <Route path="/signup" component={Signup} />
+//     <Route path="/signupTh" component={SignupTh} />
+//     <Route path="/readMore" component={ReadMore} />
+//     <Route path="/therapists" component={Therapists} />
+//     <Route path="/therapistPage" component={TherapistPage} />
+//     <Route path="/patientArea" component={PatientArea} />
+//   </div>
+
+// )
+
+

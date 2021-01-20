@@ -420,6 +420,10 @@
     margin-left: 10vw;
 }
 
+#sub-title:hover{
+    text-decoration: underline;
+    color: lightseagreen;
+}
 .modal-header {
     padding: 0.5rem 1rem;
 }
