@@ -1,0 +1,19 @@
+#clause{
+    background-color: transparent;
+    width: fit-content;
+}
+
+label{
+    font-weight: 700;
+    font-size: large;
+    color: #1b7684;
+    text-shadow: 0 0 6px white;
+}
+
+#title{
+    font-size: x-large;
+}
+
+#note{
+    font-size: medium;
+}

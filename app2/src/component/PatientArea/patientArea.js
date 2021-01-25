@@ -54,7 +54,7 @@ export default class PatientArea extends Component {
                     <label className="p-label">טלפון:</label>
                     <label className="p-label">טלפון נוסף:</label>
                     {/* <Row> */}
-                    <Button onClick={() => this.updateDetails()} size="sm" variant="info" id="update_btn">עדכון פרטים</Button>
+                    <Button onClick={() => this.updateDetails()} size="sm" variant="info" id="update_btn" className="hvr-curl-bottom-left">עדכון פרטים</Button>
                     {/* </Row> */}
                 </div>
 

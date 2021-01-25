@@ -59,9 +59,9 @@ class HomePage extends Component {
                 <header className="homepage_header">
                     <img src={icon} id="icon" />
                     <label id="label_new_t_register" className="float-right">
-                        מעוניין לפרסם את שירותיך באתר?  <Link to="/signupTh" ><label>לחץ כאן</label></Link>!</label>
+                        מעוניין לפרסם את שירותיך באתר?  <Link to="/signupTh" ><label id="label_new_t_register_link">לחץ כאן</label></Link>!</label>
                     <div id="login_container">
-                        <label id="in" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
+                        <label id="in" className="hvr-buzz-out" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
                         {/* <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label> */}
                         <img src={user_no} />
                     </div>
@@ -83,8 +83,8 @@ class HomePage extends Component {
                 </article>
                 {/* <Signup/> */}
 
-                <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" /> </Link>
-                <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" /> </Link>
+                <Link to="/readMore"> <img src={btn_read_more} id="img_read_more" className="hvr-grow" /> </Link>
+                <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" className="hvr-grow" /> </Link>
 
                 <Link to="/patientArea"><label>לאזור האישי</label></Link>
                 {

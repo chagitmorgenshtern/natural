@@ -5,20 +5,28 @@ import { Form, Col, Button, Row, Container, InputGroup, Carousel, Navbar } from 
 import alovera from '../../images/alovera.jpg'
 import hot_stones from '../../images/hot_stones.jpg'
 import wide from '../../images/wide.jpg'
-import MyNavbar from '../navbar'
+// import MyNavbar from '../navbar'
+import CATEGORIES from './data.js'
+import Clause from './clause.js'
 
 class ReadMore extends Component {
   state = {
 
   }
   render() {
+
+    const c_components = CATEGORIES.map((item, index) => { return <Clause id={index} imgSrc={item.imgSrc} category={item.category} text={item.text} /> });
+
     return (
       <div className="readMore" style={{
         backgroundImage: `url(${Transition_background})`,
-        // backgroundPosition: 'center',
-        // backgroundSize: 'cover',
-        // backgroundRepeat: 'no-repeat'
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
       }}>
+
+
+
         {/* <MyNavbar /> */}
         {/* <center><h4 className="TitleReadMore">אז מה האתר שלנו בעצם מציע....?  </h4></center> */}
         {/* <div className="inf_therapist"> 
@@ -72,10 +80,13 @@ class ReadMore extends Component {
           </section>
 
           <section>
-
-
+            <label id="title">שיטות הטיפול</label>
+            <label id="note">מטופל יקר, יש להתייעץ עם המטפל לבדיקת ההתאמה לשיטת הטיפול וכן לקבלת תוצאות מקסימליות . המידע המפורט להלן נועד לצרכי הסבר בלבד, ואין לעשות בו שימוש אישי. </label>
           </section>
 
+          <section>
+            {c_components}
+          </section>
           {/* main_content */}
         </div>
 
