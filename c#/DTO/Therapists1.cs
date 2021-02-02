@@ -23,6 +23,7 @@ namespace DTO
         public string Address { get; set; }
         public string AboutMe { get; set; }
         public string Diploma { get; set; }
+        public int[] Categories { get; set; }
         //-----------constructors-----------
 
         public Therapists1()
@@ -70,11 +71,21 @@ namespace DTO
         };
         }
 
+    
+
         public static List<Therapists1> ConvertToListDto(List<Therapists> lst)
         {
             if (lst == null)
-                return null;               
-            return lst.Select(t => new Therapists1(t)).ToList();
+                return null;   
+            List<Therapists1> listWithCategories = lst.Select(t =>
+            {
+                //TODO check if need to be in constructor or here
+                //return  new Therapists1(t);
+                Therapists1 therapist = new Therapists1(t);
+                therapist.Categories = Dal.CategoriesDal.GetCategoriesByTherapistId(therapist.TherapistId);
+                return therapist;
+            }).ToList();
+            return listWithCategories;
         }
 
 

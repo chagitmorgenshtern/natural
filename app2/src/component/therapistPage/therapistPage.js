@@ -78,7 +78,7 @@ class TherapistPage extends Component {
 
                     <Calendar
                         calendarType="Hebrew"
-                        onClickDay={() => { alert("dddddddddddd") }} />
+                        onClickDay={(value, event) => { alert(value) }} />
                 </div>
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">

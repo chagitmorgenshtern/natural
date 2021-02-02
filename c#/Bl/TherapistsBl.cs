@@ -22,7 +22,10 @@ namespace Bl
         //GetAll
         public static List<Therapists1> GetAll()
         {
+            List<Therapists1> lst = DTO.Therapists1.ConvertToListDto(Dal.TherapistsDal.GetAll());
+
             return DTO.Therapists1.ConvertToListDto(Dal.TherapistsDal.GetAll());
+
         }
         //Delete
         public static void DeleteById(int id)

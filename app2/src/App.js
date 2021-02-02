@@ -15,95 +15,80 @@ import Transition_background from './images/Transition_background.jpg';
 import PatientArea from './component/PatientArea/patientArea'
 import MyNavbar from './component/navbar';
 
-function App() {
-  return (
-    <center>
-      <div className="App" style={{
-        backgroundImage: `url(${Transition_background})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      }}>
-        {/* <Switch>
-
-        </Switch> */}
-        {/* <MyNavbar /> */}
-        {/* <center>
-        <TherapistCard firstName="Sivan" lastName="Tziyonov" />
-      </center> */}
-
-        <Switch>
-
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/signupTh" component={SignupTh} />
-          <Route path="/readMore" component={ReadMore} />
-          <Route path="/therapists" component={Therapists} />
-          <Route path="/therapistPage" component={TherapistPage} />
-          <Route path="/patientArea" component={PatientArea} />
-          <Route path="/" component={HomePage} />
-          {/*  <Route component={Error} /> */}
-        </Switch>
-
-
-      </div></center>
-  )
-}
-
-export default App;
-
-//===================================
-//hide navbar
-//===================================
 // function App() {
 //   return (
-//     <Switch>
+//     <center>
 //       <div className="App" style={{
 //         backgroundImage: `url(${Transition_background})`,
 //         backgroundPosition: 'center',
 //         backgroundSize: 'cover',
 //         backgroundRepeat: 'no-repeat'
 //       }}>
+//         {/* <Switch>
 
-//         <Route exact path="/" component={LoginContainer} />
-//         <Route component={DefaultContainer} />
+//         </Switch> */}
+//         {/* <MyNavbar /> */}
+//         {/* <center>
+//         <TherapistCard firstName="Sivan" lastName="Tziyonov" />
+//       </center> */}
 
-//       </div>
-//     </Switch>)
-// } export default App;
+//         <Switch>
 
-// const LoginContainer = () => (
-//   <div className="container" style={{
-//     backgroundImage: `url(${Transition_background})`,
-//     backgroundPosition: 'center',
-//     backgroundSize: 'cover',
-//     backgroundRepeat: 'no-repeat'
-//   }}>
-//     <Route path="/" component={HomePage} />
-//   </div>
-// )
+//           <Route path="/login" component={Login} />
+//           <Route path="/signup" component={Signup} />
+//           <Route path="/signupTh" component={SignupTh} />
+//           <Route path="/readMore" component={ReadMore} />
+//           <Route path="/therapists" component={Therapists} />
+//           <Route path="/therapistPage" component={TherapistPage} />
+//           <Route path="/patientArea" component={PatientArea} />
+//           <Route path="/" component={HomePage} />
+//           {/*  <Route component={Error} /> */}
+//         </Switch>
 
 
-// const DefaultContainer = () => (
+//       </div></center>
+//   )
+// }
 
-//   <div className="container" style={{
-//     width: '100vw',
+// export default App;
 
-//     backgroundImage: `url(${Transition_background})`,
-//     backgroundPosition: 'center',
-//     backgroundSize: 'cover',
-//     backgroundRepeat: 'no-repeat'
-//   }}>
-//     <MyNavbar />
-//     <Route path="/login" component={Login} />
-//     <Route path="/signup" component={Signup} />
-//     <Route path="/signupTh" component={SignupTh} />
-//     <Route path="/readMore" component={ReadMore} />
-//     <Route path="/therapists" component={Therapists} />
-//     <Route path="/therapistPage" component={TherapistPage} />
-//     <Route path="/patientArea" component={PatientArea} />
-//   </div>
+//===================================
+//hide navbar
+//===================================
+function App() {
+  return (
+    <Switch>
+      <div className="App" style={{
+        backgroundImage: `url(${Transition_background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}>
 
-// )
+        <Route exact path="/" component={LoginContainer} />
+        <Route component={DefaultContainer} />
+
+      </div>
+    </Switch>)
+} export default App;
+
+const LoginContainer = () => (
+  <Route path="/" component={HomePage} />
+)
+
+
+const DefaultContainer = () => (
+  <div>
+    <MyNavbar />
+    <Route path="/login" component={Login} />
+    <Route path="/signup" component={Signup} />
+    <Route path="/signupTh" component={SignupTh} />
+    <Route path="/readMore" component={ReadMore} />
+    <Route path="/therapists" component={Therapists} />
+    <Route path="/therapistPage" component={TherapistPage} />
+    <Route path="/patientArea" component={PatientArea} />
+  </div>
+
+)
 
 

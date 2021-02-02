@@ -18,8 +18,8 @@ namespace Dal
         public Categories()
         {
             this.Archives = new HashSet<Archives>();
+            this.Categories_Therapists = new HashSet<Categories_Therapists>();
             this.Meets = new HashSet<Meets>();
-            this.Therapists = new HashSet<Therapists>();
         }
     
         public int CategoryId { get; set; }
@@ -28,8 +28,8 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Archives> Archives { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Meets> Meets { get; set; }
+        public virtual ICollection<Categories_Therapists> Categories_Therapists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Therapists> Therapists { get; set; }
+        public virtual ICollection<Meets> Meets { get; set; }
     }
 }

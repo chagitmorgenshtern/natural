@@ -33,6 +33,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Categories_Therapists">
+      <EntityTypeMapping TypeName="Natural_wayModel.Categories_Therapists">
+        <MappingFragment StoreEntitySet="Categories_Therapists">
+          <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+          <ScalarProperty Name="CategotyId" ColumnName="CategotyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Feedbacks">
       <EntityTypeMapping TypeName="Natural_wayModel.Feedbacks">
         <MappingFragment StoreEntitySet="Feedbacks">
@@ -80,6 +88,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Natural_wayModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Therapists">
       <EntityTypeMapping TypeName="Natural_wayModel.Therapists">
         <MappingFragment StoreEntitySet="Therapists">
@@ -109,13 +128,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="Categories_Therapists" TypeName="Natural_wayModel.Categories_Therapists" StoreEntitySet="Categories_Therapists">
-      <EndProperty Name="Categories">
-        <ScalarProperty Name="CategoryId" ColumnName="CategotyId" />
-      </EndProperty>
-      <EndProperty Name="Therapists">
-        <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

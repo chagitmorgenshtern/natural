@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="03497b3e11554c4aba43060c9c690132" Name="Diagram1">
-        <EntityTypeShape EntityType="Natural_wayModel.Applicants" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Archives" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Categories" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Feedbacks" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Meets" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Patients" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.ServiceAreas" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.Therapists" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Natural_wayModel.WorkHours" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+      <Diagram DiagramId="66a901a1d132457bba708914e50a5a32" Name="Diagram1">
+        <EntityTypeShape EntityType="Natural_wayModel.Applicants" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Archives" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Categories" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Categories_Therapists" Width="1.5" PointX="7.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Feedbacks" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Meets" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Patients" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.ServiceAreas" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.Therapists" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Natural_wayModel.WorkHours" Width="1.5" PointX="0.5" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="Natural_wayModel.FK_Archives_Categories1" ManuallyRouted="false" />
-        <AssociationConnector Association="Natural_wayModel.FK_Archives_Patients" ManuallyRouted="false" />
-        <AssociationConnector Association="Natural_wayModel.FK_Archives_Therapists1" ManuallyRouted="false" />
+        <AssociationConnector Association="Natural_wayModel.FK_Categories_Therapists_Categories1" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_Meets_Categories1" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_Feedbacks_Patients" ManuallyRouted="false" />
-        <AssociationConnector Association="Natural_wayModel.FK_Feedbacks_Therapists1" ManuallyRouted="false" />
+        <AssociationConnector Association="Natural_wayModel.FK_Feedbacks_Therapists" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_Meets_Patients" ManuallyRouted="false" />
-        <AssociationConnector Association="Natural_wayModel.FK_Meets_Therapists1" ManuallyRouted="false" />
+        <AssociationConnector Association="Natural_wayModel.FK_Meets_Therapists" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_Therapists_ServiceAreas" ManuallyRouted="false" />
-        <AssociationConnector Association="Natural_wayModel.FK_WorkHours_Therapists1" ManuallyRouted="false" />
-        <AssociationConnector Association="Natural_wayModel.Categories_Therapists" ManuallyRouted="false" />
+        <AssociationConnector Association="Natural_wayModel.FK_WorkHours_Therapists" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

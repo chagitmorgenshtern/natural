@@ -24,6 +24,7 @@ namespace finalProject.Controllers
         [HttpPost]
         public IHttpActionResult Register([FromBody] DTO.Therapists1 t)
         {
+            //bl.TherapistsBl.NewHours(list<date>,list<hours>);
             Bl.TherapistsBl.Register(t);
             return Ok();
         }
@@ -35,7 +36,13 @@ namespace finalProject.Controllers
             return Ok(Bl.TherapistsBl.GetById(id)); 
         }
 
+        //get
+        //list<hours>hoursDoctor=bl.trapist.getAllHours();
+        //list<hours>hoursmetupal=bl.metupla.getHours(idDoctor);
+        //check hour wiill do!! not taking history
+        //contain
 
+        //dto return add fieldof status-
 
         [HttpGet]
         [Route("GetAll")]
@@ -52,6 +59,7 @@ namespace finalProject.Controllers
             Bl.TherapistsBl.DeleteById(id);
             return Ok();
         }
-
+     
+       
     }
 }

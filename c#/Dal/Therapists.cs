@@ -17,11 +17,9 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Therapists()
         {
-            this.Archives = new HashSet<Archives>();
             this.Feedbacks = new HashSet<Feedbacks>();
             this.Meets = new HashSet<Meets>();
             this.WorkHours = new HashSet<WorkHours>();
-            this.Categories = new HashSet<Categories>();
         }
     
         public int TherapistId { get; set; }
@@ -39,15 +37,11 @@ namespace Dal
         public string Diploma { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Archives> Archives { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Feedbacks> Feedbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Meets> Meets { get; set; }
         public virtual ServiceAreas ServiceAreas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkHours> WorkHours { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Categories> Categories { get; set; }
     }
 }

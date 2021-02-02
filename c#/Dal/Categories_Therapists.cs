@@ -12,14 +12,10 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Archives
+    public partial class Categories_Therapists
     {
-        public int ArchivesId { get; set; }
-        public Nullable<int> PatientId { get; set; }
-        public Nullable<int> TherapistId { get; set; }
-        public Nullable<System.DateTime> MeetDate { get; set; }
-        public Nullable<int> CategoryId { get; set; }
-        public Nullable<bool> IsDone { get; set; }
+        public int TherapistId { get; set; }
+        public int CategotyId { get; set; }
     
         public virtual Categories Categories { get; set; }
     }

@@ -25,8 +25,6 @@ namespace Dal
             }
         }
 
-
-
         //GetById
         public static Categories GetById(int id)
         {
@@ -82,6 +80,22 @@ namespace Dal
             catch (Exception e)
             {
                 return false;
+            }
+        }
+
+        public static int[] GetCategoriesByTherapistId(int therapistId)
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+                    int[] categories = db.Categories_Therapists.Where(c => c.TherapistId == therapistId).Select(c=> c.CategotyId).ToArray();
+                    return categories;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
 

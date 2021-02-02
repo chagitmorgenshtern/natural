@@ -48,7 +48,6 @@ namespace Dal
         //GetAll
         public static List<Therapists> GetAll()
         {
-
             try
             {
                 using (Natural_wayEntities db = new Natural_wayEntities())

@@ -13,6 +13,7 @@ class Therapists extends Component {
 
     state = {
         therapistsAll: [],
+        filteredTherapists: [],
         categories: [],
         serviceAreas: [],
         categoryId: "",
@@ -50,11 +51,11 @@ class Therapists extends Component {
     }
     changeArea(newArea) {
         // debugger;
-        // const traoist = [...this.state.therapistsAll];
-        // console.log(newArea);
-        // this.setState({ areaId: newArea });
-        // traoist = traoist.filter(t => t.SAName == newArea);
-        // this.setState({ therapistsAll: traoist })
+        let traoist = [...this.state.therapistsAll];
+        console.log(newArea);
+        this.setState({ areaId: newArea });
+        traoist = traoist.filter(t => t.ServiceAreaId == newArea);
+        this.setState({ filteredTherapists: traoist });
     }
     filtertrapists(newItem, filterItem) {
         // debugger;
@@ -68,7 +69,8 @@ class Therapists extends Component {
 
     render() {
 
-        const therapistList = this.state.therapistsAll.map((t, index) => {
+        const therapistTRender = this.state.filteredTherapists.length ? this.state.filteredTherapists : this.state.therapistsAll;
+        const therapistList = therapistTRender.map((t, index) => {
             // console.log(t);
             // var tt = { ...t };
             // return <TherapistCard details={tt} key={index} />
@@ -102,7 +104,7 @@ class Therapists extends Component {
                 </Form.Control>
 
                 <label id="select_label2">סנן לפי אזור בארץ:</label>
-                <Form.Control className="selectbox" id="selectbox2" as="select" custom onChange={(event) => this.changeArea(event.target.value)}>
+                <Form.Control className="selectbox" id="selectbox2" as="select" custom onChange={(event) => this.changeArea(event.target.selectedOptions[0].id)}>
                     <option id="0">הכל</option>
                     {serviceAreasList}
 

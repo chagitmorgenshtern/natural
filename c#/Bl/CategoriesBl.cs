@@ -28,5 +28,12 @@ namespace Bl
         {
             return Categories1.ConvertToListDto(Dal.CategoriesDal.GetAll());
         }
+
+        public int[] GetCategoriesByTherapistId(int therapistId)
+        {
+            return Dal.CategoriesDal.GetCategoriesByTherapistId(therapistId);
+        }
     }
+
+
 }
