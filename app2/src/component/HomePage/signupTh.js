@@ -14,15 +14,28 @@ class SignupTh extends Component {
       LastName: "",
       TherapistTz: "",
       Email: ""
-    }
+    },
+    filePath: ""
   }
 
   inputChange = (event) => {
-    const newperson = { ...this.state.applicant };
-    const id = event.target.id;
-    newperson[id] = event.target.value;
-    this.setState({ applicant: newperson });
+    debugger;
+    let id = event.target.id;
+    //TODO check how get the file path================================================================================================
+    //and how to sent this path to the api============================================================================================
+    if (id == "file") {
+      this.setState({ filePath: event.target.files[0] });
+    }
 
+    else {
+
+      if (id == "EmailTh")
+        id = "Email";
+
+      const newperson = { ...this.state.applicant };
+      newperson[id] = event.target.value;
+      this.setState({ applicant: newperson });
+    }
   }
 
   sendMailDetails() {
@@ -64,9 +77,9 @@ class SignupTh extends Component {
           </Form.Row>
           <Form.Group>
             <Form.Label id="cv_label_nameFromsignupTh">אנא צרף קובץ קורות חיים</Form.Label>
-            <Form.File className="inputsTh" id="file" />
+            <Form.File className="inputsTh" id="file" onChange={(event) => this.inputChange(event)} />
           </Form.Group>
-          <Button variant="info" onClick={() => this.sendMailDetails()} type="submit">אישור</Button>{' '}
+          <Button variant="info" onClick={() => this.sendMailDetails()} >אישור</Button>{' '}
 
 
         </Form>

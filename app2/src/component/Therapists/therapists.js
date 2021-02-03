@@ -16,13 +16,13 @@ class Therapists extends Component {
         filteredTherapists: [],
         categories: [],
         serviceAreas: [],
-        categoryId: "",
-        areaId: ""
+        selectedCategoryId: "",
+        selectedAreaId: ""
     }
 
 
     componentDidMount() {
-        debugger;
+
         axios.get('therapists/GetAll')
             .then(res => {
                 console.log(res);
@@ -42,35 +42,49 @@ class Therapists extends Component {
                 console.log(res);
                 this.setState({ serviceAreas: [...res.data] });
             })
+
+
     }
 
+
+
     changeCategory(newCategory) {
-        console.log(newCategory);
-        this.setState({ categoryId: newCategory });
-        this.filtertrapists();
+
+        debugger;
+        let traoist = [...this.state.filteredTherapists];
+        this.setState({ selectedCategoryId: newCategory });
+        // () => { t.Categories.contain(4) }
+        traoist = traoist.filter(t => t.Categories.length > 1);
+        this.setState({ filteredTherapists: traoist });
+
+
     }
     changeArea(newArea) {
         // debugger;
-        let traoist = [...this.state.therapistsAll];
+        let traoist = [...this.state.filteredTherapists];
         console.log(newArea);
-        this.setState({ areaId: newArea });
+        this.setState({ selectedAreaId: newArea });
         traoist = traoist.filter(t => t.ServiceAreaId == newArea);
         this.setState({ filteredTherapists: traoist });
     }
-    filtertrapists(newItem, filterItem) {
-        // debugger;
-        // const traoist = [...this.state.therapistsAll];
-        // if (this.state.categoryId != "")
-        //     traoist = traoist.filter(t => t.categoryId == this.state.categoryId);
-        // if (this.state.areaId != "")
-        //     traoist = traoist.filter(t => t.ServiceAreaId == this.state.areaId);
-        // this.setState({ therapistsAll: traoist })
-    }
+
+    // filtertrapists(newItem, filterItem) {
+    // debugger;
+    // const traoist = [...this.state.therapistsAll];
+    // if (this.state.categoryId != "")
+    //     traoist = traoist.filter(t => t.categoryId == this.state.categoryId);
+    // if (this.state.areaId != "")
+    //     traoist = traoist.filter(t => t.ServiceAreaId == this.state.areaId);
+    // this.setState({ therapistsAll: traoist })
+    // }
 
     render() {
+        //=======initialize filteredTherapists in all the therapists======
+        // let temp = [...this.state.therapistsAll];
+        // this.setState({ filteredTherapists: temp });
 
-        const therapistTRender = this.state.filteredTherapists.length ? this.state.filteredTherapists : this.state.therapistsAll;
-        const therapistList = therapistTRender.map((t, index) => {
+        const therapistToRender = this.state.filteredTherapists.length ? this.state.filteredTherapists : this.state.therapistsAll;
+        const therapistList = therapistToRender.map((t, index) => {
             // console.log(t);
             // var tt = { ...t };
             // return <TherapistCard details={tt} key={index} />
@@ -97,7 +111,7 @@ class Therapists extends Component {
                 {/* <MyNavbar /> */}
                 <h3 id="therapist_title">המטפלים שלנו</h3>
                 <label id="select_label1">סנן לפי קטגוריה:</label>
-                <Form.Control className="selectbox" id="selectbox1" as="select" custom onChange={(event) => this.changeCategory(event.target.value)}>
+                <Form.Control className="selectbox" id="selectbox1" as="select" custom onChange={(event) => this.changeCategory(event.target.selectedOptions[0].id)}>
                     <option id="0">הכל</option>
                     {categoriesList}
 

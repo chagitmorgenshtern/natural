@@ -14,47 +14,9 @@ import TherapistPage from './component/TherapistPage/therapistPage';
 import Transition_background from './images/Transition_background.jpg';
 import PatientArea from './component/PatientArea/patientArea'
 import MyNavbar from './component/navbar';
-
-// function App() {
-//   return (
-//     <center>
-//       <div className="App" style={{
-//         backgroundImage: `url(${Transition_background})`,
-//         backgroundPosition: 'center',
-//         backgroundSize: 'cover',
-//         backgroundRepeat: 'no-repeat'
-//       }}>
-//         {/* <Switch>
-
-//         </Switch> */}
-//         {/* <MyNavbar /> */}
-//         {/* <center>
-//         <TherapistCard firstName="Sivan" lastName="Tziyonov" />
-//       </center> */}
-
-//         <Switch>
-
-//           <Route path="/login" component={Login} />
-//           <Route path="/signup" component={Signup} />
-//           <Route path="/signupTh" component={SignupTh} />
-//           <Route path="/readMore" component={ReadMore} />
-//           <Route path="/therapists" component={Therapists} />
-//           <Route path="/therapistPage" component={TherapistPage} />
-//           <Route path="/patientArea" component={PatientArea} />
-//           <Route path="/" component={HomePage} />
-//           {/*  <Route component={Error} /> */}
-//         </Switch>
+import SignupTh_full from './component/HomePage/signupTh_full';
 
 
-//       </div></center>
-//   )
-// }
-
-// export default App;
-
-//===================================
-//hide navbar
-//===================================
 function App() {
   return (
     <Switch>
@@ -87,6 +49,7 @@ const DefaultContainer = () => (
     <Route path="/therapists" component={Therapists} />
     <Route path="/therapistPage" component={TherapistPage} />
     <Route path="/patientArea" component={PatientArea} />
+    <Route path="/signupTh_full" component={SignupTh_full} />
   </div>
 
 )
