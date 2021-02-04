@@ -17,7 +17,8 @@ class Therapists extends Component {
         categories: [],
         serviceAreas: [],
         selectedCategoryId: "",
-        selectedAreaId: ""
+        selectedAreaId: "",
+        isEmptyFilter: false
     }
 
 
@@ -50,32 +51,59 @@ class Therapists extends Component {
 
     changeCategory(newCategory) {
 
-        debugger;
-        let traoist = [...this.state.filteredTherapists];
+        // debugger;
+        // let therapist = [...this.state.therapistsAll];
         this.setState({ selectedCategoryId: newCategory });
         // () => { t.Categories.contain(4) }
-        traoist = traoist.filter(t => t.Categories.length > 1);
-        this.setState({ filteredTherapists: traoist });
-
+        // if (newCategory == 0) {
+        //     therapist = this.state.therapistsAll;
+        // } else {
+        //     therapist = therapist.filter(t => t.Categories.includes(newCategory));
+        // }
+        // this.setState({ filteredTherapists: therapist });
+        this.filterTherapist(undefined, newCategory);
 
     }
+
+    filterTherapist(newArea, newCategory) {
+        let therapist = [...this.state.therapistsAll];
+        const category = newCategory || this.state.selectedCategoryId;
+        const area = newArea || this.state.selectedAreaId;
+        let isEmpty = false;
+        if (category !== "" && category !== "0") {
+            therapist = therapist.filter(t => t.Categories.includes(parseInt(category)));
+        }
+        if (area !== "" && area !== "0") {
+            therapist = therapist.filter(t => t.ServiceAreaId == area);
+        }
+        if (!therapist.length) {
+            isEmpty = true;
+        }
+        this.setState({ filteredTherapists: therapist, isEmptyFilter: isEmpty });
+    }
+
     changeArea(newArea) {
         // debugger;
-        let traoist = [...this.state.filteredTherapists];
-        console.log(newArea);
+        // let therapist = [...this.state.therapistsAll];
+        // console.log(newArea);
         this.setState({ selectedAreaId: newArea });
-        traoist = traoist.filter(t => t.ServiceAreaId == newArea);
-        this.setState({ filteredTherapists: traoist });
+        this.filterTherapist(newArea);
+        // if (newArea == 0) {
+        //     therapist = this.state.therapistsAll;
+        // } else {
+        //     therapist = therapist.filter(t => t.ServiceAreaId == newArea);
+        // }
+        // this.setState({ filteredTherapists: therapist });
     }
 
     // filtertrapists(newItem, filterItem) {
     // debugger;
-    // const traoist = [...this.state.therapistsAll];
+    // const therapist = [...this.state.therapistsAll];
     // if (this.state.categoryId != "")
-    //     traoist = traoist.filter(t => t.categoryId == this.state.categoryId);
+    //     therapist = therapist.filter(t => t.categoryId == this.state.categoryId);
     // if (this.state.areaId != "")
-    //     traoist = traoist.filter(t => t.ServiceAreaId == this.state.areaId);
-    // this.setState({ therapistsAll: traoist })
+    //     therapist = therapist.filter(t => t.ServiceAreaId == this.state.areaId);
+    // this.setState({ therapistsAll: therapist })
     // }
 
     render() {
@@ -83,15 +111,15 @@ class Therapists extends Component {
         // let temp = [...this.state.therapistsAll];
         // this.setState({ filteredTherapists: temp });
 
-        const therapistToRender = this.state.filteredTherapists.length ? this.state.filteredTherapists : this.state.therapistsAll;
-        const therapistList = therapistToRender.map((t, index) => {
-            // console.log(t);
-            // var tt = { ...t };
-            // return <TherapistCard details={tt} key={index} />
-            return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
-                category={t.Category} key={index} serviceArea={t.ServiceAreaId} />
-        });
-
+        const therapistToRender = this.state.filteredTherapists.length && !this.state.isEmptyFilter ? this.state.filteredTherapists : this.state.therapistsAll;
+        const therapistList = <React.Fragment>
+            {this.state.isEmptyFilter ? "אין פריטים שתואמים לסינון שלך" : therapistToRender.map((t, index) => {
+                // console.log(t);
+                // var tt = { ...t };
+                // return <TherapistCard details={tt} key={index} />
+                return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
+                    category={t.Category} key={index} serviceArea={t.ServiceAreaId} />
+            })}</React.Fragment>;
 
         const categoriesList = this.state.categories
             .map((x, index) => { return <option key={index} id={x.CategoryId} value={x.CategoryId}>{x.CategoryName}</option> });
@@ -125,7 +153,7 @@ class Therapists extends Component {
                 </Form.Control>
                 <div className="therapists_table">
                     {therapistList}
-                    <TherapistCard />
+                    {/* <TherapistCard /> */}
                     {/* <TherapistCard />
                     <TherapistCard />
                     <TherapistCard />

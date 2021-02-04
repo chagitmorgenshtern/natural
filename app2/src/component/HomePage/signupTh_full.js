@@ -3,6 +3,8 @@ import axios from '../../axios'
 import { Form, Col } from 'react-bootstrap';
 import arrow from '../../images/arrow.png'
 import { Link } from 'react-router-dom';
+import '../../style.css';
+import MyContext from '../../context.jsx';
 
 class SignupTh_full extends Component {
     state = {
@@ -17,14 +19,27 @@ class SignupTh_full extends Component {
             Image: "",
             ServiceAreaId: "",
             Address: ""
-        }
-
+        },
+        hours: [
+            "08:00-09:00",
+            "09:00-10:00",
+            "10:00-11:00",
+            "12:00-13:00",
+            "14:00-15:00",
+            "15:00-16:00",
+            "16:00-17:00",
+            "17:00-18:00",
+            "18:00-19:00",
+            "19:00-20:00",
+            "20:00-21:00",
+            "21:00-22:00"
+        ]
     }
 
 
     inputChange = (event) => {
         debugger;
-        const newperson = { ...this.state.patient };
+        const newperson = { ...this.state.therapist };
         const id = event.target.id;
         let value;
 
@@ -33,18 +48,16 @@ class SignupTh_full extends Component {
         else
             value = event.target.value;
         newperson[id] = value;
-        this.setState({ patient: newperson });
+        this.setState({ therapist: newperson });
 
     }
 
-    //TODO
+
     register = () => {
-        alert("hello");
-        const newP = { ...this.state.patient };
-        debugger;
-        alert(this.state.patient.Firstname + " " + this.state.patient.Email);
-        alert(newP.Firstname + "  " + newP.Email)
-        axios.post('patients/Register', newP).then(res => { alert(res.data) });
+
+        const newP = { ...this.state.therapist };
+        // debugger;
+        axios.post('therapists/Register', newP).then(res => { alert(res.data) });
 
 
         // if (document.getElementById("Valid-Password").value === patient.Password)
@@ -60,12 +73,23 @@ class SignupTh_full extends Component {
 
 
     render() {
+
+        // const table = <table>
+        //     {[1, 2, 3, 4, 5, 6].map(() => {
+        //         return
+        //         <tr>
+        //             {this.state.hours.map((h) => { return <td>{h}</td> })}
+        //         </tr>
+        //     })}
+        // </table>
+
+
         return (
 
             // <div >
             /* <form> */
             /* <h2 className="headerSignUp" >הרשמת מטופל</h2> */
-            <Form className="signup" onSubmit={this.register}>
+            <Form className="signupTh_full">
                 <Form.Row>
                     <Form.Group as={Col}  >
                         <Form.Control placeholder="שם פרטי" className="inputs" id="FirstName" value={this.state.FirstName} onChange={(event) => this.inputChange(event)} />
@@ -101,12 +125,23 @@ class SignupTh_full extends Component {
                 </Form.Row>
                 <Form.Row>
                     <Form.Group key={3} as={Col}>
+
+
                         <Form.Control className="inputs" id="ServiceAreaId" as="select" custom value={this.state.ServiceAreaId} onChange={(event) => this.inputChange(event)}>
-                            <option id="0">הכל</option>
+                            {/* <option id="0">הכל</option>
                             <option id="1">הכל</option>
                             <option id="2">הכל</option>
-                            <option id="3">הכל</option>
+                            <option id="3">הכל</option> */}
                             {/* {categoriesList} */}
+
+                            <MyContext.Consumer>
+                                {(context) => (
+                                    <React.Fragment>
+                                        { context.state.ServiceAreas?.map((x) => { return <option id={x.SAId}>{x.SAName}</option> })}
+                                        {/* { Object.keys(context.ServiceAreas).map((x) => { return <option id={x.SAId}>{x.SAName}</option> })} */}
+                                    </React.Fragment>
+                                )}
+                            </MyContext.Consumer>
 
                         </Form.Control>
                     </Form.Group>
@@ -115,8 +150,10 @@ class SignupTh_full extends Component {
                         <Form.Control key={4} type="text" placeholder="כתובת הקליניקה- עיר, רחוב, מספר בית, כניסה" className="inputs" id="Address" value={this.state.Address} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
+                <Form.Check aria-label="option 1" />
+                <Form.Row>
 
-
+                </Form.Row>
                 <Form.Row>
                     <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
                 </Form.Row>
@@ -137,6 +174,7 @@ class SignupTh_full extends Component {
                         <Link onClick={() => { this.register() }}><img src={arrow} id="arrow" /></Link>
                     </Form.Group>
                 </Form.Row>
+
             </Form>
 
 

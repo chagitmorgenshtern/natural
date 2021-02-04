@@ -15,22 +15,24 @@ import Transition_background from './images/Transition_background.jpg';
 import PatientArea from './component/PatientArea/patientArea'
 import MyNavbar from './component/navbar';
 import SignupTh_full from './component/HomePage/signupTh_full';
-
+import MyProvider from './MyProvider.js'
 
 function App() {
   return (
     <Switch>
-      <div className="App" style={{
-        backgroundImage: `url(${Transition_background})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      }}>
+      <MyProvider>
+        <div className="App" style={{
+          backgroundImage: `url(${Transition_background})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}>
 
-        <Route exact path="/" component={LoginContainer} />
-        <Route component={DefaultContainer} />
+          <Route exact path="/" component={LoginContainer} />
+          <Route component={DefaultContainer} />
 
-      </div>
+        </div>
+      </MyProvider>
     </Switch>)
 } export default App;
 

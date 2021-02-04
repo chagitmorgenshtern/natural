@@ -22,6 +22,7 @@ namespace finalProject.Controllers
         //}
 
         [HttpPost]
+        [Route("Register")]
         public IHttpActionResult Register([FromBody] DTO.Therapists1 t)
         {
             //bl.TherapistsBl.NewHours(list<date>,list<hours>);
