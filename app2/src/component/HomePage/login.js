@@ -23,10 +23,12 @@ class Login extends Component {
 
   checkLogin() {
     //debugger;
-
-    axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data) })
-
-    //alert("in");
+    //alert("sssssssss");
+    let ans = false;
+    axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data); ans = res.data; })
+    if (ans)
+      axios.get(`patients/GetByEmail/${this.state.email}`).then(res => alert(res.data));
+    //localStorage.setItem("user", JSON.stringify(res.data))
   }
 
   render() {
@@ -51,8 +53,8 @@ class Login extends Component {
         </Form.Group>
 
 
-        <Form.Control id="passwordFromLogIn" type="password" placeholder="סיסמא" 
-        onChange={(event) => { this.setState({ pass: event.target.value }) }} />
+        <Form.Control id="passwordFromLogIn" type="password" placeholder="סיסמא"
+          onChange={(event) => { this.setState({ pass: event.target.value }) }} />
         {/* <Button variant="light" type="submit">כניסה</Button> */}
         <Link onClick={() => this.checkLogin()}><img src={arrow} id="arrowFromLogIn" /></Link>
 

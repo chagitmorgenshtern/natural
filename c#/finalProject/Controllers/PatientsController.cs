@@ -37,14 +37,21 @@ namespace finalProject.Controllers
         }
 
         [HttpGet]
-        [Route("GetById")]
+        [Route("GetById/{id}")]
         public IHttpActionResult GetById([FromBody] int id)
         {
             return Ok(Bl.PatientsBl.GetById(id));
         }
 
+        [HttpGet]
+        [Route("GetByEmail/{email}")]
+        public IHttpActionResult GetByEmail([FromBody] String email)
+        {
+            return Ok(Bl.PatientsBl.GetByEmail(email));
+        }
+
         [HttpDelete]
-        [Route("DeleteById")]
+        [Route("DeleteById/{id}")]
         public IHttpActionResult DeleteById([FromBody] int id)
         {
             Bl.PatientsBl.DeleteById(id);

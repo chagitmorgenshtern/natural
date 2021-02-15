@@ -29,6 +29,13 @@ namespace Bl
             return cc;
 
         }
+
+        public static Patients1 GetByEmail(string email)
+        {
+            DTO.Patients1 p = new Patients1(Dal.PatientsDal.GetByEmail(email));
+            return p;
+        }
+
         //Delete
         public static void DeleteById(int id)
         {

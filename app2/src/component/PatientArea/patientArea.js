@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./patientArea.css"
-import { Button, Row, Modal } from 'react-bootstrap';
+import { Button, Row, Form, Modal } from 'react-bootstrap';
 import UpdateForm from './updateForm';
 import axios from '../../axios'
 
@@ -8,8 +8,8 @@ export default class PatientArea extends Component {
 
     state = {
         displayUpdateForm: false,
+        displayFeedback: false,
         allMeets: [],
-
         patient: {
             PatientId: "",
             Firstname: "",
@@ -36,9 +36,13 @@ export default class PatientArea extends Component {
                 this.setState({ therapistsAll: [...res.data] });
             });
     }
-
+    //TODO check if works********************************************************************************************************
     updateDetails = () => {
-        this.setState({ displayUpdateForm: true })
+        this.setState({ displayUpdateForm: true });
+    }
+
+    feedback = () => {
+        this.setState({ displayFeedback: true });
     }
 
     render() {
@@ -57,10 +61,30 @@ export default class PatientArea extends Component {
                     <Button onClick={() => this.updateDetails()} size="sm" variant="info" id="update_btn" className="hvr-curl-bottom-left">עדכון פרטים</Button>
                     {/* </Row> */}
                 </div>
-
+                <button onClick={this.feedback}>דרג אותי!</button>
                 <div className="meets_table">
 
                 </div>
+
+                <Modal id="modal_feedback" centered show={this.state.displayFeedback} onHide={() => { this.setState({ displayFeedback: false }); }}>
+                    <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} >
+                        <Modal.Title>דירוג המטפל</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw', height: '45vh' }}>
+
+                        <Form>
+                            <Form.Group controlId="formBasicRangeCustom">
+                                <input type="range" min="0" max="5" step="1" onChange={(event) => { alert(event.target.value) }} />
+                                <Form.Label>מקצועיות</Form.Label>
+                                <Form.Control type="range" custom id="range1" min="0" max="5" step="1" />
+                                <Form.Label>שירות</Form.Label>
+                                <Form.Control type="range" custom id="range2" />
+                                <Form.Label>מחיר</Form.Label>
+                                <Form.Control type="range" custom id="range3" />
+                            </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                </Modal>
 
                 <Modal id="modal_signup" centered show={this.state.displayUpdateForm} onHide={() => { this.setState({ displayUpdateForm: false }); }} >
                     <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} >

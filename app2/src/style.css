@@ -68,7 +68,7 @@
         text-align: -webkit-center;
         display: flex;
         flex-direction: column;
-        
+        align-items: center;
         grid-row: span 2;
     }
 
@@ -89,6 +89,8 @@
     justify-content: space-evenly;
     align-items: center;
     box-shadow: 1px -4px 20px 0px #404244c4;
+    /* position: fixed;
+    width: 100%; */
 }
 
 #thCard_btn{
@@ -98,9 +100,9 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     box-shadow: 0 0 4px 0px darkslategrey;
-    margin-top: 12%;
     margin-right: 2.9%;
-    position: absolute;
+    /* margin-top: 12%;
+    position: absolute; */
 }
 #thCard_btn:hover{
     box-shadow: 0 0 20px 5px white;
@@ -198,19 +200,30 @@
 }*/
 #img_read_more{
     
-    width: 10vw;
-    margin-right: -12vw;
+    /* width: 10vw;
+    margin-right: 1vw;
     margin-top: 5vh;
+    box-shadow: 0 0 4px 3px #a5a0a0; */
+
+    width: 10vw;
+    margin-right: 22vw;
+    float: right;
+    margin-top: 6vh;
     box-shadow: 0 0 4px 3px #a5a0a0;
 }
 
-#img_to_therapists{
+#img_to_therapists,#img_to_therapists2{
     width: 14vw;
     margin-top: 27vh;
     float: right;
-    margin-right: 20vw;
+    margin-right: -11vw;
     box-shadow: 0 0 9px 2px #c0c0c0;
 }
+#img_to_therapists2{
+    margin-right: -4vw;
+}
+
+
 
 .TitleReadMore
 {

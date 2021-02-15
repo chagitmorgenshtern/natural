@@ -51,7 +51,7 @@ class SignupTh extends Component {
       <div className="signupTh">
         {/* <MyNavbar /> */}
         <center><h2 className="headerSignUpTh" > הגשת מועמדות למטפל</h2>
-          <h className="textSignUpTh">אנא מלא פרטיך האישיים ע"מ שנוכל ליצור איתך קשר:</h>
+          <h3 className="textSignUpTh">אנא מלא פרטיך האישיים ע"מ שנוכל ליצור איתך קשר:</h3>
         </center>
         <Form>
           <Form.Row>

@@ -135,9 +135,10 @@ class SignupTh_full extends Component {
                             {/* {categoriesList} */}
 
                             <MyContext.Consumer>
+
                                 {(context) => (
                                     <React.Fragment>
-                                        { context.state.ServiceAreas?.map((x) => { return <option id={x.SAId}>{x.SAName}</option> })}
+                                        { context.state.ServiceAreas?.map((x, index) => { return <option key={index} id={x.SAId}>{x.SAName}</option> })}
                                         {/* { Object.keys(context.ServiceAreas).map((x) => { return <option id={x.SAId}>{x.SAName}</option> })} */}
                                     </React.Fragment>
                                 )}

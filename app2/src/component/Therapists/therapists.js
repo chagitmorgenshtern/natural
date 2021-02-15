@@ -153,20 +153,6 @@ class Therapists extends Component {
                 </Form.Control>
                 <div className="therapists_table">
                     {therapistList}
-                    {/* <TherapistCard /> */}
-                    {/* <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard />
-                    <TherapistCard /> */}
-
                 </div>
 
 

@@ -98,7 +98,7 @@ class UpdateForm extends Component {
                 {/* </Form> */}
 
                 {/* <Form.Row>
-                    <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
+                    <center>  className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
                 </Form.Row> */}
 
                 {/* <Form> */}

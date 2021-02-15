@@ -30,7 +30,7 @@ class TherapistPage extends Component {
         displayModalHours: true
     }
 
-    select_hour(hour) {
+    select_hour = (hour) => {
         this.setState({ displayModalHours: true });
         alert(hour);
     }
@@ -78,7 +78,7 @@ class TherapistPage extends Component {
 
                     <Calendar
                         calendarType="Hebrew"
-                        onClickDay={(value, event) => { alert(value) }} />
+                        onClickDay={(value, event) => { this.select_hour(value) }} />
                 </div>
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">

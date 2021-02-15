@@ -30,12 +30,17 @@ class Signup extends Component {
     }
 
     register = () => {
-        alert("hello");
+
         const newP = { ...this.state.patient };
-        debugger;
-        alert(this.state.patient.Firstname + " " + this.state.patient.Email);
-        alert(newP.Firstname + "  " + newP.Email)
-        axios.post('patients/Register', newP).then(res => { alert(res.data) });
+        // debugger;
+        // alert(this.state.patient.Firstname + " " + this.state.patient.Email);
+        // alert(newP.Firstname + "  " + newP.Email)
+        axios.post('patients/Register', newP).then(res => {
+            alert(res.data);
+            //localStorage.setItem("user", JSON.stringify(res.data))
+        });
+
+        // JSON.parse( localStorage.getItem("user")) ;
 
 
         // if (document.getElementById("Valid-Password").value === patient.Password)

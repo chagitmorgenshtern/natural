@@ -33,7 +33,10 @@ class HomePage extends Component {
 
 
     render() {
-
+        let x = false
+        let btn
+        if (x)
+            btn = <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists2" className="hvr-grow" /> </Link>
         return (
             //check how to do this in the css
             <div className="homePage" style={{
@@ -87,6 +90,7 @@ class HomePage extends Component {
                 <Link to="/therapists"> <img src={btn_to_therapists} id="img_to_therapists" className="hvr-grow" /> </Link>
 
                 <Link to="/patientArea"><label>לאזור האישי</label></Link>
+                {btn}
                 {
                 /* {this.state.displaySignup && <Signup />} */}
 
