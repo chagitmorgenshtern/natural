@@ -17,3 +17,11 @@ label{
 #note{
     font-size: medium;
 }
+#about_us{
+    color: white;
+    text-shadow: 0 0 6px #1b7684;
+}
+#about_us_title{
+    color: #1b7684;
+    text-shadow: 0 0 6px white;
+}

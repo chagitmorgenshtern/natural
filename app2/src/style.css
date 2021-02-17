@@ -468,6 +468,18 @@
 } */
 
 .carousel{
+    
+    margin-top: 5%;
+    box-shadow: 0 0 20px 1px #6c757d;;
+}
+.carousel.slide{
+    width: 50vw !important; 
+margin-bottom: 1vh;
+    
+}
+/* 
+.carousel{
+    
     margin-top: 5%;
     box-shadow: 0 0 20px 1px #6c757d;;
 }
@@ -476,7 +488,7 @@
     height: 25%!important;
     margin-right: 15% !important;
     margin-left: 10% !important;
-}
+} */
 
 .main_content{
     margin-top:5%;
@@ -486,7 +498,7 @@
     height: fit-content;
     margin-right: 20%;
     margin-bottom: 4%;
-    padding: 1px 10px;
+    padding: 1px 107px;
 
 }
 section{

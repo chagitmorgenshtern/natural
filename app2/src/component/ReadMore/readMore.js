@@ -41,7 +41,7 @@ class ReadMore extends Component {
                 </center>
                 </div>  */}
         <div className="main_content">
-          <section>
+          <section style={{ display: 'flex', justifyContent: 'center' }}>
             <Carousel className="carousel">
               <Carousel.Item interval={1000}>
                 <img
@@ -80,7 +80,16 @@ class ReadMore extends Component {
           </section>
 
           <section>
-            <label id="title">שיטות הטיפול</label>
+            <article id="about_us">
+              <h1 id="about_us_title">Natural Way</h1><h5>
+                המאגר המקצועי והאמין ביותר
+                למטפלים בתחום הרפואה משלימה
+אשר נותן שירותים לשני הצדדים: המטפל והמטופל.<br /> מחפש מקצוען בתחום הרפואה משלימה, אכפתי ומקצועי? הגעת למקום הנכון! כאן תוכל למצוא את המטפל המושלם עבורך מתוך המאגר האיכותי ביותר הקיים בשוק.
+<br />מטפל ברמה? רוצה להחשף למעגל לקוחות איכותי? הגש בקשה להצטרף אלינו!</h5></article>
+          </section>
+
+          <section>
+            <label id="title">מידע לגבי שיטות הטיפול</label>
             <label id="note">מטופל יקר, יש להתייעץ עם המטפל לבדיקת ההתאמה לשיטת הטיפול וכן לקבלת תוצאות מקסימליות . המידע המפורט להלן נועד לצרכי הסבר בלבד, ואין לעשות בו שימוש אישי. </label>
           </section>
 
