@@ -9,7 +9,7 @@ export default class Clause extends Component {
             <div id="clause">
                 <img src={this.props.imgSrc} id="icon" />
                 <label>{this.props.category}</label>
-                <p>{this.props.text}</p>
+                <p >{this.props.text}</p>
             </div>
         );
 

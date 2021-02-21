@@ -1,3 +1,14 @@
+h2{
+    color: #1b7684;
+    text-shadow: 0 0 6px white;
+}
+
+.text{
+    color: gray;
+    font-size: larger;
+    font-weight: 400;
+}
+
 #p-details-card{
     
     background-color: white;
@@ -6,7 +17,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 8px 1px #6c757d;
-    margin-right: 7%;
+    margin-right: 8%;
     margin-top: 10%;
 }
 
@@ -39,3 +50,94 @@
     margin-right: 172px;
     margin-top: -107px;
 }
+
+.meetCard{
+    background-color: #ffffff80;
+    width: 730px;
+    float: left;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 11px;
+    box-shadow: 0 0 8px 1px #6c757d i !important;
+    margin: 5px 1px;
+}
+
+.meets_table{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 740px;
+    border: #0001ff;
+    border-width: medium !important;
+    margin-left: 173px;
+    margin-top: -371px;
+}
+
+#meets_title{
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.meets_table_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 541px;
+    margin-right: 9px;
+}
+
+
+/* ==============================animation========================================= */
+/* Pulse Grow */
+@-webkit-keyframes hvr-pulse-grow {
+    to {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+  @keyframes hvr-pulse-grow {
+    to {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+  .hvr-pulse-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active {
+    -webkit-animation-name: hvr-pulse-grow;
+    animation-name: hvr-pulse-grow;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+  }
+
+  /* Grow */
+.hvr-grow {
+    /* display: inline-block; */
+    vertical-align: middle;
+    -webkit-transform: perspective(0.5px) translateZ(0);
+    transform: perspective(0.5px) translateZ(0);
+    box-shadow: 0 0 0.5px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+  }

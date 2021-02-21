@@ -3,13 +3,13 @@ import "./patientArea.css"
 import { Button, Row, Form, Modal } from 'react-bootstrap';
 import UpdateForm from './updateForm';
 import axios from '../../axios'
+import MeetCard from './meetCard.js'
 
 export default class PatientArea extends Component {
 
     state = {
         displayUpdateForm: false,
-        displayFeedback: false,
-        allMeets: [],
+        all_My_Meets: [],
         patient: {
             PatientId: "",
             Firstname: "",
@@ -30,10 +30,11 @@ export default class PatientArea extends Component {
         //בלי העתקה עמוקה!!!!!!!!!!
         // this.setState({patient:this.props.patient})
 
+        //TODO: לשנות את הניתוב לפונקציה ולוודא שבאמת יש אחת כזאת :)
         axios.get('Meets/GetAll')
             .then(res => {
                 console.log(res);
-                this.setState({ therapistsAll: [...res.data] });
+                this.setState({ all_My_Meets: [...res.data] });
             });
     }
     //TODO check if works********************************************************************************************************
@@ -41,12 +42,15 @@ export default class PatientArea extends Component {
         this.setState({ displayUpdateForm: true });
     }
 
-    feedback = () => {
-        this.setState({ displayFeedback: true });
-    }
+
 
     render() {
 
+        const MyMeetsList = this.state.all_My_Meets
+            .map((m, index) => {
+                return <MeetCard key={index} therapistName={m.TherapistName} category={m.Category}
+                    meetDate={m.meetDate} />
+            })
 
         return (
             <div>
@@ -61,30 +65,38 @@ export default class PatientArea extends Component {
                     <Button onClick={() => this.updateDetails()} size="sm" variant="info" id="update_btn" className="hvr-curl-bottom-left">עדכון פרטים</Button>
                     {/* </Row> */}
                 </div>
-                <button onClick={this.feedback}>דרג אותי!</button>
-                <div className="meets_table">
 
+                <div className="meets_table">
+                    <h2 id="meets_title">הפגישות שלי</h2>
+                    <div className="meets_table_title">
+                        <label>שם המטפל</label>
+                        <label>קטגוריה</label>
+                        <label>תאריך</label>
+                    </div>
+                    {MyMeetsList}
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    {/*  <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard />
+                    <MeetCard /> */}
                 </div>
 
-                <Modal id="modal_feedback" centered show={this.state.displayFeedback} onHide={() => { this.setState({ displayFeedback: false }); }}>
-                    <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} >
-                        <Modal.Title>דירוג המטפל</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw', height: '45vh' }}>
 
-                        <Form>
-                            <Form.Group controlId="formBasicRangeCustom">
-                                <input type="range" min="0" max="5" step="1" onChange={(event) => { alert(event.target.value) }} />
-                                <Form.Label>מקצועיות</Form.Label>
-                                <Form.Control type="range" custom id="range1" min="0" max="5" step="1" />
-                                <Form.Label>שירות</Form.Label>
-                                <Form.Control type="range" custom id="range2" />
-                                <Form.Label>מחיר</Form.Label>
-                                <Form.Control type="range" custom id="range3" />
-                            </Form.Group>
-                        </Form>
-                    </Modal.Body>
-                </Modal>
 
                 <Modal id="modal_signup" centered show={this.state.displayUpdateForm} onHide={() => { this.setState({ displayUpdateForm: false }); }} >
                     <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)', width: '47vw' }} >

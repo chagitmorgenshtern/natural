@@ -24,7 +24,7 @@ class Login extends Component {
   checkLogin() {
     //debugger;
     //alert("sssssssss");
-    let ans = false;
+    let ans = true;
     axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data); ans = res.data; })
     if (ans)
       axios.get(`patients/GetByEmail/${this.state.email}`).then(res => alert(res.data));

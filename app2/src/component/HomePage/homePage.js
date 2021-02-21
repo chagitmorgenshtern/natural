@@ -64,7 +64,7 @@ class HomePage extends Component {
                     <label id="label_new_t_register" className="float-right">
                         מעוניין לפרסם את שירותיך באתר?  <Link to="/signupTh" ><label id="label_new_t_register_link">לחץ כאן</label></Link>!</label>
                     <div id="login_container">
-                        <label id="in" className="hvr-buzz-out" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
+                        <label id="in" className="hvr-pulse-grow" onClick={() => { this.setState({ displayLogIn: true }); }}>     כניסה     </label>
                         {/* <label id="up" onClick={() => { this.setState({ displaySignup: true }); }}>  הרשמה  </label> */}
                         <img src={user_no} />
                     </div>

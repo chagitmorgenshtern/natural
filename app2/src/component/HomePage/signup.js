@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 
 class Signup extends Component {
     state = {
-        patient: {//לא צריך להתשמש במזהה בטופס נכון?
-            PatientId: "",
+        patient: {
+            //לא צריך להתשמש במזהה בטופס נכון?
+            // PatientId: "",
             Firstname: "",
             Lastname: "",
             PatientTz: "",

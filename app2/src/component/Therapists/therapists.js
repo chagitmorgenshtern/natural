@@ -113,7 +113,7 @@ class Therapists extends Component {
 
         const therapistToRender = this.state.filteredTherapists.length && !this.state.isEmptyFilter ? this.state.filteredTherapists : this.state.therapistsAll;
         const therapistList = <React.Fragment>
-            {this.state.isEmptyFilter ? "אין פריטים שתואמים לסינון שלך" : therapistToRender.map((t, index) => {
+            {this.state.isEmptyFilter ? <label>אין פריטים שתואמים לסינון שלך</label> : therapistToRender.map((t, index) => {
                 // console.log(t);
                 // var tt = { ...t };
                 // return <TherapistCard details={tt} key={index} />
