@@ -31,9 +31,9 @@ namespace finalProject.Controllers
         public IHttpActionResult Register(DTO.Patients1 p)
         {
             bool b=Bl.PatientsBl.Register(p);
-            //if (b == true)
+            if (b == true)
                 return Ok(b);
-            
+            return BadRequest("not register please try again!");
         }
 
         [HttpGet]
@@ -56,6 +56,13 @@ namespace finalProject.Controllers
         {
             Bl.PatientsBl.DeleteById(id);
             return Ok();
+        }
+
+        [HttpPut]
+        [Route("UpdatePatient/{p}")]
+        public IHttpActionResult UpdatePatient([FromBody] DTO.Patients1 p)
+        {    
+            return Ok(Bl.PatientsBl.UpdatePatient(p));
         }
     }
 }

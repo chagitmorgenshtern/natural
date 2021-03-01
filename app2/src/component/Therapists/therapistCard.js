@@ -13,6 +13,9 @@ class TherapistCard extends Component {
     //         name: ""
     //     }
     //}
+    state = {
+        therapistId: this.props.id
+    }
 
 
     render() {
@@ -24,7 +27,7 @@ class TherapistCard extends Component {
                 <label>{this.props.category}קטגוריה</label>
                 <label>{this.props.serviceArea}אזור בארץ</label>
                 {/* <button id="thCard_btn">לעמוד שלי</button> */}
-                <Button href="/therapistPage" variant="info" id="thCard_btn">כניסה לפרופיל</Button>{' '}
+                <Button href="/therapistPage" variant="info" id="thCard_btn" onClick={() => { localStorage.setItem("therapistId", this.state.therapistId + '') }}>כניסה לפרופיל</Button>{' '}
             </div>
 
         );

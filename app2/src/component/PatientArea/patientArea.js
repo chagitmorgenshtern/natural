@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./patientArea.css"
 import { Button, Row, Form, Modal } from 'react-bootstrap';
 import UpdateForm from './updateForm';
-import axios from '../../axios'
+import axios from '../../axios.js'
 import MeetCard from './meetCard.js'
 
 export default class PatientArea extends Component {
@@ -23,6 +23,7 @@ export default class PatientArea extends Component {
         }
 
     }
+
     componentDidMount() {
         //הצגת נתוני המטופל לפי הפרופס שנשלחו
         // const p_details= {...this.props.patient};
@@ -30,13 +31,18 @@ export default class PatientArea extends Component {
         //בלי העתקה עמוקה!!!!!!!!!!
         // this.setState({patient:this.props.patient})
 
-        //TODO: לשנות את הניתוב לפונקציה ולוודא שבאמת יש אחת כזאת :)
-        axios.get('Meets/GetAll')
+
+        //axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data); ans = res.data; })
+        alert("mount")
+        //TODO: זה צריך להיות מזהה או תז????
+        axios.get(`meets/GetByPatientId/${this.state.patient.PatientId}`)
             .then(res => {
-                console.log(res);
+                debugger;
+                alert(res);
                 this.setState({ all_My_Meets: [...res.data] });
             });
     }
+
     //TODO check if works********************************************************************************************************
     updateDetails = () => {
         this.setState({ displayUpdateForm: true });

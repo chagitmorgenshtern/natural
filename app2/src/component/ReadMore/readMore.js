@@ -50,8 +50,8 @@ class ReadMore extends Component {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h3>Natural Way</h3>
-                  <p>הדרך החדשה לרפואה משלימה</p>
+                  <h1 id="about_us_title">Natural Way</h1>
+                  <h4 id="about_us">הדרך החדשה לרפואה משלימה</h4>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item interval={500}>
@@ -61,8 +61,8 @@ class ReadMore extends Component {
                   alt="Third slide"
                 />
                 <Carousel.Caption>
-                  <h3>מטפל בתחום הרפואה המשלימה?</h3>
-                  <p>מקומך איתנו! הצטרף אלינו והגדל את מעגל הלקוחות שלך</p>
+                  <h2 id="about_us">מטפל בתחום הרפואה המשלימה?</h2>
+                  <h4 id="about_us">מקומך איתנו! הצטרף אלינו והגדל את מעגל הלקוחות שלך</h4>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -72,8 +72,8 @@ class ReadMore extends Component {
                   alt="Third slide"
                 />
                 <Carousel.Caption>
-                  <h3>מחפש מטפל מקצועי ושירותי במחיר הטוב ביותר?</h3>
-                  <p>הגעת למקום הנכון!</p>
+                  <h2 id="about_us">מחפש מטפל מקצועי ושירותי במחיר הטוב ביותר?</h2>
+                  <h4 id="about_us">הגעת למקום הנכון!</h4>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>

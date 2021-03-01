@@ -117,7 +117,7 @@ class Therapists extends Component {
                 // console.log(t);
                 // var tt = { ...t };
                 // return <TherapistCard details={tt} key={index} />
-                return <TherapistCard firstName={t.FirstName} lastName={t.LastName}
+                return <TherapistCard id={t.TherapistId} firstName={t.FirstName} lastName={t.LastName}
                     category={t.Category} key={index} serviceArea={t.ServiceAreaId} />
             })}</React.Fragment>;
 

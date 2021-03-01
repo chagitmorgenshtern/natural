@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-
 namespace Dal
 {
     public class PatientsDal
@@ -55,7 +54,34 @@ namespace Dal
 
         }
 
-        
+        public static bool UpdatePatient(Patients patient)
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+                    //יצירת רפרנס לאובייקט מהמסד נתונים
+                    Patients newp = db.Patients.Where(p => p.PatientId == patient.PatientId).FirstOrDefault();
+
+                    newp.PatientTz = patient.PatientTz;
+                    newp.Firstname = patient.Firstname;
+                    newp.Lastname = patient.Lastname;
+                    newp.Password = patient.Password;
+                    newp.PhoneNumber1 = patient.PhoneNumber1;
+                    newp.PhoneNumber2 = patient.PhoneNumber2;
+                    newp.DateOfBirth = patient.DateOfBirth;
+                    newp.Email = patient.Email;
+
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static Patients GetByEmail(string email)
         {
             try

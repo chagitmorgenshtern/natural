@@ -13,6 +13,7 @@ namespace finalProject.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class MeetsController : ApiController
     {
+        
         [HttpPost]
         [Route("Register")]
         public IHttpActionResult Register([FromBody] DTO.Meets1 m)
@@ -22,18 +23,21 @@ namespace finalProject.Controllers
         }
 
         [HttpGet]
+        [Route("GetByPatientId/{p_id}")]
+        public IHttpActionResult GetByPatientId(int p_id)
+        {
+            //return Ok(Bl.MeetsBl.GetByPatientId(p_id));
+            return Ok("in");
+        }
+
+        [HttpGet]
         [Route("GetById")]
         public IHttpActionResult GetById([FromBody] int id)
         {
             return Ok(Bl.MeetsBl.GetById(id));
         }
 
-        [HttpGet]
-        [Route("GetByPatientId/{p_id}")]
-        public IHttpActionResult GetByPatientId(int p_id)
-        {
-            return Ok(Bl.MeetsBl.GetByPatientId(p_id));
-        }
+        
 
         [HttpDelete]
         [Route("DeleteById")]

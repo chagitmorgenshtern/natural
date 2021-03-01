@@ -20,6 +20,7 @@ class SignupTh_full extends Component {
             ServiceAreaId: "",
             Address: ""
         },
+        serviceAreas: [],
         hours: [
             "08:00-09:00",
             "09:00-10:00",
@@ -36,6 +37,15 @@ class SignupTh_full extends Component {
         ]
     }
 
+    componentDidMount() {
+        axios.get('serviceAreas/GetAllServiceAreas')
+            .then(res => {
+                alert("dddddddddd");
+                console.log(res);
+                this.setState({ serviceAreas: [...res.data] });
+            })
+        debugger;
+    }
 
     inputChange = (event) => {
         debugger;
@@ -51,6 +61,7 @@ class SignupTh_full extends Component {
         this.setState({ therapist: newperson });
 
     }
+
 
 
     register = () => {
@@ -110,7 +121,8 @@ class SignupTh_full extends Component {
                     </Form.Group>
 
                     <Form.Group as={Col} >
-                        <Form.Control type="date" placeholder="תאריך לידה" className="inputs" id="DateOfBirth" value={this.state.DateOfBirth} onChange={(event) => this.inputChange(event)} />
+                        {/* id="DateOfBirth" */}
+                        <Form.Control type="date" placeholder="תאריך לידה" className="inputs" value={this.state.DateOfBirth} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
 
@@ -120,7 +132,8 @@ class SignupTh_full extends Component {
                     </Form.Group>
 
                     <Form.Group key={3} as={Col}>
-                        <Form.Control key={4} type="email" placeholder="כתובת מייל" className="inputs" id="Email" value={this.state.Email} onChange={(event) => this.inputChange(event)} />
+                        {/* id="Email" */}
+                        <Form.Control key={4} type="email" placeholder="כתובת מייל" className="inputs" value={this.state.Email} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>

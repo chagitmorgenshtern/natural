@@ -17,7 +17,8 @@ class Signup extends Component {
             Password: "",
             PhoneNumber1: "",
             PhoneNumber2: ""
-        }
+        },
+        error: ""
 
     }
 
@@ -38,7 +39,11 @@ class Signup extends Component {
         // alert(newP.Firstname + "  " + newP.Email)
         axios.post('patients/Register', newP).then(res => {
             alert(res.data);
+            this.setState({ error: "" });
             //localStorage.setItem("user", JSON.stringify(res.data))
+        }).catch(e => {
+            alert("fsdfsds");
+            console.log("jhgjgh"); debugger; this.setState({ error: e.data })
         });
 
         // JSON.parse( localStorage.getItem("user")) ;
@@ -57,6 +62,8 @@ class Signup extends Component {
 
 
     render() {
+        if (this.state.error != "")
+            var e = <p style={{ color: 'red', fontWeight: 'bold' }}>{this.state.error}</p>
         return (
 
             // <div >
@@ -64,6 +71,8 @@ class Signup extends Component {
             /* <h2 className="headerSignUp" >הרשמת מטופל</h2>
              onSubmit={this.register}*/
             <Form className="signup" >
+
+                {e}
                 <Form.Row>
                     <Form.Group as={Col}  >
                         <Form.Control placeholder="שם פרטי" className="inputs" id="Firstname" value={this.state.Firstname} onChange={(event) => this.inputChange(event)} />

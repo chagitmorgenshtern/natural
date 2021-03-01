@@ -20,19 +20,19 @@ import MyProvider from './MyProvider.js'
 function App() {
   return (
     <Switch>
-      <MyProvider>
-        <div className="App" style={{
-          backgroundImage: `url(${Transition_background})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
-        }}>
+      {/* <MyProvider> */}
+      <div className="App" style={{
+        backgroundImage: `url(${Transition_background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}>
 
-          <Route exact path="/" component={LoginContainer} />
-          <Route component={DefaultContainer} />
+        <Route exact path="/" component={LoginContainer} />
+        <Route component={DefaultContainer} />
 
-        </div>
-      </MyProvider>
+      </div>
+      {/* </MyProvider> */}
     </Switch>)
 } export default App;
 

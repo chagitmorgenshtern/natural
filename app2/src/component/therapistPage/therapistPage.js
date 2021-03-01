@@ -6,13 +6,14 @@ import { Modal } from 'react-bootstrap';
 import './therapistPage.css'
 import thImage from '../../images/thImage.jpg';
 import star from '../../images/star.png'
-import MyNavbar from '../navbar'
+//import MyNavbar from '../navbar'
 import Calendar from 'react-calendar';
-
+import axios from '../../axios'
 
 class TherapistPage extends Component {
 
     state = {
+        therapistDetails: [],
         hours: [
             "08:00-09:00",
             "09:00-10:00",
@@ -29,6 +30,17 @@ class TherapistPage extends Component {
         ],
         displayModalHours: false,
         selectedDate: ""
+    }
+
+    componentDidMount() {
+        debugger;
+        let id = parseInt(localStorage.getItem("therapistId"));
+        axios.get(`therapists/GetById/${id}`)
+            .then(res => {
+                debugger;
+                console.log(res);
+                this.setState({ therapistDetails: [...res.data] });
+            });
     }
 
     select_hour = (hour) => {
@@ -54,11 +66,13 @@ class TherapistPage extends Component {
                 <div id="details-card">
                     <img src={thImage} id="th-image" alt="profile-picture" />
                     {/* {this.props.firstName + " " + this.props.lastName} */}
-                    <label className="t-labels" id="t-fullName">אלחנן וייס </label>
-                    <label className="t-labels" id="t-category">נטורופת</label>
-                    <label className="t-labels" id="t-s-area">אזור: השרון והסביבה</label>
-                    <label className="t-labels" id="t-phone">0526447693 :טלפון </label>
-                    <label className="t-labels" id="t-email">a345@gmail.com :מייל</label>
+                    <label className="t-labels" id="t-fullName">{this.state.therapistDetails.FirstName + " " + this.state.therapistDetails.LastName}</label>
+                    {/* TODO====================================================== */}
+                    <label className="t-labels" id="t-category">{this.state.therapistDetails}</label>
+                    {/* TODO====================================================== */}
+                    <label className="t-labels" id="t-s-area">{this.state.therapistDetails}</label>
+                    <label className="t-labels" id="t-phone">{this.state.therapistDetails.PhoneNumber}</label>
+                    <label className="t-labels" id="t-email">{this.state.therapistDetails.Email}</label>
                     <div id="rating">
                         <img className="stars" src={star} alt="rating-star" />
                         <img className="stars" src={star} alt="rating-star" />

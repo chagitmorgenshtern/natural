@@ -12,7 +12,8 @@ import axios from '../../axios'
 class Login extends Component {
   state = {
     email: "",
-    pass: ""
+    pass: "",
+    user: []
   }
 
   // onChangehandler(e) {
@@ -24,11 +25,21 @@ class Login extends Component {
   checkLogin() {
     //debugger;
     //alert("sssssssss");
-    let ans = true;
-    axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data); ans = res.data; })
-    if (ans)
-      axios.get(`patients/GetByEmail/${this.state.email}`).then(res => alert(res.data));
-    //localStorage.setItem("user", JSON.stringify(res.data))
+
+    axios.get(`patients/Login/${this.state.email}/${this.state.pass}`)
+      .then(res => {
+        alert(res.data);
+        debugger;
+        if (res.data)
+          axios.get(`patients/GetByEmail/${this.state.email}`)
+            .then(r => {
+              this.setState({ user: [...r.data] });
+              localStorage.setItem("newuser", JSON.stringify(res.data))
+              alert(r.data)
+            });
+      })
+
+
   }
 
   render() {

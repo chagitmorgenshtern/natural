@@ -59,6 +59,7 @@ class UpdateForm extends Component {
             <Form className="signup" onSubmit={this.register}>
                 <Form.Row>
                     <Form.Group as={Col}  >
+
                         <Form.Control placeholder="שם פרטי" className="inputs" id="Firstname" value={this.state.Firstname} onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
                     {/* <Form.Group as={Col} controlId="first_name">

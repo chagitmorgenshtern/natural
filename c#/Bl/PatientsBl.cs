@@ -42,6 +42,9 @@ namespace Bl
             Dal.PatientsDal.DeleteById(id);
         }
 
-        
+        public static bool UpdatePatient(DTO.Patients1 p)
+        {
+           return Dal.PatientsDal.UpdatePatient(Patients1.Todal(p));
+        }
     }
 }
