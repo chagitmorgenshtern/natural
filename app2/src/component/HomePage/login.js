@@ -22,23 +22,28 @@ class Login extends Component {
 
 
 
-  checkLogin() {
+  async checkLogin() {
     //debugger;
     //alert("sssssssss");
 
-    axios.get(`patients/Login/${this.state.email}/${this.state.pass}`)
-      .then(res => {
-        alert(res.data);
-        debugger;
-        if (res.data)
-          //אני רוצה לקבל את כל האובייקט של היוזר
-          axios.get(`patients/GetByEmail/${this.state.email}`)
-            .then(r => {
-              this.setState({ user: [...r.data] });
-              localStorage.setItem("newuser", JSON.stringify(res.data))
-              alert(r.data)
-            });
-      })
+    const user = await axios.get(`patients/Login/${this.state.email}/${this.state.pass}`)
+    // alert(user.data);
+    debugger;
+    if (user.data) {
+      localStorage.setItem("newuser", JSON.stringify(user.data))
+    }
+    else {
+      alert('password or email is not correct')
+    }
+    alert(JSON.parse(localStorage.getItem("newuser")).PatientId)
+    // //אני רוצה לקבל את כל האובייקט של היוזר
+    // axios.get(`patients/GetByEmail`, { mail: this.state.email })
+    //   .then(r => {
+    //     this.setState({ user: [...r.data] });
+    //     
+    //     alert(r.data)
+    //   });
+
 
 
   }

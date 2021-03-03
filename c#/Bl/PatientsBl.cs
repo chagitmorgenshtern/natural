@@ -6,13 +6,14 @@ namespace Bl
 {
     public class PatientsBl
     {
-        public static bool Login(string email, string pass)
+        public static Patients1 Login(string email, string pass)
         {
-            Patients p = PatientsDal.GetByEmail(email);
+            Patients1 p = new Patients1(PatientsDal.GetByEmail(email));
+
             if (p != null)
                 if (p.Password.Equals(pass))
-                    return true;
-            return false;
+                    return p;
+            return null;
         }
 
         public static bool Register(Patients1 p)

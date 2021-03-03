@@ -1,3 +1,5 @@
+
+
 .therapists
 {
 
@@ -665,6 +667,14 @@ section{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-right: 14%;
     font-size: large;
+}
+#image_div{
+    height: 100px;
+   background: url();
+   width: 100px;
+   z-index: 9999999999999999999999;
+   border: 1px solid red;
+   background-size: 100%;
 }
 /* 
 #first_nameFromsignupTh

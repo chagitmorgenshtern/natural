@@ -22,19 +22,28 @@ namespace finalProject.Controllers
                 return Ok();
             }
 
-            //[HttpGet]
-            //[Route("GetById")]
-            //public IHttpActionResult GetById([FromBody] int id)
-            //{
-            //    return Ok(Bl.ArchivesBl.GetById(id));
-            //}
-
-            //[HttpDelete]
-            //[Route("DeleteById")]
-            //public IHttpActionResult DeleteById([FromBody] int id)
-            //{
-            //    Bl.ArchivesBl.DeleteById(id);
-            //    return Ok();
-            //}
+        [HttpGet]
+        [Route("GetAllApplicants")]
+        public IHttpActionResult GetAllApplicants()
+        {
+            List<DTO.Therapists1> lst = Bl.TherapistsBl.GetAll();
+          
+            return Ok(lst);
         }
+
+        //[HttpGet]
+        //[Route("GetById")]
+        //public IHttpActionResult GetById([FromBody] int id)
+        //{
+        //    return Ok(Bl.ArchivesBl.GetById(id));
+        //}
+
+        //[HttpDelete]
+        //[Route("DeleteById")]
+        //public IHttpActionResult DeleteById([FromBody] int id)
+        //{
+        //    Bl.ArchivesBl.DeleteById(id);
+        //    return Ok();
+        //}
+    }
     }

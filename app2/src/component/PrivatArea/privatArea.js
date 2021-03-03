@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import "./privatArea.css"
 import Transition_background from '../../images/Transition_background.jpg';
 import { Button, Row, Form, Modal } from 'react-bootstrap';
@@ -7,26 +8,19 @@ import axios from '../../axios.js'
 import ValueCard from './valueCard.js'
 
 export default class PatientArea extends Component {
+    constructor(props) {
+        super(props);
 
-    state = {
-        displayUpdateForm: false,
-        all_My_Meets: [],
-        all_Applicants: [],
-        patient: JSON.parse(localStorage.getItem("user"))
+        this.state = {
+            displayUpdateForm: false,
+            all_My_Meets: [],
+            all_Applicants: [],
+        };
 
-        // patient: {
-        //     PatientId: "",
-        //     Firstname: "",
-        //     Lastname: "",
-        //     PatientTz: "",
-        //     DateOfBirth: "",
-        //     Email: "",
-        //     Password: "",
-        //     PhoneNumber1: "",
-        //     PhoneNumber2: ""
-        // }
-
+        this.patient = JSON.parse(localStorage.getItem("newuser"));
+        this.status = this.props.profileStatus;
     }
+
 
     componentDidMount() {
         //הצגת נתוני המטופל לפי הפרופס שנשלחו
@@ -39,12 +33,22 @@ export default class PatientArea extends Component {
         //axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data); ans = res.data; })
 
         //TODO: זה בסדר השליפה מJSON????
-        axios.get(`meets/GetByPatientId/${this.state.patient.PatientId}`)
-            .then(res => {
-                debugger;
-                alert(res);
-                this.setState({ all_My_Meets: [...res.data] });
-            });
+        if (this.status == "patient")
+            axios.get(`meets/GetByPatientId/${this.patient.PatientId}`)
+                .then(res => {
+                    debugger;
+                    alert(res);
+
+                    this.setState({ all_My_Meets: [...res.data] });
+                });
+        if (this.status == "manager")
+            axios.get(`applicants/GetAllApplicants`)
+                .then(res => {
+                    debugger;
+                    alert(res);
+
+                    this.setState({ all_Applicants: [...res.data] });
+                });
     }
 
     //TODO check if works********************************************************************************************************
@@ -55,15 +59,15 @@ export default class PatientArea extends Component {
 
 
     render() {
-        const status = this.props.profileStatus;
-        const MyValuesList = (status == "patient") ?
+
+        const MyValuesList = (this.status == "patient") ?
             this.state.all_My_Meets.map((m, index) => {
-                return <ValueCard key={index} profileStatus={this.props.profileStatus} entry1={m.TherapistName} entry2={m.CategoryName}
-                    entry3={m.MeetDate} />
+                return <ValueCard key={index} profileStatus={this.status} entry1={m.TherapistName} entry2={m.CategoryName}
+                    entry3={moment(m.MeetDate).format('DD/MM/yyyy')} />
             })
-            : (status == "manager") ?
+            : (this.status == "manager") ?
                 this.state.all_Applicants.map((a, index) => {
-                    return <ValueCard key={index} profileStatus={this.props.profileStatus} entry1={a.FirstName + " " + a.LastName} entry2={a.TherapistTz}
+                    return <ValueCard key={index} profileStatus={this.status} entry1={a.FirstName + " " + a.LastName} entry2={a.TherapistTz}
                         entry3={a.Email} />
                 })
                 : "";
@@ -113,6 +117,7 @@ export default class PatientArea extends Component {
                         <label>{this.props.index3}</label>
                     </div>
                     {MyValuesList}
+                    {/*<ValueCard profileStatus={this.props.profileStatus} />
                     <ValueCard profileStatus={this.props.profileStatus} />
                     <ValueCard profileStatus={this.props.profileStatus} />
                     <ValueCard profileStatus={this.props.profileStatus} />
@@ -125,8 +130,7 @@ export default class PatientArea extends Component {
                     <ValueCard profileStatus={this.props.profileStatus} />
                     <ValueCard profileStatus={this.props.profileStatus} />
                     <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
+                    <ValueCard profileStatus={this.props.profileStatus} /> */}
                 </div>
 
 

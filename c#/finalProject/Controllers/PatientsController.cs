@@ -10,8 +10,9 @@ using DTO;
 using Bl;
 namespace finalProject.Controllers
 {
+
     [RoutePrefix("api/patients")]
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PatientsController : ApiController
     {
         //EntityManager em = new EntityManager();
@@ -44,7 +45,7 @@ namespace finalProject.Controllers
         }
 
         [HttpGet]
-        [Route("GetByEmail/{email}")]
+        [Route("GetByEmail")]
         public IHttpActionResult GetByEmail([FromBody] String email)
         {
             return Ok(Bl.PatientsBl.GetByEmail(email));

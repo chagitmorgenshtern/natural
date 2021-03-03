@@ -26,8 +26,8 @@ namespace finalProject.Controllers
         [Route("GetByPatientId/{p_id}")]
         public IHttpActionResult GetByPatientId(int p_id)
         {
-            //return Ok(Bl.MeetsBl.GetByPatientId(p_id));
-            return Ok("in");
+            return Ok(Bl.MeetsBl.GetByPatientId(p_id));
+            //return Ok("in");
         }
 
         [HttpGet]
