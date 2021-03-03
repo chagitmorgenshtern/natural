@@ -12,19 +12,21 @@ namespace DTO
 
         //-----------fields-----------
         public int MeetId { get; set; }
-        public Nullable<int> PatientId { get; set; }
-        public Nullable<int> TherapistId { get; set; }
+        public int PatientId { get; set; }
+        public int TherapistId { get; set; }
+        public string TherapistName { get; set; }
         public Nullable<System.DateTime> MeetDate { get; set; }
-        public Nullable<int> CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         //-----------constructors-----------
 
         public Meets1()
         {
-
+            Dal.Therapists t = Dal.TherapistsDal.GetById(TherapistId);
+            TherapistName = t.FirstName+" "+t.LastName;
         }
         //gets dal and convert it to dto (by the ctor)
-        public Meets1(Dal.Meets m)
+        public Meets1(Dal.Meets m):this()
         {
             MeetId = m.MeetId;
             PatientId = m.PatientId;

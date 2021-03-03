@@ -15,10 +15,10 @@ namespace Dal
     public partial class Meets
     {
         public int MeetId { get; set; }
-        public Nullable<int> PatientId { get; set; }
-        public Nullable<int> TherapistId { get; set; }
+        public int PatientId { get; set; }
+        public int TherapistId { get; set; }
         public Nullable<System.DateTime> MeetDate { get; set; }
-        public Nullable<int> CategoryId { get; set; }
+        public int CategoryId { get; set; }
     
         public virtual Categories Categories { get; set; }
         public virtual Patients Patients { get; set; }

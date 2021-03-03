@@ -9,6 +9,12 @@ h2{
     font-weight: 400;
 }
 
+.privatArea{
+  width: 100vw;
+    height: 100%;
+    position: absolute;
+}
+
 #p-details-card{
     
     background-color: white;
@@ -90,7 +96,15 @@ h2{
     margin-right: 9px;
 }
 
-
+#btn_pa{
+  color: #11635ef2;
+    text-shadow: 0 0 9px #ffffff;
+    font-weight: 700;
+    border: solid;
+    border-color: #fffbfb00;
+    background-color: #f5af61bd;
+    box-shadow: 0 0 4px 1px grey !important;
+}
 /* ==============================animation========================================= */
 /* Pulse Grow */
 @-webkit-keyframes hvr-pulse-grow {

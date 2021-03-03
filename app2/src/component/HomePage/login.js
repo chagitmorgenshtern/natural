@@ -31,6 +31,7 @@ class Login extends Component {
         alert(res.data);
         debugger;
         if (res.data)
+          //אני רוצה לקבל את כל האובייקט של היוזר
           axios.get(`patients/GetByEmail/${this.state.email}`)
             .then(r => {
               this.setState({ user: [...r.data] });

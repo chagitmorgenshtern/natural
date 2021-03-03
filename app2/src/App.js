@@ -15,7 +15,9 @@ import Transition_background from './images/Transition_background.jpg';
 import PatientArea from './component/PatientArea/patientArea'
 import MyNavbar from './component/navbar';
 import SignupTh_full from './component/HomePage/signupTh_full';
-import MyProvider from './MyProvider.js'
+import ManagerArea from './component/ManagerArea/managerArea';
+import PrivatArea from './component/PrivatArea/privatArea';
+//import MyProvider from './MyProvider.js'
 
 function App() {
   return (
@@ -52,6 +54,8 @@ const DefaultContainer = () => (
     <Route path="/therapistPage" component={TherapistPage} />
     <Route path="/patientArea" component={PatientArea} />
     <Route path="/signupTh_full" component={SignupTh_full} />
+    <Route path="/managerArea" component={ManagerArea} />
+    {/* <Route path="/privatArea" component={PrivatArea} /> */}
   </div>
 
 )
