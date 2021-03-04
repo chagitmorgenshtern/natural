@@ -48,7 +48,7 @@ class SignupTh_full extends Component {
     componentDidMount() {
         axios.get('serviceAreas/GetAllServiceAreas')
             .then(res => {
-                alert("dddddddddd");
+                //alert("dddddddddd");
                 console.log(res);
                 this.setState({ serviceAreas: [...res.data] });
             })
@@ -75,7 +75,7 @@ class SignupTh_full extends Component {
     register = () => {
 
         const newP = { ...this.state.therapist };
-        // debugger;
+        debugger;
         axios.post('therapists/Register', newP).then(res => { alert(res.data) });
 
 
@@ -91,7 +91,7 @@ class SignupTh_full extends Component {
     }
 
     onUpload(file) {
-        debugger;
+        //debugger;
         const newState = { ...this.state.therapist };
         newState.Image = file.base64;
         // files.map(file=> file.base64)
@@ -115,6 +115,8 @@ class SignupTh_full extends Component {
         //         </tr>
         //     })}
         // </table>
+        const serviceAreasList = this.state.serviceAreas
+            .map((x, index) => { return <option key={index} id={x.SAId}>{x.SAName}</option> });
 
 
         return (
@@ -123,6 +125,9 @@ class SignupTh_full extends Component {
                 {/* /* <form> 
             /* <h2 className="headerSignUp" >הרשמת מטופל</h2>  */}
                 <Form className="signupTh_full">
+                    <Form.Row>
+                        <h4 style={{ color: 'white', margin: '1vw 0vw' }}>טופס הרשמת מטפל</h4>
+                    </Form.Row>
                     <Form.Row>
                         <Form.Group as={Col}  >
                             <Form.Control placeholder="שם פרטי" className="inputs" id="FirstName" value={this.state.FirstName} onChange={(event) => this.inputChange(event)} />
@@ -143,8 +148,8 @@ class SignupTh_full extends Component {
                         </Form.Group>
 
                         <Form.Group as={Col} >
-                            {/* id="DateOfBirth" */}
-                            <Form.Control type="date" placeholder="תאריך לידה" className="inputs" value={this.state.DateOfBirth} onChange={(event) => this.inputChange(event)} />
+                            {/*  */}
+                            <Form.Control type="date" placeholder="תאריך לידה" className="inputs" id="DateOfBirth" value={this.state.DateOfBirth} style={{ marginRight: '0%' }} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
                     </Form.Row>
 
@@ -154,8 +159,10 @@ class SignupTh_full extends Component {
                         </Form.Group>
 
                         <Form.Group key={3} as={Col}>
-                            {/* id="Email" */}
-                            <Form.Control key={4} type="email" placeholder="כתובת מייל" className="inputs" value={this.state.Email} onChange={(event) => this.inputChange(event)} />
+
+                            <Form.Control key={4} type="email" placeholder="כתובת מייל" className="inputs" id="Email" value={this.state.Email} style={{ marginRight: '0%' }} onChange={(event) => this.inputChange(event)} />
+                            {/* <Form.Control id="emailFromLogIn" type="email" placeholder="כתובת מייל" onChange={(event) => { this.setState({ email: event.target.value }) }} /> */}
+
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
@@ -163,6 +170,7 @@ class SignupTh_full extends Component {
                             {/* <input type="file" placeholder="upload img" onUpload={onUpload} />*/}
 
                             <Form.Control className="inputs" id="ServiceAreaId" as="select" custom value={this.state.ServiceAreaId} onChange={(event) => this.inputChange(event)}>
+                                {serviceAreasList}
                                 {/* <option id="0">הכל</option>
                             <option id="1">הכל</option>
                             <option id="2">הכל</option>
@@ -188,8 +196,16 @@ class SignupTh_full extends Component {
                     </Form.Row>
                     <Form.Check aria-label="option 1" />
                     <Form.Row>
+                        <FileBase64
+                            id="uploadImage"
+                            multiple={false}
+                            onDone={this.onUpload.bind(this)}
+                        />
 
+                        <div id="image_div" style={{ backgroundImage: `url(${this.state.therapist.Image})` }} />
                     </Form.Row>
+
+
                     <Form.Row>
                         <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
                     </Form.Row>
@@ -212,12 +228,8 @@ class SignupTh_full extends Component {
                     </Form.Row>
 
                 </Form>
-                <FileBase64
-                    multiple={false}
-                    onDone={this.onUpload.bind(this)}
-                />
+
                 {/* {this.state.therapist.Image && <><Document file={"C:/Users/HOME/Downloads/%D7%91%D7%A11.pdf"} />        </>} */}
-                <div id="image_div" style={{ backgroundImage: `url(${this.state.therapist.Image})` }} />
                 {/* <input
                     type="file"
                     onChange={this.onUpload.bind(this)}

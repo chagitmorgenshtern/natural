@@ -60,8 +60,8 @@ namespace finalProject.Controllers
         }
 
         [HttpPut]
-        [Route("UpdatePatient/{p}")]
-        public IHttpActionResult UpdatePatient([FromBody] DTO.Patients1 p)
+        [Route("UpdatePatient")]
+        public IHttpActionResult UpdatePatient(DTO.Patients1 p)
         {    
             return Ok(Bl.PatientsBl.UpdatePatient(p));
         }

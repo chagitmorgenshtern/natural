@@ -63,8 +63,25 @@ namespace Dal
                 return false;
             }
         }
+        
+        //GetAll
+        public static List<Applicants> GetAllApplicants()
+        {
+            
+                try
+                {
+                    using (Natural_wayEntities db = new Natural_wayEntities())
+                    {
+                        List<Applicants> lst = db.Applicants.ToList();
+                        return lst;
+                    }
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
 
 
-
+            }
+        }
     }
-}

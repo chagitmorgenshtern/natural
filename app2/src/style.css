@@ -638,6 +638,11 @@ section{
 .signupTh_full{
     width: 45vw;
     margin-right: 28%;
+    padding-right: 4vw;
+    padding-top: 1vh;
+}
+#ServiceAreaId{
+    color: black;
 }
 .headerSignUpTh{
     margin-top:7%;
@@ -671,10 +676,16 @@ section{
 #image_div{
     height: 100px;
    background: url();
+   background-position: center;
+   background-repeat: no-repeat;
    width: 100px;
    z-index: 9999999999999999999999;
-   border: 1px solid red;
-   background-size: 100%;
+   box-shadow: 0 0 4px 1px grey;
+   background-size: cover;
+   background-color: white;
+}
+#uploadImage{
+    width:25vw;
 }
 /* 
 #first_nameFromsignupTh

@@ -71,8 +71,6 @@ class Signup extends Component {
             /* <h2 className="headerSignUp" >הרשמת מטופל</h2>
              onSubmit={this.register}*/
             <Form className="signup" >
-
-                {e}
                 <Form.Row>
                     <Form.Group as={Col}  >
                         <Form.Control placeholder="שם פרטי" className="inputs" id="Firstname" value={this.state.Firstname} onChange={(event) => this.inputChange(event)} />

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class UpdateForm extends Component {
     state = {
         patient: {//לא צריך להתשמש במזהה בטופס נכון?
-            PatientId: "",
+            PatientId: JSON.parse(localStorage.getItem("newuser")).PatientId,
             Firstname: "",
             Lastname: "",
             PatientTz: "",
@@ -29,13 +29,13 @@ class UpdateForm extends Component {
 
     }
 
-    register = () => {
-        alert("hello");
+    update = () => {
+        //alert("hello");
         const newP = { ...this.state.patient };
         debugger;
-        alert(this.state.patient.Firstname + " " + this.state.patient.Email);
-        alert(newP.Firstname + "  " + newP.Email)
-        axios.post('patients/Register', newP).then(res => { alert(res.data) });
+        // alert(this.state.patient.Firstname + " " + this.state.patient.Email);
+        // alert(newP.Firstname + "  " + newP.Email)
+        axios.put('patients/UpdatePatient', newP).then(res => { alert(res.data) });
 
 
         // if (document.getElementById("Valid-Password").value === patient.Password)
@@ -115,7 +115,7 @@ class UpdateForm extends Component {
 
                 {/* type="submit"  */}
                 <Form.Group as={Col}>
-                    <Link onClick={() => { this.register() }}><img src={arrow} id="p-arrow" /></Link>
+                    <Link onClick={() => { this.update() }}><img src={arrow} id="p-arrow" /></Link>
                 </Form.Group>
                 {/* </Form.Row> */}
             </Form >

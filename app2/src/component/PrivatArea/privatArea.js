@@ -37,15 +37,16 @@ export default class PatientArea extends Component {
             axios.get(`meets/GetByPatientId/${this.patient.PatientId}`)
                 .then(res => {
                     debugger;
-                    alert(res);
+                    //alert(res);
 
                     this.setState({ all_My_Meets: [...res.data] });
                 });
         if (this.status == "manager")
+            //TODO: change the implementation in the server
             axios.get(`applicants/GetAllApplicants`)
                 .then(res => {
                     debugger;
-                    alert(res);
+                    //alert(res);
 
                     this.setState({ all_Applicants: [...res.data] });
                 });
@@ -98,12 +99,19 @@ export default class PatientArea extends Component {
                 backgroundRepeat: 'no-repeat'
             }}>
                 <div id="p-details-card">
-                    <label className="p-label">{"שם מלא:" + (this.props.fullName ? this.props.fullName : "")}</label>
+                    <label className="p-label">{"שם: " + this.patient.Firstname + " " + this.patient.Lastname}</label>
+                    <label className="p-label">{"ת.ז.: " + this.patient.PatientTz}</label>
+                    <label className="p-label">{"תאריך לידה: " + moment(this.patient.DateOfBirth).format('DD/MM/yyyy')}</label>
+                    <label className="p-label">{"מייל: " + this.patient.Email}</label>
+                    <label className="p-label">{"טלפון: " + this.patient.PhoneNumber1}</label>
+                    <label className="p-label">{"טלפון נוסף: " + this.patient.PhoneNumber2}</label>
+
+                    {/* <label className="p-label">{"שם מלא:" + (this.props.fullName ? this.props.fullName : "")}</label>
                     <label className="p-label">{"ת.ז.:" + (this.props.tz ? this.props.tz : "")}</label>
                     <label className="p-label">{"תאריך לידה:" + (this.props.dateOfBirth ? this.props.dateOfBirth : "")}</label>
                     <label className="p-label">{"מייל:" + (this.props.email ? this.props.email : "")}</label>
                     <label className="p-label">{"טלפון:" + (this.props.phoneNumber1 ? this.props.phoneNumber1 : "")}</label>
-                    <label className="p-label">{"טלפון נוסף:" + (this.props.phoneNumber2 ? this.props.phoneNumber2 : "")}</label>
+                    <label className="p-label">{"טלפון נוסף:" + (this.props.phoneNumber2 ? this.props.phoneNumber2 : "")}</label> */}
                     {/* <Row> */}
                     <Button onClick={() => this.updateDetails()} size="sm" variant="info" id="update_btn" className="hvr-curl-bottom-left">עדכון פרטים</Button>
                     {/* </Row> */}
@@ -117,20 +125,6 @@ export default class PatientArea extends Component {
                         <label>{this.props.index3}</label>
                     </div>
                     {MyValuesList}
-                    {/*<ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} />
-                    <ValueCard profileStatus={this.props.profileStatus} /> */}
                 </div>
 
 

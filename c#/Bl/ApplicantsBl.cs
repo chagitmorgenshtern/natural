@@ -50,12 +50,19 @@ namespace Bl
 
         }
 
-      
+        public static List<Applicants1> GetAllApplicants()
+        {
+            List<Applicants1> lst = DTO.Applicants1.ConvertToListDto(Dal.ApplicantsDal.GetAllApplicants());
+
+            return lst;
+        }
+
+
         //static void Main(string[] args)
         //{
         //    string file = "c:/files/CV.txt";
         //    Email_send("12345678", "Moshe", "Cohen", "naturalway.m01@gmail.com", file);
-           
+
         //}
 
         //Get

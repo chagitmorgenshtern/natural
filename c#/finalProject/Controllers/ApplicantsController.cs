@@ -26,8 +26,8 @@ namespace finalProject.Controllers
         [Route("GetAllApplicants")]
         public IHttpActionResult GetAllApplicants()
         {
-            List<DTO.Therapists1> lst = Bl.TherapistsBl.GetAll();
-          
+            // List<DTO.Therapists1> lst = Bl.TherapistsBl.GetAll();
+            List<DTO.Applicants1> lst = Bl.ApplicantsBl.GetAllApplicants();
             return Ok(lst);
         }
 
