@@ -119,15 +119,26 @@ class SignupTh_full extends Component {
             .map((x, index) => { return <option key={index} id={x.SAId}>{x.SAName}</option> });
 
 
+        const hours_titles = this.state.hours
+            .map((x, index) => { return <label className="table_horse_labels">{x}</label> })
+
+        const hours = this.state.hours
+            .map((x, index) => { return <Form.Check aria-label="option 1" className="checkbox" onChange={(event) => { }} /> })
+
+        let days = ["ראשון", "שני", "שלישי", "רביעי", "חמישי"];
+        const days_labels = days.map((x, index) => { return <label id={index} className="table_horse_labels">{x}</label> })
+
         return (
 
-            <div >
+            <div>
                 {/* /* <form> 
             /* <h2 className="headerSignUp" >הרשמת מטופל</h2>  */}
                 <Form className="signupTh_full">
                     <Form.Row>
-                        <h4 style={{ color: 'white', margin: '1vw 0vw' }}>טופס הרשמת מטפל</h4>
+                        <h4 style={{ color: 'white', margin: '0.5vw 0vw' }}>טופס הרשמת מטפל</h4>
                     </Form.Row>
+
+
                     <Form.Row>
                         <Form.Group as={Col}  >
                             <Form.Control placeholder="שם פרטי" className="inputs" id="FirstName" value={this.state.FirstName} onChange={(event) => this.inputChange(event)} />
@@ -140,20 +151,23 @@ class SignupTh_full extends Component {
                         <Form.Group as={Col} >
                             <Form.Control placeholder="שם משפחה" className="inputs" id="LastName" value={this.state.LastName} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
-                    </Form.Row>
 
-                    <Form.Row>
+
+
                         <Form.Group as={Col}>
                             <Form.Control placeholder=".ת.ז" className="inputs" id="TherapistTz" value={this.state.TherapistTz} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
 
+                    </Form.Row>
+
+                    <Form.Row>
                         <Form.Group as={Col} >
                             {/*  */}
                             <Form.Control type="date" placeholder="תאריך לידה" className="inputs" id="DateOfBirth" value={this.state.DateOfBirth} style={{ marginRight: '0%' }} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
-                    </Form.Row>
 
-                    <Form.Row>
+
+
                         <Form.Group as={Col}>
                             <Form.Control type="Phone" placeholder="טלפון" className="inputs" id="PhoneNumber" value={this.state.PhoneNumber} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
@@ -193,25 +207,41 @@ class SignupTh_full extends Component {
                         <Form.Group key={3} as={Col}>
                             <Form.Control key={4} type="text" placeholder="כתובת הקליניקה- עיר, רחוב, מספר בית, כניסה" className="inputs" id="Address" value={this.state.Address} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
+
+
+
+                        <div style={{ width: '21vw', display: 'flex' }}>
+                            <FileBase64
+                                id="uploadImage"
+                                className="inputs"
+
+                                multiple={false}
+                                onDone={this.onUpload.bind(this)}
+                            />
+
+                            <div id="image_div" style={{ backgroundImage: `url(${this.state.therapist.Image})` }} />
+                        </div>
                     </Form.Row>
-                    <Form.Check aria-label="option 1" />
-                    <Form.Row>
-                        <FileBase64
-                            id="uploadImage"
-                            multiple={false}
-                            onDone={this.onUpload.bind(this)}
-                        />
+                    <h5 id="hours_table_title">בחר את שעות העבודה שלך</h5>
+                    <React.Fragment>
+                        <div id="hours_table_titles">{days_labels}</div>
+                        <div id="hours_table_signup">
 
-                        <div id="image_div" style={{ backgroundImage: `url(${this.state.therapist.Image})` }} />
+                            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.4vh' }}>{hours_titles}</div>
+                            <div>{hours}</div>
+                            <div>{hours}</div>
+                            <div>{hours}</div>
+                            <div>{hours}</div>
+                            <div>{hours}</div>
+                        </div>
+                    </React.Fragment>
+
+                    <Form.Row style={{ marginTop: '2vh' }}>
+                        <center> <h5 id="hours_table_title" className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h5>  </center>
                     </Form.Row>
 
 
-                    <Form.Row>
-                        <center> <h className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h>  </center>
-                    </Form.Row>
-
-
-                    <Form.Row>
+                    <Form.Row style={{ marginRight: '5vw' }}>
                         <Form.Group as={Col} >
                             <Form.Control type="password" placeholder="סיסמא" className="inputs" id="Password" value={this.state.Password} onChange={(event) => this.inputChange(event)} />
                         </Form.Group>
@@ -223,7 +253,7 @@ class SignupTh_full extends Component {
 
                         {/* type="submit"  */}
                         <Form.Group as={Col}>
-                            <Link onClick={() => { this.register() }}><img src={arrow} id="arrow" /></Link>
+                            <Link onClick={() => { this.register() }}><img src={arrow} id="arrow" style={{ marginRight: '-0.5vw' }} /></Link>
                         </Form.Group>
                     </Form.Row>
 

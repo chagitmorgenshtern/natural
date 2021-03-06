@@ -9,6 +9,12 @@ h2{
     font-weight: 400;
 }
 
+#modal_cancel_Meeting{
+  width:25vw;
+  height: 23vh;
+  text-align: center;
+}
+
 .privatArea{
   width: 100vw;
     height: 100%;
@@ -93,11 +99,11 @@ h2{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 541px;
-    margin-right: 9px;
+    width: 424px;
+    margin-right: -1px;
 }
 
-#btn_pa{
+#btn_pa,#btn_pa_cancel,#btn_pa_cancel_modal{
   color: #11635ef2;
     text-shadow: 0 0 9px #ffffff;
     font-weight: 700;
@@ -105,6 +111,39 @@ h2{
     border-color: #fffbfb00;
     background-color: #f5af61bd;
     box-shadow: 0 0 4px 1px grey !important;
+}
+
+#btn_pa_cancel{
+  background-color:#da6a75;
+  margin-left: 13px;
+}
+
+#btn_pa_cancel_modal{
+  background-color: #1c9c94f2;
+  color: white;
+  text-shadow: 0 0 0px #ffffff !important;
+  font-weight: 600;
+  width: 8vw;
+  margin: 1vw;
+}
+
+#modal_feedback_header,#modal_feedback_body{
+  background-color: rgb(47, 172, 166);
+  width: 34vw !important;
+  padding: 2vw;
+  height: 45vh !important;
+  display: flex;
+  justify-content: center;
+  /* margin-top: -16vh; */
+  margin-right: -1vw;
+  text-align: right;
+}
+
+#modal_feedback_header{
+  height: 2vh !important;
+  align-items: center;
+  justify-content: right;
+  margin-top: -14vh;
 }
 /* ==============================animation========================================= */
 /* Pulse Grow */
