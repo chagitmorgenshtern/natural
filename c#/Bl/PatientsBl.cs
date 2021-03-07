@@ -8,10 +8,13 @@ namespace Bl
     {
         public static Patients1 Login(string email, string pass)
         {
-            Patients1 p = new Patients1(PatientsDal.GetByEmail(email));
+            Patients p_dal = PatientsDal.GetByEmail(email);
+            if (p_dal == null)
+                return null;
 
-            if (p != null)
-                if (p.Password.Equals(pass))
+            Patients1 p = new Patients1(p_dal);
+            
+            if (p.Password.Equals(pass))
                     return p;
             return null;
         }

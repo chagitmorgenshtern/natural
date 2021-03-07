@@ -45,6 +45,40 @@ namespace Dal
 
         }
 
+        public static bool UpdatePatient(Therapists therapist)
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+                    //יצירת רפרנס לאובייקט מהמסד נתונים
+                    //Therapists newt = db.Therapists.Where(t => t.TherapistId == therapist.TherapistId).FirstOrDefault();
+                    Therapists newt = db.Therapists.Where(t => t.TherapistTz == therapist.TherapistTz).FirstOrDefault();
+
+
+                    newt.TherapistTz = (therapist.TherapistTz != null && therapist.TherapistTz != "") ? therapist.TherapistTz: newt.TherapistTz;
+                    newt.FirstName = (therapist.FirstName != null && therapist.FirstName != "") ? therapist.FirstName: newt.FirstName;
+                    newt.LastName = (therapist.LastName != null && therapist.LastName != "") ? therapist.LastName: newt.LastName;
+                    newt.Password = (therapist.Password != null && therapist.Password != "") ? therapist.Password: newt.Password;
+                    newt.PhoneNumber = (therapist.PhoneNumber != null && therapist.PhoneNumber != "") ? therapist.PhoneNumber: newt.PhoneNumber;
+                    newt.DateOfBirth = (therapist.DateOfBirth != null ) ? therapist.DateOfBirth: newt.DateOfBirth;
+                    newt.Email = (therapist.Email != null && therapist.Email != "") ? therapist.Email: newt.Email;
+                    newt.Image = (therapist.Image != null && therapist.Image != "") ? therapist.Image : newt.Image;
+                    newt.ServiceAreaId = (therapist.ServiceAreaId != null ) ? therapist.ServiceAreaId : newt.ServiceAreaId;
+                    newt.Address = (therapist.Address != null && therapist.Address != "") ? therapist.Address : newt.Address;
+
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+                return true;
+        }
+
+        
+
         //GetAll
         public static List<Therapists> GetAll()
         {

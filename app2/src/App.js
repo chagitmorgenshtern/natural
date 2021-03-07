@@ -20,6 +20,8 @@ import PrivatArea from './component/PrivatArea/privatArea';
 //import MyProvider from './MyProvider.js'
 
 function App() {
+
+
   return (
     <Switch>
       {/* <MyProvider> */}

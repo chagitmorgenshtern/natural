@@ -39,7 +39,7 @@ namespace finalProject.Controllers
 
         [HttpGet]
         [Route("GetById/{id}")]
-        public IHttpActionResult GetById([FromBody] int id)
+        public IHttpActionResult GetById(int id)
         {
             return Ok(Bl.PatientsBl.GetById(id));
         }

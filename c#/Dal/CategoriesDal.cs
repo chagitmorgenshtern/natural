@@ -99,5 +99,22 @@ namespace Dal
             }
         }
 
+        public static string[] GetCategoriesNamesByTherapistId(int therapistId)
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+                    int[] categories = GetCategoriesByTherapistId(therapistId);
+                    string[] categoriesNames = db.Categories.Where(c => categories.Contains(c.CategoryId)).Select(c => c.CategoryName).ToArray();
+                    return categoriesNames;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
     }
 }

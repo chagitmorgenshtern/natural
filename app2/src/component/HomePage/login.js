@@ -31,11 +31,15 @@ class Login extends Component {
     debugger;
     if (user.data) {
       localStorage.setItem("newuser", JSON.stringify(user.data))
+      localStorage.setItem("signedIn", true);
     }
     else {
-      alert('password or email is not correct')
+      alert('Email Or Password Is Not Correct')
     }
-    alert(JSON.parse(localStorage.getItem("newuser")).PatientId)
+
+    // alert(JSON.parse(localStorage.getItem("newuser")).PatientId)
+
+
     // //אני רוצה לקבל את כל האובייקט של היוזר
     // axios.get(`patients/GetByEmail`, { mail: this.state.email })
     //   .then(r => {
@@ -48,10 +52,9 @@ class Login extends Component {
 
   }
 
+
   render() {
     return (
-
-
 
       <Form className="login">
         {/*<center><h2 className="headerLogIn" >כניסה</h2> </center>

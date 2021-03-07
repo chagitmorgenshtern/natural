@@ -32,7 +32,7 @@ namespace finalProject.Controllers
 
         [HttpGet]
         [Route("GetById/{id}")]
-        public IHttpActionResult GetById([FromBody] int id)
+        public IHttpActionResult GetById(int id)
         {
             return Ok(Bl.TherapistsBl.GetById(id)); 
         }
@@ -60,7 +60,13 @@ namespace finalProject.Controllers
             Bl.TherapistsBl.DeleteById(id);
             return Ok();
         }
-     
-       
+
+        [HttpPut]
+        [Route("UpdateTherapist")]
+        public IHttpActionResult UpdateTherapist(DTO.Therapists1 t)
+        {
+            return Ok(Bl.TherapistsBl.UpdateTherapist(t));
+        }
+
     }
 }

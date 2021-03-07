@@ -11,9 +11,9 @@ import Calendar from 'react-calendar';
 import axios from '../../axios'
 
 class TherapistPage extends Component {
-
+    // JSON.parse(localStorage.getItem("therapist"))
     state = {
-        therapistDetails: [],
+        therapistDetails: {},
         hours: [
             "08:00-09:00",
             "09:00-10:00",
@@ -34,13 +34,17 @@ class TherapistPage extends Component {
 
     componentDidMount() {
         debugger;
-        let id = parseInt(localStorage.getItem("therapistId"));
+        let id = parseInt(localStorage.getItem("selectedTherapistId"));
         axios.get(`therapists/GetById/${id}`)
             .then(res => {
                 debugger;
                 console.log(res);
-                this.setState({ therapistDetails: [...res.data] });
+                // const newState = ;
+                // this.setState({ therapistDetails: [...res.data] });
+                localStorage.setItem("therapistDetails", JSON.stringify(res.data))
             });
+
+        this.setState({ therapistDetails: JSON.parse(localStorage.getItem("therapistDetails")) })
     }
 
     select_hour = (hour) => {
@@ -64,15 +68,21 @@ class TherapistPage extends Component {
                 {/* <MyNavbar /> */}
 
                 <div id="details-card">
-                    <img src={thImage} id="th-image" alt="profile-picture" />
-                    {/* {this.props.firstName + " " + this.props.lastName} */}
+                    {/* <img src={thImage} id="th-image" alt="profile-picture" /> */}
+
+
+                    <div id="th-image" style={{ backgroundImage: `url(${this.state.therapistDetails.Image})` }} />
+
                     <label className="t-labels" id="t-fullName">{this.state.therapistDetails.FirstName + " " + this.state.therapistDetails.LastName}</label>
-                    {/* TODO====================================================== */}
-                    <label className="t-labels" id="t-category">{this.state.therapistDetails}</label>
-                    {/* TODO====================================================== */}
-                    <label className="t-labels" id="t-s-area">{this.state.therapistDetails}</label>
+
+                    {/* <label className="t-labels" id="t-category">{this.state.therapistDetails.}</label> */}
+                    <div id="categories_labels" className="t-labels" id="t-category">{(this.state.therapistDetails.CategoriesNames) ?
+                        this.state.therapistDetails.CategoriesNames.map((x) => { return <label>{x + "  | "}</label> }) : ""}</div>
+
+                    <label className="t-labels" id="t-s-area">{this.state.therapistDetails.ServiceAreaName}</label>
                     <label className="t-labels" id="t-phone">{this.state.therapistDetails.PhoneNumber}</label>
                     <label className="t-labels" id="t-email">{this.state.therapistDetails.Email}</label>
+
                     <div id="rating">
                         <img className="stars" src={star} alt="rating-star" />
                         <img className="stars" src={star} alt="rating-star" />

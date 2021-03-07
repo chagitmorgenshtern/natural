@@ -33,5 +33,10 @@ namespace Bl
             Dal.TherapistsDal.DeleteById(id);
         }
 
+        public static bool UpdateTherapist(Therapists1 t)
+        {
+            return Dal.TherapistsDal.UpdatePatient(Therapists1.Todal(t));
+        }
+        
     }
 }

@@ -4,7 +4,7 @@ import '../../style.css';
 import { Button } from 'react-bootstrap';
 import thImage from '../../images/thImage.jpg';
 import icon from '../../images/tempIcon.png'
-//להוסיף תמונה -לשאול איך
+import axios from '../../axios'
 
 class TherapistCard extends Component {
     // constructor() {
@@ -14,20 +14,35 @@ class TherapistCard extends Component {
     //     }
     //}
     state = {
-        therapistId: this.props.id
+        therapistId: this.props.therapistId
     }
 
 
-    render() {
+    go_to_therapist_page = () => {
+        // debugger;
+        // axios.get(`therapists/GetById/${this.state.therapistId}`)
+        //     .then(res => {
+        //         localStorage.setItem("therapist", JSON.stringify(res.data));
+        //         debugger;
+        //     });
 
+        localStorage.setItem("selectedTherapistId", this.props.therapistId)
+
+    }
+
+    render() {
+        // const categories = 
         return (
             <div className="therapistCard">
-                <img src={thImage} id="thImage" />
+                <div id="image_div" style={{ backgroundImage: `url(${this.props.image})`, marginTop: '5px', marginRight: '0px' }} />
+                {/* <img src={thImage} id="thImage" />
+                <img src={`url(${this.props.image})`} id="thImage" /> */}
                 <label>{this.props.firstName + " " + this.props.lastName}</label>
-                <label>{this.props.category}קטגוריה</label>
-                <label>{this.props.serviceArea}אזור בארץ</label>
+                <div id="categories_labels">{this.props.categories.map((x) => { return <label>{x + ", "}</label> })}</div>
+                <label>{this.props.serviceArea}</label>
                 {/* <button id="thCard_btn">לעמוד שלי</button> */}
-                <Button href="/therapistPage" variant="info" id="thCard_btn" onClick={() => { localStorage.setItem("therapistId", this.state.therapistId + '') }}>כניסה לפרופיל</Button>{' '}
+                <Button href="/therapistPage" variant="info" id="thCard_btn" onClick={() => { this.go_to_therapist_page() }}>כניסה לפרופיל</Button>{' '}
+                {/* localStorage.setItem("therapistId", this.props.therapistId) */}
             </div>
 
         );

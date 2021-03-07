@@ -76,7 +76,8 @@ class SignupTh_full extends Component {
 
         const newP = { ...this.state.therapist };
         debugger;
-        axios.post('therapists/Register', newP).then(res => { alert(res.data) });
+        //axios.post('therapists/Register', newP).then(res => { alert(res.data) });
+        axios.put('therapists/UpdateTherapist', newP).then(res => { alert(res.data) });
 
 
         // if (document.getElementById("Valid-Password").value === patient.Password)
@@ -175,11 +176,12 @@ class SignupTh_full extends Component {
                         <Form.Group key={3} as={Col}>
 
                             <Form.Control key={4} type="email" placeholder="כתובת מייל" className="inputs" id="Email" value={this.state.Email} style={{ marginRight: '0%' }} onChange={(event) => this.inputChange(event)} />
+                            <h5 style={{ color: 'white', fontSize: 'x-small', marginTop: '4px' }}>*כתובת מייל זו תשמש עבור החשבון העסקי שלך, ולכן, אם תרצה להרשם גם כמטופל, לא תוכל להשתמש בכתובת מייל זו שוב.</h5>
                             {/* <Form.Control id="emailFromLogIn" type="email" placeholder="כתובת מייל" onChange={(event) => { this.setState({ email: event.target.value }) }} /> */}
 
                         </Form.Group>
                     </Form.Row>
-                    <Form.Row>
+                    <Form.Row style={{ marginTop: '-3vh' }}>
                         <Form.Group key={3} as={Col}>
                             {/* <input type="file" placeholder="upload img" onUpload={onUpload} />*/}
 

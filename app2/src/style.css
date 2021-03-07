@@ -74,6 +74,11 @@
         grid-row: span 2;
     }
 
+    #categories_labels{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
 
 .therapistCard:hover{
     box-shadow: 0 0 20px 3px black;
