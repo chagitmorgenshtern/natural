@@ -76,8 +76,8 @@ class SignupTh_full extends Component {
 
         const newP = { ...this.state.therapist };
         debugger;
-        //axios.post('therapists/Register', newP).then(res => { alert(res.data) });
-        axios.put('therapists/UpdateTherapist', newP).then(res => { alert(res.data) });
+        axios.post('therapists/Register', newP).then(res => { alert(res.data) });
+        //axios.put('therapists/UpdateTherapist', newP).then(res => { alert(res.data) });
 
 
         // if (document.getElementById("Valid-Password").value === patient.Password)
@@ -126,7 +126,14 @@ class SignupTh_full extends Component {
         const hours = this.state.hours
             .map((x, index) => { return <Form.Check aria-label="option 1" className="checkbox" onChange={(event) => { }} /> })
 
+
+
+
         let days = ["ראשון", "שני", "שלישי", "רביעי", "חמישי"];
+        // const hours = days.map((item, dayIndex) => {
+        //     this.state.hours
+        //         .map((x, index) => { return <Form.Check aria-label="option 1" className="checkbox" onChange={(event) => {/*onClick(dayIndex, index) */ }} /> })
+        // })
         const days_labels = days.map((x, index) => { return <label id={index} className="table_horse_labels">{x}</label> })
 
         return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import Login from './component/HomePage/login.js'
@@ -19,26 +19,33 @@ import ManagerArea from './component/ManagerArea/managerArea';
 import PrivatArea from './component/PrivatArea/privatArea';
 //import MyProvider from './MyProvider.js'
 
-function App() {
+class App extends Component {
 
+  componentWillUnmount() {
+    // localStorage.clear();
+    localStorage.removeItem("newuser")
+  }
 
-  return (
-    <Switch>
-      {/* <MyProvider> */}
-      <div className="App" style={{
-        backgroundImage: `url(${Transition_background})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      }}>
+  render() {
+    return (
+      <Switch>
+        {/* <MyProvider> */}
+        <div className="App" style={{
+          backgroundImage: `url(${Transition_background})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}>
 
-        <Route exact path="/" component={LoginContainer} />
-        <Route component={DefaultContainer} />
+          <Route exact path="/" component={LoginContainer} />
+          <Route component={DefaultContainer} />
 
-      </div>
-      {/* </MyProvider> */}
-    </Switch>)
-} export default App;
+        </div>
+        {/* </MyProvider> */}
+      </Switch>)
+  }
+}
+export default App;
 
 const LoginContainer = () => (
   <Route path="/" component={HomePage} />
@@ -53,7 +60,7 @@ const DefaultContainer = () => (
     <Route path="/signupTh" component={SignupTh} />
     <Route path="/readMore" component={ReadMore} />
     <Route path="/therapists" component={Therapists} />
-    <Route path="/therapistPage" component={TherapistPage} />
+    <Route path="/therapistPage/:theapistId" component={TherapistPage} />
     <Route path="/patientArea" component={PatientArea} />
     <Route path="/signupTh_full" component={SignupTh_full} />
     <Route path="/managerArea" component={ManagerArea} />
@@ -61,5 +68,3 @@ const DefaultContainer = () => (
   </div>
 
 )
-
-

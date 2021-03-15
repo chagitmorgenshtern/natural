@@ -41,7 +41,7 @@ class TherapistCard extends Component {
                 <div id="categories_labels">{this.props.categories.map((x) => { return <label>{x + ", "}</label> })}</div>
                 <label>{this.props.serviceArea}</label>
                 {/* <button id="thCard_btn">לעמוד שלי</button> */}
-                <Button href="/therapistPage" variant="info" id="thCard_btn" onClick={() => { this.go_to_therapist_page() }}>כניסה לפרופיל</Button>{' '}
+                <Button href={`/therapistPage/${this.props.therapistId}`} variant="info" id="thCard_btn" onClick={() => { this.go_to_therapist_page() }}>כניסה לפרופיל</Button>{' '}
                 {/* localStorage.setItem("therapistId", this.props.therapistId) */}
             </div>
 

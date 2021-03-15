@@ -34,7 +34,9 @@ class TherapistPage extends Component {
 
     componentDidMount() {
         debugger;
-        let id = parseInt(localStorage.getItem("selectedTherapistId"));
+        // let id = parseInt(localStorage.getItem("selectedTherapistId"));
+
+        const id = this.props.match.params.theapistId;
         axios.get(`therapists/GetById/${id}`)
             .then(res => {
                 debugger;
@@ -42,9 +44,11 @@ class TherapistPage extends Component {
                 // const newState = ;
                 // this.setState({ therapistDetails: [...res.data] });
                 localStorage.setItem("therapistDetails", JSON.stringify(res.data))
+                this.setState({ therapistDetails: res.data || {} })
             });
 
-        this.setState({ therapistDetails: JSON.parse(localStorage.getItem("therapistDetails")) })
+
+
     }
 
     select_hour = (hour) => {
@@ -69,7 +73,6 @@ class TherapistPage extends Component {
 
                 <div id="details-card">
                     {/* <img src={thImage} id="th-image" alt="profile-picture" /> */}
-
 
                     <div id="th-image" style={{ backgroundImage: `url(${this.state.therapistDetails.Image})` }} />
 
