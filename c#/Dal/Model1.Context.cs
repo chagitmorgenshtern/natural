@@ -36,5 +36,6 @@ namespace Dal
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Therapists> Therapists { get; set; }
         public virtual DbSet<WorkHours> WorkHours { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

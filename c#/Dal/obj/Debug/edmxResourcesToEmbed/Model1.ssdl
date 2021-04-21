@@ -53,7 +53,7 @@
     <Key>
       <PropertyRef Name="MeetId" />
     </Key>
-    <Property Name="MeetId" Type="int" Nullable="false" />
+    <Property Name="MeetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PatientId" Type="int" />
     <Property Name="TherapistId" Type="int" />
     <Property Name="MeetDate" Type="datetime" />
@@ -108,6 +108,15 @@
     <Property Name="AboutMe" Type="varchar" MaxLength="50" />
     <Property Name="Diploma" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="30" />
+    <Property Name="Password" Type="varchar" MaxLength="10" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
   <EntityType Name="WorkHours">
     <Key>
       <PropertyRef Name="WorkHoursId" />
@@ -138,6 +147,18 @@
       </Principal>
       <Dependent Role="Categories_Therapists">
         <PropertyRef Name="CategotyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories_Therapists_Therapists">
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="1" />
+    <End Role="Categories_Therapists" Type="Self.Categories_Therapists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Therapists">
+        <PropertyRef Name="TherapistId" />
+      </Principal>
+      <Dependent Role="Categories_Therapists">
+        <PropertyRef Name="TherapistId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -236,6 +257,7 @@
     <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Therapists" EntityType="Self.Therapists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkHours" EntityType="Self.WorkHours" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
       <End Role="Categories" EntitySet="Categories" />
@@ -243,6 +265,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Categories_Therapists_Categories1" Association="Self.FK_Categories_Therapists_Categories1">
       <End Role="Categories" EntitySet="Categories" />
+      <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories_Therapists_Therapists" Association="Self.FK_Categories_Therapists_Therapists">
+      <End Role="Therapists" EntitySet="Therapists" />
       <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
     </AssociationSet>
     <AssociationSet Name="FK_Feedbacks_Patients" Association="Self.FK_Feedbacks_Patients">

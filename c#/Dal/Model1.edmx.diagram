@@ -25,6 +25,7 @@
         <AssociationConnector Association="Natural_wayModel.FK_Meets_Therapists" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_Therapists_ServiceAreas" ManuallyRouted="false" />
         <AssociationConnector Association="Natural_wayModel.FK_WorkHours_Therapists" />
+        <EntityTypeShape EntityType="Natural_wayModel.Users" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

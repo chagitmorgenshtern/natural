@@ -58,7 +58,7 @@
           <Key>
             <PropertyRef Name="MeetId" />
           </Key>
-          <Property Name="MeetId" Type="int" Nullable="false" />
+          <Property Name="MeetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PatientId" Type="int" />
           <Property Name="TherapistId" Type="int" />
           <Property Name="MeetDate" Type="datetime" />
@@ -113,6 +113,15 @@
           <Property Name="AboutMe" Type="varchar" MaxLength="50" />
           <Property Name="Diploma" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="10" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
         <EntityType Name="WorkHours">
           <Key>
             <PropertyRef Name="WorkHoursId" />
@@ -143,6 +152,18 @@
             </Principal>
             <Dependent Role="Categories_Therapists">
               <PropertyRef Name="CategotyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Therapists_Therapists">
+          <End Role="Therapists" Type="Self.Therapists" Multiplicity="1" />
+          <End Role="Categories_Therapists" Type="Self.Categories_Therapists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Therapists">
+              <PropertyRef Name="TherapistId" />
+            </Principal>
+            <Dependent Role="Categories_Therapists">
+              <PropertyRef Name="TherapistId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -241,6 +262,7 @@
           <EntitySet Name="ServiceAreas" EntityType="Self.ServiceAreas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Therapists" EntityType="Self.Therapists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkHours" EntityType="Self.WorkHours" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
             <End Role="Categories" EntitySet="Categories" />
@@ -248,6 +270,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Categories_Therapists_Categories1" Association="Self.FK_Categories_Therapists_Categories1">
             <End Role="Categories" EntitySet="Categories" />
+            <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Therapists_Therapists" Association="Self.FK_Categories_Therapists_Therapists">
+            <End Role="Therapists" EntitySet="Therapists" />
             <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
           </AssociationSet>
           <AssociationSet Name="FK_Feedbacks_Patients" Association="Self.FK_Feedbacks_Patients">
@@ -562,6 +588,7 @@
             <End Role="Therapists" EntitySet="Therapists" />
             <End Role="WorkHours" EntitySet="WorkHours" />
           </AssociationSet>
+          <EntitySet Name="Users" EntityType="Natural_wayModel.Users" />
         </EntityContainer>
         <Association Name="FK_WorkHours_Therapists">
           <End Type="Natural_wayModel.Therapists" Role="Therapists" Multiplicity="0..1" />
@@ -575,6 +602,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -705,6 +741,16 @@
                 <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
                 <ScalarProperty Name="Day" ColumnName="Day" />
                 <ScalarProperty Name="Hour" ColumnName="Hour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Natural_wayModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

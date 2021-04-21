@@ -10,8 +10,8 @@ class Feedback extends Component {
             <div id="feedback" >
                 {/* style={{ borderRadius: '50%' }} */}
                 <img src={user} id="feedback-image" />
-                <label>שם</label><br />
-                <label>....................תגובה.........................</label>
+                <label>{this.props.name}</label><br />
+                <label>{this.props.message}</label>
                 {/* stars */}
 
             </div>);

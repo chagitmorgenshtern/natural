@@ -125,7 +125,6 @@ class HomePage extends Component {
                    </Modal.Title>
                     </Modal.Body>
                 </Modal>
-
                 {/* מודל הרשמה */}
                 <Modal id="modal_signup" centered show={this.state.displaySignup} onHide={() => { this.setState({ displaySignup: false }); }} >
                     {/* כפתור צריך להיצמד לשמאל ====================================*/}

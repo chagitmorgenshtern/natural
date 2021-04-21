@@ -279,6 +279,7 @@
       <End Role="Therapists" EntitySet="Therapists" />
       <End Role="WorkHours" EntitySet="WorkHours" />
     </AssociationSet>
+    <EntitySet Name="Users" EntityType="Natural_wayModel.Users" />
   </EntityContainer>
   <Association Name="FK_WorkHours_Therapists">
     <End Type="Natural_wayModel.Therapists" Role="Therapists" Multiplicity="0..1" />
@@ -292,4 +293,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
 </Schema>

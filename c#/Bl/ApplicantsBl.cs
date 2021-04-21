@@ -17,7 +17,7 @@ namespace Bl
         {
             Dal.ApplicantsDal.AddApplicant(DTO.Applicants1.Todal(a));
             string file = "c:/files/CV.txt";
-            Email_send("12345678", "Moshe", "Cohen", "naturalway.m01@gmail.com", file);
+            Email_send(a.TherapistTz, a.FirstName, a.LastName, a.Email, file);
         }
 
         public static void Email_send(string id, string firstName, string lastName, string email, string file)

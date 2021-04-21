@@ -88,19 +88,19 @@ class TherapistPage extends Component {
 
                     <div id="rating">
                         <img className="stars" src={star} alt="rating-star" />
+                        {/* <img className="stars" src={star} alt="rating-star" />
                         <img className="stars" src={star} alt="rating-star" />
                         <img className="stars" src={star} alt="rating-star" />
-                        <img className="stars" src={star} alt="rating-star" />
-                        <img className="stars" src={star} alt="rating-star" />
+                        <img className="stars" src={star} alt="rating-star" /> */}
                     </div>
                 </div>
                 <div id="feedbacks">
-                    <Feedback />
-                    <Feedback />
-                    <Feedback />
-                    <Feedback />
-                    <Feedback />
-                    <Feedback />
+                    <Feedback name="יצחק" message="טיפול מצוין ויחס טוב" />
+                    <Feedback name="משה" message="נחמד ומקצועי" />
+                    <Feedback name="לוי" message="שירות טוב" />
+                    <Feedback name="חיים" message="מחיר הכי טוב בשוק" />
+                    <Feedback name="אהרון" message="אכפתי ומסור" />
+                    <Feedback name="יהודה" message="נהנתי מאוד, ממליץ" />
                 </div>
                 <div id="calendar-id"  >
 

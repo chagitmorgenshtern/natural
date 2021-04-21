@@ -144,8 +144,9 @@ button,select{
     background-color: #ffffff5c;
     color: rgb(18 115 124);
     width: 300px;
-    height: 100px;
+    height: 95px;
     align-items: center;
+    border-bottom: 1px solid;
 }
 
 #feedback-image{
