@@ -15,9 +15,10 @@ export default class PatientArea extends Component {
             displayUpdateForm: false,
             all_My_Meets: [],
             all_Applicants: [],
+            all_patient_meets: []
         };
 
-        this.patient = JSON.parse(localStorage.getItem("newuser"));
+        this.user = JSON.parse(localStorage.getItem("newuser"));
         this.status = this.props.profileStatus;
     }
 
@@ -25,16 +26,16 @@ export default class PatientArea extends Component {
     componentDidMount() {
         //הצגת נתוני המטופל לפי הפרופס שנשלחו
         // const p_details= {...this.props.patient};
-        // this.setState({patient:p_details})
+        // this.setState({user:p_details})
         //בלי העתקה עמוקה!!!!!!!!!!
-        // this.setState({patient:this.props.patient})
+        // this.setState({user:this.props.patient})
 
 
         //axios.get(`patients/Login/${this.state.email}/${this.state.pass}`).then(res => { debugger; alert(res.data); ans = res.data; })
 
         //TODO: זה בסדר השליפה מJSON????
         if (this.status == "patient")
-            axios.get(`meets/GetByPatientId/${this.patient.PatientId}`)
+            axios.get(`meets/GetByPatientId/${this.user.PatientId}`)
                 .then(res => {
                     debugger;
                     //alert(res);
@@ -49,6 +50,12 @@ export default class PatientArea extends Component {
                     //alert(res);
 
                     this.setState({ all_Applicants: [...res.data] });
+                });
+        if (this.status == "therapist")
+            axios.get(`meets/GetByTherapistId/${this.user.TheraistId}`)
+                .then(res => {
+                    debugger;
+                    this.setState({ all_patient_meets: [...res.data] });
                 });
     }
 
@@ -71,7 +78,12 @@ export default class PatientArea extends Component {
                     return <ValueCard key={index} profileStatus={this.status} entry1={a.FirstName + " " + a.LastName} entry2={a.TherapistTz}
                         entry3={a.Email} />
                 })
-                : "";
+                : (this.status == "therapist") ?
+                    this.state.all_patient_meets.map((m, index) => {
+                        return <ValueCard key={index} profileStatus={this.status} entry1={m.PatientName} entry2={m.CategoryName}
+                            entry3={moment(m.MeetDate).format('DD/MM/yyyy')} />
+                    })
+                    : "";
 
         // if (this.props.profileStatus == "patient") {
         //     const MyValuesList = this.state.all_My_Meets
@@ -99,12 +111,12 @@ export default class PatientArea extends Component {
                 backgroundRepeat: 'no-repeat'
             }}>
                 <div id="p-details-card">
-                    <label className="p-label">{"שם: " + this.patient.Firstname + " " + this.patient.Lastname}</label>
-                    <label className="p-label">{"ת.ז.: " + this.patient.PatientTz}</label>
-                    <label className="p-label">{"תאריך לידה: " + moment(this.patient.DateOfBirth).format('DD/MM/yyyy')}</label>
-                    <label className="p-label">{"מייל: " + this.patient.Email}</label>
-                    <label className="p-label">{"טלפון: " + this.patient.PhoneNumber1}</label>
-                    <label className="p-label">{"טלפון נוסף: " + this.patient.PhoneNumber2}</label>
+                    <label className="p-label">{"שם: " + this.user.Firstname + " " + this.user.Lastname}</label>
+                    <label className="p-label">{"ת.ז.: " + this.user.PatientTz}</label>
+                    <label className="p-label">{"תאריך לידה: " + moment(this.user.DateOfBirth).format('DD/MM/yyyy')}</label>
+                    <label className="p-label">{"מייל: " + this.user.Email}</label>
+                    <label className="p-label">{"טלפון: " + this.user.PhoneNumber1}</label>
+                    <label className="p-label">{"טלפון נוסף: " + this.user.PhoneNumber2}</label>
 
                     {/* <label className="p-label">{"שם מלא:" + (this.props.fullName ? this.props.fullName : "")}</label>
                     <label className="p-label">{"ת.ז.:" + (this.props.tz ? this.props.tz : "")}</label>
@@ -124,6 +136,10 @@ export default class PatientArea extends Component {
                         <label>{this.props.index2}</label>
                         <label>{this.props.index3}</label>
                     </div>
+                    {/* ========================================newwwwwwwwwwwwwwwwwwww================================== */}
+                    {/* <ValueCard profileStatus={this.status} /> */}
+                    <ValueCard profileStatus={this.status} entry1="משה כהן" entry2="שיאצו"
+                        entry3="01/08/2021" />
                     {MyValuesList}
                 </div>
 

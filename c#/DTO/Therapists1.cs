@@ -45,7 +45,7 @@ namespace DTO
             Email = t.Email;
             Password = t.Password;
             Image = t.Image;
-            ServiceAreaId = t.ServiceAreaId;
+            ServiceAreaId = (int)t.ServiceAreaId ;
             Address = t.Address;
             AboutMe = t.AboutMe;
             Diploma = t.Diploma;

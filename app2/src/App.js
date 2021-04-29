@@ -17,6 +17,7 @@ import MyNavbar from './component/navbar';
 import SignupTh_full from './component/HomePage/signupTh_full';
 import ManagerArea from './component/ManagerArea/managerArea';
 import PrivatArea from './component/PrivatArea/privatArea';
+import TherapistArea from './component/TherapistArea/therapistArea';
 //import MyProvider from './MyProvider.js'
 
 class App extends Component {
@@ -64,6 +65,7 @@ const DefaultContainer = () => (
     <Route path="/patientArea" component={PatientArea} />
     <Route path="/signupTh_full" component={SignupTh_full} />
     <Route path="/managerArea" component={ManagerArea} />
+    <Route path="/therapistArea" component={TherapistArea} />
     {/* <Route path="/privatArea" component={PrivatArea} /> */}
   </div>
 

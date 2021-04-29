@@ -118,6 +118,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Natural_wayModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="WorkHours">
       <EntityTypeMapping TypeName="Natural_wayModel.WorkHours">
         <MappingFragment StoreEntitySet="WorkHours">
@@ -125,16 +135,6 @@
           <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
           <ScalarProperty Name="Day" ColumnName="Day" />
           <ScalarProperty Name="Hour" ColumnName="Hour" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="Natural_wayModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -31,7 +31,9 @@ export default class ValueCard extends Component {
                     </div>
                     : (status === "manager") ?
                         <button className="hvr-pulse-grow" id="btn_pa" onClick={(event) => this.addTherapist(event)}>אשר מטפל</button>
-                        : ""
+                        : (status === "therapist") ?
+                            <button className="hvr-pulse-grow" id="btn_pa_cancel" onClick={() => { this.setState({ displayCancel: true }) }}>בטל פגישה</button>
+                            : ""
                 }
 
 
@@ -65,6 +67,7 @@ export default class ValueCard extends Component {
 
                     <Modal.Body >
                         <Form.Label>האם אתה בטוח שברצונך לבטל את הפגישה?</Form.Label>
+                        {(status === "therapist") ? <Form.Label>שים לב! עליך לעדכן על כך את המטופל בטלפון או במייל, ולתאם עימו פגישה חדשה.</Form.Label> : ""}
                         <Form.Row style={{ marginRight: '1vw', marginTop: '2vh' }}>
                             <button id="btn_pa_cancel_modal" className="hvr-grow" onClick={(event) => this.deleteMeeting(event)}>אישור</button>
                             <button id="btn_pa_cancel_modal" className="hvr-grow" onClick={() => { this.setState({ displayCancel: false }); }}>ביטול</button>

@@ -30,5 +30,10 @@ namespace Bl
         {
             return DTO.Meets1.ConvertToListDto(Dal.MeetsDal.GetByPatientId(p_id));
         }
+
+        public static List<DTO.Meets1> GetByTherapistId(int t_id)
+        {
+            return DTO.Meets1.ConvertToListDto(Dal.MeetsDal.GetByTherapistId(t_id));
+        }
     }
 }

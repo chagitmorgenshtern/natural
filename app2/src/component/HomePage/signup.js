@@ -39,7 +39,9 @@ class Signup extends Component {
         // alert(newP.Firstname + "  " + newP.Email)
         axios.post('patients/Register', newP).then(res => {
             alert(res.data);
-            this.setState({ error: "" });
+            this.setState({
+                error: ""
+            });
             //localStorage.setItem("user", JSON.stringify(res.data))
         }).catch(e => {
             alert("fsdfsds");

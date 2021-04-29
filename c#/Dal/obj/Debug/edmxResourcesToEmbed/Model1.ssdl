@@ -126,43 +126,31 @@
     <Property Name="Day" Type="nchar" MaxLength="10" />
     <Property Name="Hour" Type="nchar" MaxLength="10" />
   </EntityType>
-  <Association Name="FK_Archives_Categories1">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+  <Association Name="FK_Archives_Patients">
+    <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
     <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Categories">
-        <PropertyRef Name="CategoryId" />
+      <Principal Role="Patients">
+        <PropertyRef Name="PatientId" />
       </Principal>
       <Dependent Role="Archives">
-        <PropertyRef Name="CategoryId" />
+        <PropertyRef Name="PatientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Categories_Therapists_Categories1">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
-    <End Role="Categories_Therapists" Type="Self.Categories_Therapists" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categories">
-        <PropertyRef Name="CategoryId" />
-      </Principal>
-      <Dependent Role="Categories_Therapists">
-        <PropertyRef Name="CategotyId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Categories_Therapists_Therapists">
-    <End Role="Therapists" Type="Self.Therapists" Multiplicity="1" />
-    <End Role="Categories_Therapists" Type="Self.Categories_Therapists" Multiplicity="*" />
+  <Association Name="FK_Archives_Therapists">
+    <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
+    <End Role="Archives" Type="Self.Archives" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Therapists">
         <PropertyRef Name="TherapistId" />
       </Principal>
-      <Dependent Role="Categories_Therapists">
+      <Dependent Role="Archives">
         <PropertyRef Name="TherapistId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Feedbacks_Patients">
+  <Association Name="FK_Feedbacks_Patients1">
     <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
     <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
     <ReferentialConstraint>
@@ -174,7 +162,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Feedbacks_Therapists">
+  <Association Name="FK_Feedbacks_Therapists1">
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
     <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
     <ReferentialConstraint>
@@ -186,19 +174,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Meets_Categories1">
-    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
-    <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categories">
-        <PropertyRef Name="CategoryId" />
-      </Principal>
-      <Dependent Role="Meets">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Meets_Patients">
+  <Association Name="FK_Meets_Patients1">
     <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
     <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
     <ReferentialConstraint>
@@ -210,7 +186,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Meets_Therapists">
+  <Association Name="FK_Meets_Therapists1">
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
     <End Role="Meets" Type="Self.Meets" Multiplicity="*" />
     <ReferentialConstraint>
@@ -222,7 +198,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Therapists_ServiceAreas">
+  <Association Name="FK_Therapists_ServiceAreas1">
     <End Role="ServiceAreas" Type="Self.ServiceAreas" Multiplicity="0..1" />
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="*" />
     <ReferentialConstraint>
@@ -234,7 +210,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WorkHours_Therapists">
+  <Association Name="FK_WorkHours_Therapists1">
     <End Role="Therapists" Type="Self.Therapists" Multiplicity="0..1" />
     <End Role="WorkHours" Type="Self.WorkHours" Multiplicity="*" />
     <ReferentialConstraint>
@@ -259,43 +235,35 @@
     <EntitySet Name="Therapists" EntityType="Self.Therapists" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkHours" EntityType="Self.WorkHours" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Archives_Categories1" Association="Self.FK_Archives_Categories1">
-      <End Role="Categories" EntitySet="Categories" />
+    <AssociationSet Name="FK_Archives_Patients" Association="Self.FK_Archives_Patients">
+      <End Role="Patients" EntitySet="Patients" />
       <End Role="Archives" EntitySet="Archives" />
     </AssociationSet>
-    <AssociationSet Name="FK_Categories_Therapists_Categories1" Association="Self.FK_Categories_Therapists_Categories1">
-      <End Role="Categories" EntitySet="Categories" />
-      <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Categories_Therapists_Therapists" Association="Self.FK_Categories_Therapists_Therapists">
+    <AssociationSet Name="FK_Archives_Therapists" Association="Self.FK_Archives_Therapists">
       <End Role="Therapists" EntitySet="Therapists" />
-      <End Role="Categories_Therapists" EntitySet="Categories_Therapists" />
+      <End Role="Archives" EntitySet="Archives" />
     </AssociationSet>
-    <AssociationSet Name="FK_Feedbacks_Patients" Association="Self.FK_Feedbacks_Patients">
+    <AssociationSet Name="FK_Feedbacks_Patients1" Association="Self.FK_Feedbacks_Patients1">
       <End Role="Patients" EntitySet="Patients" />
       <End Role="Feedbacks" EntitySet="Feedbacks" />
     </AssociationSet>
-    <AssociationSet Name="FK_Feedbacks_Therapists" Association="Self.FK_Feedbacks_Therapists">
+    <AssociationSet Name="FK_Feedbacks_Therapists1" Association="Self.FK_Feedbacks_Therapists1">
       <End Role="Therapists" EntitySet="Therapists" />
       <End Role="Feedbacks" EntitySet="Feedbacks" />
     </AssociationSet>
-    <AssociationSet Name="FK_Meets_Categories1" Association="Self.FK_Meets_Categories1">
-      <End Role="Categories" EntitySet="Categories" />
-      <End Role="Meets" EntitySet="Meets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Meets_Patients" Association="Self.FK_Meets_Patients">
+    <AssociationSet Name="FK_Meets_Patients1" Association="Self.FK_Meets_Patients1">
       <End Role="Patients" EntitySet="Patients" />
       <End Role="Meets" EntitySet="Meets" />
     </AssociationSet>
-    <AssociationSet Name="FK_Meets_Therapists" Association="Self.FK_Meets_Therapists">
+    <AssociationSet Name="FK_Meets_Therapists1" Association="Self.FK_Meets_Therapists1">
       <End Role="Therapists" EntitySet="Therapists" />
       <End Role="Meets" EntitySet="Meets" />
     </AssociationSet>
-    <AssociationSet Name="FK_Therapists_ServiceAreas" Association="Self.FK_Therapists_ServiceAreas">
+    <AssociationSet Name="FK_Therapists_ServiceAreas1" Association="Self.FK_Therapists_ServiceAreas1">
       <End Role="ServiceAreas" EntitySet="ServiceAreas" />
       <End Role="Therapists" EntitySet="Therapists" />
     </AssociationSet>
-    <AssociationSet Name="FK_WorkHours_Therapists" Association="Self.FK_WorkHours_Therapists">
+    <AssociationSet Name="FK_WorkHours_Therapists1" Association="Self.FK_WorkHours_Therapists1">
       <End Role="Therapists" EntitySet="Therapists" />
       <End Role="WorkHours" EntitySet="WorkHours" />
     </AssociationSet>

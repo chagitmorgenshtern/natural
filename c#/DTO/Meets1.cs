@@ -15,6 +15,7 @@ namespace DTO
         public int PatientId { get; set; }
         public int TherapistId { get; set; }
         public string TherapistName { get; set; }
+        public string PatientName { get; set; }
         public Nullable<System.DateTime> MeetDate { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
@@ -29,13 +30,15 @@ namespace DTO
         public Meets1(Dal.Meets m):this()
         {
             MeetId = m.MeetId;
-            PatientId = m.PatientId;
-            TherapistId = m.TherapistId;
+            PatientId = (int)m.PatientId;
+            TherapistId = (int)m.TherapistId;
             MeetDate = m.MeetDate;
-            CategoryId = m.CategoryId;
+            CategoryId = (int)m.CategoryId;
             Dal.Therapists t = Dal.TherapistsDal.GetById(TherapistId);
             TherapistName = t.FirstName+" "+t.LastName;
             CategoryName = Dal.CategoriesDal.GetById(CategoryId).CategoryName;
+            Dal.Patients p = Dal.PatientsDal.GetById(PatientId);
+            PatientName = p.Firstname + " " + p.Lastname;
         }
 
         //-----------methodes => converts-----------

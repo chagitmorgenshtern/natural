@@ -44,6 +44,23 @@ namespace Dal
 
         }
 
+        //GetByTherapistId
+        public static List<Meets> GetByTherapistId(int t_id)
+        {
+            try
+            {
+                using (Natural_wayEntities db = new Natural_wayEntities())
+                {
+
+                    return db.Meets.Where(x => x.TherapistId == t_id).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         //GetByPatientId
         public static List<Meets> GetByPatientId(int p_id)
         {

@@ -16,7 +16,5 @@ namespace Dal
     {
         public int TherapistId { get; set; }
         public int CategotyId { get; set; }
-    
-        public virtual Categories Categories { get; set; }
     }
 }

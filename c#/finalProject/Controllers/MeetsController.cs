@@ -29,7 +29,14 @@ namespace finalProject.Controllers
             return Ok(Bl.MeetsBl.GetByPatientId(p_id));
             //return Ok("in");
         }
-
+        
+        [HttpGet]
+        [Route("GetByTherapistId/{t_id}")]
+        public IHttpActionResult GetByTherapistId(int t_id)
+        {
+            return Ok(Bl.MeetsBl.GetByTherapistId(t_id));
+            //return Ok("in");
+        }
         [HttpGet]
         [Route("GetById")]
         public IHttpActionResult GetById([FromBody] int id)

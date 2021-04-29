@@ -26,22 +26,28 @@ class Therapists extends Component {
 
         axios.get('therapists/GetAll')
             .then(res => {
+                debugger;
                 console.log(res);
-                this.setState({ therapistsAll: [...res.data] });
+                if (res.data != null)
+                    this.setState({ therapistsAll: [...res.data] });
             });
 
 
         axios.get('categories/GetAllCategories')
             .then(res => {
+                debugger;
                 console.log(res);
-                this.setState({ categories: [...res.data] });
+                if (res.data != null)
+                    this.setState({ categories: [...res.data] });
             })
 
 
         axios.get('serviceAreas/GetAllServiceAreas')
             .then(res => {
+                debugger;
                 console.log(res);
-                this.setState({ serviceAreas: [...res.data] });
+                if (res.data != null)
+                    this.setState({ serviceAreas: [...res.data] });
             })
 
 
