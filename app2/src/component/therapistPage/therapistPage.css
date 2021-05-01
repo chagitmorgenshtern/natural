@@ -157,3 +157,11 @@ button,select{
 
     margin-top: 40px;
 }
+
+#modal_signup{
+    margin-left: 33vw;
+    width: 23vw;
+    position: fixed;
+    justify-content: center;
+    display: flex;
+}

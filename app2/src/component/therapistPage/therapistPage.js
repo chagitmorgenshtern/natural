@@ -87,7 +87,7 @@ class TherapistPage extends Component {
                     <label className="t-labels" id="t-email">{this.state.therapistDetails.Email}</label>
 
                     <div id="rating">
-                        <img className="stars" src={star} alt="rating-star" />
+                        <img className="stars" src={star} alt="rating-star" style={{ marginLeft: '7vw', marginTop: '-2vh' }} />
                         {/* <img className="stars" src={star} alt="rating-star" />
                         <img className="stars" src={star} alt="rating-star" />
                         <img className="stars" src={star} alt="rating-star" />
