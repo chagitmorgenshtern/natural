@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
+import axios from './axios'
+import moment from 'moment';
 import './App.css';
 import Login from './component/HomePage/login.js'
 import Error from './component/error.js'
@@ -22,9 +24,31 @@ import TherapistArea from './component/TherapistArea/therapistArea';
 
 class App extends Component {
 
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      let now = new Date();
+      let d;
+      if (now.getHours() == 12) {
+
+        d = moment(now).add(moment.duration(1, 'days'))
+        const dateToReminde = d;
+        //  moment(d).format('DD/MM/yyyy')
+        alert(typeof (dateToReminde))
+        alert(dateToReminde)
+        axios.post('meets/Reminder', dateToReminde).then(res => {
+          alert(res.data)
+        });
+      }
+
+      //every minute
+    }, 60000);
+  }
+
+
   componentWillUnmount() {
     // localStorage.clear();
-    localStorage.removeItem("newuser")
+    localStorage.removeItem("newuser");
+    clearInterval(this.interval);
   }
 
   render() {

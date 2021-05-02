@@ -53,7 +53,7 @@ class TherapistPage extends Component {
 
     select_hour = (hour) => {
         this.setState({ displayModalHours: true });
-        alert(hour);
+        //alert(hour);
     }
 
     render() {
@@ -106,7 +106,7 @@ class TherapistPage extends Component {
 
                     <Calendar
                         calendarType="Hebrew"
-                        onClickDay={(value, event) => { debugger; this.setState({ displayModalHours: true, selectedDate: value }); alert(this.state.selectedDate) }} />
+                        onClickDay={(value, event) => { debugger; this.setState({ displayModalHours: true, selectedDate: value }); }} />
                 </div>
                 {/* menuAlign="right" */}
                 {/* <DropdownButton id="dropdown-item-button" title="בחר קטגוריה">
@@ -118,7 +118,7 @@ class TherapistPage extends Component {
 
 
 
-                <Modal id="modal_signup" centered style={{ width: '40%' }} show={this.state.displayModalHours} onHide={() => { this.setState({ displayModalHours: false }); }} >
+                <Modal id="modal_hours" centered style={{ width: '40%' }} show={this.state.displayModalHours} onHide={() => { this.setState({ displayModalHours: false }); }} >
 
                     <Modal.Header style={{ backgroundColor: 'rgb(47,172,166)' }} closeButton>
                         <Modal.Title>:בחר שעה לטיפול</Modal.Title>

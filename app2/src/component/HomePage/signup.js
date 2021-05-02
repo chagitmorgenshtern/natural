@@ -18,48 +18,44 @@ class Signup extends Component {
             PhoneNumber1: "",
             PhoneNumber2: ""
         },
+        confirm_password: "",
         error: ""
 
     }
 
 
     inputChange = (event) => {
-        const newperson = { ...this.state.patient };
-        const id = event.target.id;
-        newperson[id] = event.target.value;
-        this.setState({ patient: newperson });
-
+        if (event.target.id == "confirm_password")
+            this.setState({ confirm_password: event.target.value })
+        else {
+            const newperson = { ...this.state.patient };
+            const id = event.target.id;
+            newperson[id] = event.target.value;
+            this.setState({ patient: newperson });
+        }
     }
 
     register = () => {
+        debugger;
+        if (this.state.confirm_password == this.state.patient.Password) {
+            const newP = { ...this.state.patient };
+            // debugger;
+            // alert(this.state.patient.Firstname + " " + this.state.patient.Email);
+            // alert(newP.Firstname + "  " + newP.Email)
+            axios.post('patients/Register', newP).then(res => {
 
-        const newP = { ...this.state.patient };
-        // debugger;
-        // alert(this.state.patient.Firstname + " " + this.state.patient.Email);
-        // alert(newP.Firstname + "  " + newP.Email)
-        axios.post('patients/Register', newP).then(res => {
-            alert(res.data);
-            this.setState({
-                error: ""
+                this.setState({
+                    error: ""
+                });
+                //localStorage.setItem("user", JSON.stringify(res.data))
+            }).catch(e => {
+                alert("fsdfsds");
+                console.log("jhgjgh"); debugger; this.setState({ error: e.data })
             });
-            //localStorage.setItem("user", JSON.stringify(res.data))
-        }).catch(e => {
-            alert("fsdfsds");
-            console.log("jhgjgh"); debugger; this.setState({ error: e.data })
-        });
-
-        // JSON.parse( localStorage.getItem("user")) ;
-
-
-        // if (document.getElementById("Valid-Password").value === patient.Password)
-        //     axios.post('patient/Register', patient).then(x => { console.log("succes!" + x) });
-        // else {
-        //     patient.Password = "";
-        //     document.getElementById("Password").value = "";
-        //     document.getElementById("Valid-Password").value = "";
-        //     alert("not valid");
-        // }
-
+        }
+        else {
+            alert("אימות סיסמא שגוי");
+        }
     }
 
 
@@ -124,7 +120,7 @@ class Signup extends Component {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Control type="password" className="inputs" id="confirm_password" placeholder="אימות סיסמא " />
+                        <Form.Control type="password" className="inputs" id="confirm_password" placeholder="אימות סיסמא " onChange={(event) => this.inputChange(event)} />
                     </Form.Group>
 
 

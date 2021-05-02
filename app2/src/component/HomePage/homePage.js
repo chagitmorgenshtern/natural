@@ -22,7 +22,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        localStorage.setItem("signedIn", false);
+        //localStorage.setItem("signedIn", false);
     }
 
     // }

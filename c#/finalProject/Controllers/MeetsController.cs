@@ -44,7 +44,13 @@ namespace finalProject.Controllers
             return Ok(Bl.MeetsBl.GetById(id));
         }
 
-        
+        [HttpPost]
+        [Route("Reminder")]
+        public IHttpActionResult Reminder([FromBody]DateTime dateToReminde)
+        {
+            Bl.MeetsBl.Reminder(dateToReminde);
+            return Ok();
+        }
 
         [HttpDelete]
         [Route("DeleteById")]

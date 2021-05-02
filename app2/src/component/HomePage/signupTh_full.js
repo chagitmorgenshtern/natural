@@ -27,7 +27,9 @@ class SignupTh_full extends Component {
             ServiceAreaId: "",
             Address: ""
         },
+        categoryId: "",
         serviceAreas: [],
+        categories: [],
         hours: [
             "08:00-09:00",
             "09:00-10:00",
@@ -53,6 +55,13 @@ class SignupTh_full extends Component {
                 this.setState({ serviceAreas: [...res.data] });
             })
         debugger;
+        axios.get('categories/GetAllCategories')
+            .then(res => {
+                debugger;
+                console.log(res);
+                if (res.data != null)
+                    this.setState({ categories: [...res.data] });
+            })
     }
 
     inputChange = (event) => {
@@ -119,6 +128,8 @@ class SignupTh_full extends Component {
         const serviceAreasList = this.state.serviceAreas
             .map((x, index) => { return <option key={index} id={x.SAId}>{x.SAName}</option> });
 
+        const categoriesList = this.state.categories
+            .map((x, index) => { return <option key={index} id={x.CategoryId} value={x.CategoryId}>{x.CategoryName}</option> });
 
         const hours_titles = this.state.hours
             .map((x, index) => { return <label className="table_horse_labels">{x}</label> })
@@ -231,6 +242,7 @@ class SignupTh_full extends Component {
                             <div id="image_div" style={{ backgroundImage: `url(${this.state.therapist.Image})` }} />
                         </div>
                     </Form.Row>
+
                     <h5 id="hours_table_title">בחר את שעות העבודה שלך</h5>
                     <React.Fragment>
                         <div id="hours_table_titles">{days_labels}</div>
@@ -244,6 +256,12 @@ class SignupTh_full extends Component {
                             <div>{hours}</div>
                         </div>
                     </React.Fragment>
+
+                    <Form.Control className="selectbox" id="categoryId" as="select" custom style={{ position: 'fixed', right: '50vw', top: '51vh' }}>
+                        {/* onChange={(event) => this.inputChange(event)} */}
+                        {categoriesList}
+
+                    </Form.Control>
 
                     <Form.Row style={{ marginTop: '2vh' }}>
                         <center> <h5 id="hours_table_title" className="h">בחר את הסיסמא שתשמש אותך בכניסתך לאתר:</h5>  </center>

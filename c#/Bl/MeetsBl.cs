@@ -35,5 +35,10 @@ namespace Bl
         {
             return DTO.Meets1.ConvertToListDto(Dal.MeetsDal.GetByTherapistId(t_id));
         }
+
+        public static void Reminder(DateTime dateToReminde)
+        {
+           
+        }
     }
 }
