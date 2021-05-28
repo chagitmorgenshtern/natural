@@ -59,6 +59,7 @@ export default class PatientArea extends Component {
                     index2="קטגוריה"
                     index3="תאריך"
                 />
+
             </div>
 
         );
